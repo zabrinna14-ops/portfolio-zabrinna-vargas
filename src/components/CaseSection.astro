@@ -1,0 +1,8 @@
+---
+interface Props { title: string; number?: number }
+const { title, number } = Astro.props;
+---
+<section class="case-step">
+  <h2>{number !== undefined && <span class="step-number">{String(number).padStart(2, '0')}</span>}{title}</h2>
+  <div class="step-copy"><slot /></div>
+</section>

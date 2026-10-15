@@ -1,21 +1,27 @@
 # Portfolio web de Zabrinna Vargas Antinori
 
-Abre index.html con styles.css y la carpeta proyectos junto a él. Web estática de HTML y CSS, sin JavaScript, dependencias ni fuentes remotas. No publicada externamente.
+Portfolio profesional en Astro con páginas estáticas en español. Los componentes compartidos mantienen la portada y los seis casos coherentes; los casos se editan como Markdown validado y generan rutas HTML independientes.
+
+## Desarrollo
+
+Requiere Node.js 22.12 o posterior y pnpm. Instala dependencias con `pnpm install`; ejecuta `pnpm dev` para trabajar localmente. `pnpm check` revisa tipos y plantillas Astro, `pnpm build` genera el sitio estático en `dist/` y `pnpm verify` valida las páginas generadas y su navegación. `pnpm preview` sirve la compilación local.
 
 ## Estructura
 
-Portada con nombre y perfil, índice con seis proyectos y filtros por área, sobre mí, metodología, marca personal y contacto. Cada caso tiene su página en proyectos/, ficha de contexto sticky en escritorio, secciones de lectura, resultados donde están documentados, herramientas cuando constan en el contenido y navegación volver/siguiente.
+- `src/components/`: navegación, portada, tarjetas, datos de contexto, resultados, herramientas y estructura compartida de cada caso.
+- `src/content/projects/`: contenido Markdown y datos validados para los seis casos.
+- `src/pages/`: portada y rutas dinámicas de los casos.
+- `src/styles/`: tokens de identidad y estilos compartidos.
+- `scripts/verify-build.mjs`: comprobaciones de rutas, enlaces, metadatos, navegación y contenido generado.
 
-Los filtros usan radios nativos y CSS :checked. Se selecciona un área cada vez; un proyecto puede pertenecer a varias. Funcionan con teclado. Sin CSS se muestran todos los proyectos.
+Los filtros de proyectos usan radios accesibles y CSS generado desde las áreas declaradas; no requieren JavaScript de cliente. Astro pre-renderiza la portada y cada caso. Las direcciones de casos conservan el formato `.html`.
 
 ## Contenido y referencias
 
-Se conservan los textos fuente trasladados desde Notion, con resúmenes nuevos para las tarjetas y la ficha contextual. No se inventan cifras, herramientas ni imágenes. Referencias y criterios en REFERENCIAS-PORTFOLIO.md. Identidad navy, crema y serif de sistema basada en el portfolio de Canva DAHSQbAx1eg.
+Se conservan los textos fuente trasladados desde Notion, con resúmenes breves basados en ellos. No se inventan cifras, herramientas ni imágenes. Las referencias visuales y los criterios recopilados están en [REFERENCIAS-PORTFOLIO.md](REFERENCIAS-PORTFOLIO.md). Identidad navy, crema y serif de sistema basada en el portfolio de Canva DAHSQbAx1eg.
+
+La versión estática previa se conserva en `legacy-static/` para consulta. No debe colocarse en la raíz: sus archivos coinciden con las rutas públicas y el servidor de desarrollo de Astro bloquea esas navegaciones con un 404. El proyecto activo vive en `src/`.
 
 ## Verificación — 16 de octubre de 2026
 
-Comprobados en las siete páginas: enlaces internos, archivos de destino, anclas, IDs únicos, un H1 por página y ausencia de JavaScript. Conservación de los párrafos originales, con las áreas trasladadas a las fichas. CSS responsive a 700 y 1050 px y ficha sticky que vuelve al flujo normal en móvil.
-
-La revisión visual de escritorio/móvil y la interacción real de los filtros quedan pendientes: la política de la herramienta de navegador bloqueó la apertura file://. No se declara QA visual completada.
-
-Copia de la versión anterior: tmp/portfolio-before/.
+`astro check`, la compilación estática y `scripts/verify-build.mjs` completan sin errores. La verificación confirma siete páginas, metadatos, H1 e IDs únicos, enlaces y anclas locales resolubles, contenido de los seis casos, fichas, herramientas/resultados disponibles y navegación circular. La revisión visual se comprobó en escritorio y móvil, incluidos filtros por teclado, ficha sticky en escritorio y su flujo normal en móvil.

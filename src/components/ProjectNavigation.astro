@@ -1,0 +1,10 @@
+---
+import type { Project } from '../projects';
+import { homeUrl, projectUrl } from '../site';
+interface Props { next: Project }
+const { next } = Astro.props;
+---
+<nav class="project-pagination wrap" aria-label="Otros proyectos">
+  <a href={`${homeUrl}#proyectos`}>← Volver a proyectos</a>
+  <a href={projectUrl(next.id)}><span>Siguiente proyecto</span>{next.data.name} →</a>
+</nav>

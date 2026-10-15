@@ -1,0 +1,23 @@
+---
+import type { Project } from '../projects';
+import { areas } from '../site';
+import ProjectCard from './ProjectCard.astro';
+interface Props { projects: Project[] }
+const { projects } = Astro.props;
+const filters = [{ id: 'todos', label: 'Todos' }, ...areas.filter((area) => projects.some(({ data }) => data.areas.includes(area.id)))];
+const filterStyles = filters.map(({ id }) => `
+  #f-${id}:checked ~ .filter-options label[for="f-${id}"] { background: var(--navy); color: var(--paper); border-color: var(--navy); }
+  #f-${id}:focus-visible ~ .filter-options label[for="f-${id}"] { outline: 2px solid var(--navy); outline-offset: 4px; }
+  ${id !== 'todos' ? `#f-${id}:checked ~ .project-grid .project-card:not([data-areas~="${id}"]) { display: none; }` : ''}
+`).join('\n');
+---
+<section class="project-index wrap" id="proyectos">
+  <div class="index-heading"><h2>Ideas que se convierten<br />en proyectos.</h2><p>Una selección de mi trabajo en estrategia, contenido y gestión.</p></div>
+  <fieldset class="project-filter">
+    <legend>Explorar por área de trabajo</legend>
+    {filters.map(({ id }) => <input class="filter-radio" type="radio" name="area" id={`f-${id}`} checked={id === 'todos'} />)}
+    <div class="filter-options">{filters.map(({ id, label }) => <label for={`f-${id}`}>{label}</label>)}</div>
+    <div class="project-grid">{projects.map((project) => <ProjectCard project={project} />)}</div>
+  </fieldset>
+</section>
+<style is:global set:html={filterStyles}></style>

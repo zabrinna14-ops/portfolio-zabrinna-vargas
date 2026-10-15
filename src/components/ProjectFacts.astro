@@ -1,0 +1,16 @@
+---
+import type { Project } from '../projects';
+import Metric from './Metric.astro';
+interface Props { project: Project }
+const { project: { data } } = Astro.props;
+---
+<aside class="project-facts" aria-label="Ficha del proyecto">
+  <h2>El proyecto</h2>
+  <dl>
+    <div><dt>Proyecto</dt><dd>{data.name}</dd></div>
+    <div><dt>Mi papel</dt><dd>{data.role}</dd></div>
+    {data.period && <div><dt>Periodo</dt><dd>{data.period}</dd></div>}
+    <div><dt>Áreas</dt><dd>{data.scope}</dd></div>
+  </dl>
+  <Metric {...data.highlight} variant="fact" />
+</aside>

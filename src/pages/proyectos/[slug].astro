@@ -1,0 +1,14 @@
+---
+import type { GetStaticPaths } from 'astro';
+import CaseLayout from '../../components/CaseLayout.astro';
+import { getProjects } from '../../projects';
+export const getStaticPaths = (async () => {
+  const projects = await getProjects();
+  return projects.map((project, index) => ({
+    params: { slug: project.id },
+    props: { project, next: projects[(index + 1) % projects.length] },
+  }));
+}) satisfies GetStaticPaths;
+const { project, next } = Astro.props;
+---
+<CaseLayout project={project} next={next} />

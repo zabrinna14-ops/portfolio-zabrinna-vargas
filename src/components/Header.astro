@@ -1,0 +1,11 @@
+---
+import { homeUrl, site } from '../site';
+---
+<header class="site-header">
+  <a class="brand" href={homeUrl}>{site.name}<span>{site.discipline}</span></a>
+  <nav aria-label="Navegación principal">
+    <a href={`${homeUrl}#proyectos`}>Proyectos</a>
+    <a href={`${homeUrl}#pagina-2`}>Sobre mí</a>
+    <a href={`${homeUrl}#pagina-11`}>Contacto</a>
+  </nav>
+</header>
