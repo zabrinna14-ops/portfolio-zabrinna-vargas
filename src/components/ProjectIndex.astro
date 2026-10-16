@@ -12,12 +12,40 @@ const filterStyles = filters.map(({ id }) => `
 `).join('\n');
 ---
 <section class="project-index wrap" id="proyectos">
-  <div class="index-heading"><h2>Ideas que se convierten<br />en proyectos.</h2><p>Una selección de mi trabajo en estrategia, contenido y gestión.</p></div>
+  <div class="index-heading"><header><p class="eyebrow">Proyectos</p><h2>Ideas que se convierten<br />en proyectos.</h2></header><p>Una selección de mi trabajo en estrategia, contenido y gestión.</p></div>
   <fieldset class="project-filter">
     <legend>Explorar por área de trabajo</legend>
-    {filters.map(({ id }) => <input class="filter-radio" type="radio" name="area" id={`f-${id}`} checked={id === 'todos'} />)}
+    {filters.map(({ id, label }) => <input class="filter-radio" type="radio" name="area" id={`f-${id}`} value={id} data-label={label} checked={id === 'todos'} />)}
     <div class="filter-options">{filters.map(({ id, label }) => <label for={`f-${id}`}>{label}</label>)}</div>
+    <p class="filter-status" aria-live="polite" data-filter-status></p>
     <div class="project-grid">{projects.map((project) => <ProjectCard project={project} />)}</div>
   </fieldset>
 </section>
 <style is:global set:html={filterStyles}></style>
+<script>
+  // Progressive enhancement: the CSS filter works on its own. This keeps the
+  // chosen area in the URL and the session, and announces how many projects match.
+  const key = 'portfolio-area';
+  const radios = [...document.querySelectorAll<HTMLInputElement>('.filter-radio')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.project-card')];
+  const status = document.querySelector<HTMLElement>('[data-filter-status]');
+  const read = () => { try { return sessionStorage.getItem(key); } catch { return null; } };
+  const save = (area: string) => { try { sessionStorage.setItem(key, area); } catch { /* Storage unavailable. */ } };
+
+  const update = (radio: HTMLInputElement, announce: boolean) => {
+    const area = radio.value;
+    const count = area === 'todos' ? cards.length : cards.filter((card) => card.dataset.areas?.split(' ').includes(area)).length;
+    const noun = count === 1 ? 'proyecto' : 'proyectos';
+    if (status) status.textContent = area === 'todos' ? `${count} ${noun}` : `${count} ${noun} de ${radio.dataset.label}`;
+    if (!announce) return;
+    const url = new URL(location.href);
+    if (area === 'todos') url.searchParams.delete('area'); else url.searchParams.set('area', area);
+    history.replaceState(history.state, '', url);
+    save(area);
+  };
+
+  const requested = new URL(location.href).searchParams.get('area') ?? read();
+  const initial = radios.find((radio) => radio.value === requested) ?? radios.find((radio) => radio.checked);
+  if (initial) { initial.checked = true; update(initial, false); }
+  radios.forEach((radio) => radio.addEventListener('change', () => update(radio, true)));
+</script>
