@@ -6,7 +6,7 @@ intro: "Una automatización aplicada a la planificación y al seguimiento de las
 attribution: "YACREA · Automatización con artefactos de Claude"
 role: "Desarrollo de la automatización"
 areaLabel: "IA y automatización"
-areas: ["ia", "estrategia"]
+areas: ["ia"]
 scope: "IA y automatización"
 order: 3
 featured: false
