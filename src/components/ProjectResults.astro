@@ -4,8 +4,8 @@ import Metric from './Metric.astro';
 interface Props { results: NonNullable<Project['data']['results']> }
 const { results } = Astro.props;
 ---
-<section class="impact wrap">
-  <div class="panel panel-navy split">
+<section class="impact band band-navy">
+  <div class="split">
     <div class="split-aside">
       <h2>Resultados</h2>
       {results.metric && <Metric {...results.metric} variant="result" />}

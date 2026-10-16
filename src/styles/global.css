@@ -39,9 +39,11 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .split-aside{grid-column:1;min-width:0}
 .split-main{grid-column:2;min-width:0}
 .body-copy{max-width:65ch}
-.panel{border-radius:var(--radius-lg);padding:var(--panel-pad);background:var(--cream)}
-.panel.split{grid-template-columns:calc(var(--aside) - var(--panel-pad)) minmax(0,1fr)}
-.panel-navy{background:var(--navy);color:var(--cream);--rule:var(--rule-inverse)}
+/* Bandas: fondo a todo el ancho y contenido alineado con .wrap. */
+.band{padding-block:var(--section-y)}
+.band,.contact,.home-footer{padding-inline:max(var(--gutter),calc((100% - 1440px)/2 + var(--gutter)))}
+.band-cream{background:var(--cream)}
+.band-navy{background:var(--navy);color:var(--cream);--rule:var(--rule-inverse)}
 .links{display:flex;flex-wrap:wrap;gap:var(--s-3) var(--s-6);margin-top:var(--s-5)}
 .links a{font-size:var(--fs-small);min-height:var(--control-height);display:inline-flex;align-items:center}
 
@@ -158,7 +160,6 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-5);margin-top:var(--s-4);padding-top:var(--s-5);border-top:1px solid var(--rule)}
 
 /* Cómo trabajo */
-#como-trabajo{padding-block:var(--s-5)}
 .steps{list-style:none;counter-reset:steps;margin:0;padding:0}
 .steps li{counter-increment:steps;display:grid;grid-template-columns:var(--s-7) 1fr;gap:var(--s-4);border-top:1px solid var(--rule);padding:var(--s-4) 0}
 .steps li:before{content:counter(steps,decimal-leading-zero);font:600 var(--fs-label)/2.3 var(--sans);letter-spacing:var(--tracking-label)}
@@ -176,7 +177,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .quote{grid-column:1/-1;font:400 var(--fs-2)/1.3 var(--serif);border-top:1px solid var(--rule);padding-top:var(--s-6);margin-top:var(--s-7)}
 
 /* Contacto */
-.contact{background:var(--navy);color:var(--cream);max-width:none;border-radius:var(--radius-lg) var(--radius-lg) 0 0;--rule:var(--rule-inverse)}
+.contact{background:var(--navy);color:var(--cream);max-width:none;--rule:var(--rule-inverse)}
 .contact h2{font-size:var(--fs-display)}
 .contact .body-copy{font-size:var(--fs-body)}
 .contact-details p{font-size:var(--fs-small)}
@@ -221,10 +222,9 @@ dd{margin:0}
 .image-suggestion .image-suggestion-label{font:600 var(--fs-label)/1.5 var(--sans)}
 
 /* Caso: resultados, herramientas y cierre */
-.impact{margin-bottom:var(--s-8)}
-.panel-navy h2{font-size:var(--fs-2);margin-bottom:var(--s-6)}
+.band-navy h2{font-size:var(--fs-2);margin-bottom:var(--s-6)}
 .impact-copy{max-width:65ch}
-.tool-section{padding-block:var(--s-5) var(--s-8)}
+.tool-section{padding-block:var(--section-y)}
 .tool-section h2{font-size:var(--fs-2)}
 .tool-section dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0 var(--s-6)}
 .tool-section dl>div{border-top:1px solid var(--rule);padding-block:var(--s-4)}
@@ -235,8 +235,6 @@ dd{margin:0}
 .project-pagination a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
 .project-pagination a:last-child{text-align:right;align-items:end}
 
-/* Las bandas a sangre alinean su contenido con .wrap. */
-.contact,.home-footer{padding-inline:max(var(--gutter),calc((100% - 1440px)/2 + var(--gutter)))}
 @media(min-width:701px){.hero-work .project-visual img{max-height:440px}}
 
 @media(max-width:1050px){
@@ -259,7 +257,7 @@ dd{margin:0}
   .brand{align-self:flex-start}
   .brand span{margin-top:0}
   .site-header nav{width:100%;justify-content:space-between}
-  .split,.panel.split{display:block}
+  .split{display:block}
   .split-aside+.split-main{margin-top:var(--s-6)}
   .split>.section-heading{margin-bottom:var(--s-6)}
   .home-hero{grid-template-columns:1fr;padding-top:var(--s-6);gap:var(--s-5)}
@@ -291,7 +289,7 @@ dd{margin:0}
   .project-facts dl{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s-4)}
   .case-figure{margin-block:var(--s-5)}
   .image-suggestion{min-height:200px;padding:var(--s-5)}
-  .panel-navy h2{margin-bottom:var(--s-5)}
+  .band-navy h2{margin-bottom:var(--s-5)}
   .impact-copy{margin-top:var(--s-6)}
   .tool-section h2{margin-bottom:var(--s-5)}
   .project-pagination{flex-direction:column;padding-bottom:var(--s-8)}
@@ -307,6 +305,6 @@ dd{margin:0}
 @media(forced-colors:active){
   html{scrollbar-color:auto}
   *::-webkit-scrollbar-thumb{background:ButtonText}
-  .workflow-art,.web-art,.project-card.featured,.panel{border:1px solid CanvasText}
+  .workflow-art,.web-art,.project-card.featured{border:1px solid CanvasText}
   .web-lines i{background:CanvasText}
 }

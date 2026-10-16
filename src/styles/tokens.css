@@ -40,7 +40,6 @@
   --s-10: 128px;
   --section-y: clamp(64px, 8vw, 96px);
   --gutter: clamp(24px, 5vw, 80px);
-  --panel-pad: clamp(24px, 4vw, 64px);
 
   /* Rejilla: una columna de etiquetas común a portada y casos. */
   --aside: clamp(220px, 24vw, 320px);
