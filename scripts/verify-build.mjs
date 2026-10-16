@@ -61,14 +61,14 @@ const projectFiles = (await readdir('src/content/projects')).filter((file) => fi
 assert.equal(pages.length, projectFiles.length + 1, 'Una página por proyecto y el inicio');
 assert.equal((home.match(/class="project-card(?: featured)?"/g) || []).length, projectFiles.length, 'Una tarjeta por proyecto');
 assert(home.includes('data-filter-status'), 'El filtro anuncia los resultados');
-// Filtros y proyectos deben corresponderse: cada área ofrecida muestra algún proyecto (el destacado se oculta
-// al filtrar) y cada área de un proyecto no destacado tiene su filtro.
+// Filtros y proyectos deben corresponderse: cada área ofrecida muestra algún proyecto y cada área
+// de un proyecto, incluido el destacado, tiene su filtro.
 const filterIds = [...home.matchAll(/id="f-([^"]+)"/g)].map((match) => match[1]).filter((id) => id !== 'todos');
-const cardAreas = [...home.matchAll(/<article class="project-card( featured)?" data-areas="([^"]*)"/g)]
-  .map(([, featured, list]) => ({ featured: Boolean(featured), areas: list.split(' ') }));
+const cardAreas = [...home.matchAll(/<article class="project-card(?: featured)?" data-areas="([^"]*)"/g)]
+  .map(([, list]) => ({ areas: list.split(' ') }));
 assert.equal(cardAreas.length, projectFiles.length, 'Cada tarjeta declara sus áreas');
-for (const id of filterIds) assert(cardAreas.some(({ featured, areas }) => !featured && areas.includes(id)), `Filtro ${id}: muestra al menos un proyecto`);
-for (const { featured, areas } of cardAreas) if (!featured) for (const id of areas) assert(filterIds.includes(id), `Área ${id}: tiene filtro`);
+for (const id of filterIds) assert(cardAreas.some(({ areas }) => areas.includes(id)), `Filtro ${id}: muestra al menos un proyecto`);
+for (const { areas } of cardAreas) for (const id of areas) assert(filterIds.includes(id), `Área ${id}: tiene filtro`);
 const nextLinks = new Map();
 for (const file of projectFiles) {
   const slug = file.slice(0, -3);
