@@ -10,6 +10,8 @@ Alojamiento elegido: **GitHub Pages** del repositorio, en `https://zabrinna14-op
 - [ ] **Activar Pages**: en GitHub, *Settings → Pages → Source: GitHub Actions*. Lo hace Zabrinna o el agente con su aprobación.
 - [ ] **Imagen para compartir**: aprobar una imagen original (1200×630 px) para la vista previa en LinkedIn, WhatsApp, etc. Guardarla en `public/images/` y poner su ruta en `defaultImage` de `src/components/BaseLayout.astro` (relativa a la base, p. ej. `images/compartir.jpg`). No usar las imágenes provisionales (IA o stock). `pnpm verify` avisa con «PENDIENTE» mientras falte.
 - [ ] **Imágenes provisionales**: sustituir las referencias de IA y stock que quedan (portadas de Solo de Croquetas, Croque-Quedada, Petritegi y Storytelling; retrato de Sobre mí; Marca personal) por material original (ver `public/images/FUENTES.md`).
+- [ ] **Portada de Solo de Croquetas**: es una imagen de IA y aparece también en la portada de la web. Decidir si se sustituye por una imagen real ya incorporada, por ejemplo la colección de personajes (`public/images/casos/solo-de-croquetas/03-personajes-coleccion.webp`).
+- [ ] **Imágenes pendientes en los casos**: Petritegi (pilares de contenido y una o dos piezas publicadas) y Storytelling (un fotograma principal y dos secundarios) muestran cajas azules «Imagen pendiente» hasta que Zabrinna aporte el material.
 - [ ] **Dominio propio (opcional)**: si se quiere una dirección propia en lugar de github.io, comprar el dominio, configurarlo en Pages y cambiar `site` y `base` (a `'/'`) en `astro.config.mjs`.
 - [ ] **Aprobación de Zabrinna**: integrar en `main` y subir a GitHub solo con su aprobación explícita. Al actualizar `main` se publica la web.
 
@@ -18,10 +20,10 @@ Alojamiento elegido: **GitHub Pages** del repositorio, en `https://zabrinna14-op
 - [ ] **Dato destacado**: el campo `highlight` de los casos a veces no es una cifra (Petritegi, Planeta Dots, Storytelling, Solo de Croquetas) y se muestra con estilo de número grande en tarjetas y fichas. Decidir si hacerlo opcional o darle otro estilo cuando es texto.
 - [ ] **Campos duplicados**: en los seis casos, `summary` e `intro` tienen el mismo texto. Decidir si se unifican en uno o se mantienen para escribir textos distintos.
 
-## Orden del repositorio
+## Comprobado
 
-- [ ] **Ramas ya integradas**: `prueba-skill`, `ajustes-legibilidad` y `claude/arreglos-tecnicos-080b89` ya están en `main`; se pueden borrar.
-- [ ] **Ramas unificadas**: `docs/lineamientos-git`, `claude/preparar-publicacion-2b6d6f` y `claude/arreglos-contenido-83e111` están unidas en `chore/unificar-ramas` (y esta, en `chore/github-pages`); borrarlas cuando se integre en `main`.
+- [x] **Ramas integradas y borradas** (16 de octubre de 2026): en local y en GitHub solo queda `main`.
+- [x] **Enlace «Contacto» en móvil**: lleva a su sección. En la simulación de móvil del navegador integrado el desplazamiento suave no se anima y parece que no funciona; en un navegador real sí.
 
 ## Diseño
 
