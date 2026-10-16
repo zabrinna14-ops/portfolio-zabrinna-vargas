@@ -26,4 +26,4 @@ a{cursor:pointer}a:active{opacity:.8}figure{margin:0}figcaption{font:12px/1.5 va
 @media(max-width:1050px){.featured .card-content{padding:26px}}
 @media(max-width:700px){.featured .project-card-link{display:flex}.project-card .card-content,.featured .card-content{padding:24px}}
 @media(prefers-reduced-motion:reduce){.project-card{transition:none}}
-.hero-identity>.hero-eyebrow{font:600 12px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+.hero-identity>.hero-role{font:400 clamp(17px,1.4vw,20px)/1.4 var(--sans);letter-spacing:.01em;margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);max-width:24ch}
