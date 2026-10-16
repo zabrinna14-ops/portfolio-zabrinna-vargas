@@ -43,6 +43,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .band{padding-block:var(--section-y)}
 .band,.home-hero,.contact,.home-footer{padding-inline:max(var(--gutter),calc((100% - 1440px)/2 + var(--gutter)))}
 .band-cream{background:var(--cream)}
+.band-cream figcaption{background:var(--paper)}
 .band-navy{background:var(--navy);color:var(--cream);--rule:var(--rule-inverse)}
 .links{display:flex;flex-wrap:wrap;gap:var(--s-3) var(--s-6);margin-top:var(--s-5)}
 .links a{font-size:var(--fs-small);min-height:var(--control-height);display:inline-flex;align-items:center}
