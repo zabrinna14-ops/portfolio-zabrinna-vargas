@@ -11,14 +11,22 @@ scope: "IA y automatización"
 order: 3
 featured: false
 highlight: {"value": "−75 %", "label": "de tiempo en la planificación semanal"}
-results: {"paragraphs": ["De aproximadamente 60 a 15 minutos: un 75 % menos de tiempo en esta tarea.", "También trabajo con automatizaciones que apoyan las tareas técnicas SEO. Aplico la IA a necesidades concretas para hacer más eficiente el trabajo y dedicar más tiempo a la estrategia y la gestión de clientes."], "metric": {"value": "−75 %", "label": "de tiempo en la planificación semanal"}}
+results: {"paragraphs": ["De aproximadamente 60 a 15 minutos: un 75 % menos de tiempo en esta tarea.", "También trabajo con automatizaciones que apoyan las tareas técnicas SEO. Me gusta aprender de forma continua cómo la IA puede ayudarme a mejorar el trabajo diario, especialmente cuando encuentro procesos repetitivos o información que cuesta reunir.", "Parto de esas necesidades concretas para buscar formas de organizar mejor el trabajo y aprovechar el tiempo dedicado a cada cuenta. En este caso, reducir la preparación semanal me permite dedicar más atención a la estrategia, al seguimiento y a la relación con los clientes."], "metric": {"value": "−75 %", "label": "de tiempo en la planificación semanal"}}
 tools: [{"name": "Claude", "use": "Automatización con artefactos"}, {"name": "Excel y Trello", "use": "Herramientas del proceso de planificación"}]
 ---
 
 ## El reto
 
-La planificación manual en Excel y Trello de los clientes, pendientes y prioridades de cada semana me llevó aproximadamente una hora por sesión.
+La información de clientes, tareas y prioridades estaba repartida entre Excel y Trello, y resultaba difícil tener una visión clara del trabajo. Perdíamos tiempo buscando información y revisando qué se había hecho, qué seguía pendiente y qué necesitaba atención.
+
+Organizar la semana me llevaba aproximadamente una hora por sesión. El reto era reducir ese tiempo de búsqueda y revisión para dedicarlo al trabajo que aporta valor: avanzar en las cuentas, atender a los clientes y tomar decisiones con la información a mano.
 
 ## La solución
 
-Desarrollé una automatización con artefactos de Claude que me notifica esa información cada semana y facilita la planificación y el seguimiento de las cuentas.
+Desarrollé una automatización con artefactos de Claude que me ayuda a revisar la situación de cada cuenta y a decidir por dónde empezar. Destaca los pendientes críticos o especialmente relevantes y ordena los clientes según la prioridad de atención que requieren.
+
+<figure class="case-figure"><img src="../images/casos/automatizacion-yacrea/automatizacion-yacrea-02-planificacion.webp" alt="Vista de planificación mensual con carga de horas, cuentas completadas, semanas y tarjetas de cuentas ordenadas por prioridad." width="1600" height="1480" loading="lazy" decoding="async" /><figcaption>Vista de planificación recreada a partir del artefacto original, con datos de ejemplo para preservar la confidencialidad.</figcaption></figure>
+
+Al inicio de cada semana recibo un resumen para planificar el trabajo. Además, las notificaciones diarias me recuerdan los pendientes con los clientes y los vencimientos de los plazos de contrato. Esto me permite hacer seguimiento con una visión más ordenada de las tareas y las fechas que debo tener presentes.
+
+<figure class="case-figure"><img src="../images/casos/automatizacion-yacrea/automatizacion-yacrea-03-detalle-cuenta.webp" alt="Detalle de una cuenta de ejemplo con su contexto, una lista de acciones y notas del mes." width="1600" height="1213" loading="lazy" decoding="async" /><figcaption>Detalle de una cuenta: contexto, acciones y seguimiento en una misma vista. Datos de ejemplo.</figcaption></figure>

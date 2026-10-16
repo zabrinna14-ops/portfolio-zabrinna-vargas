@@ -1,6 +1,10 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { resolve, join, relative } from 'node:path';
 import assert from 'node:assert/strict';
+import config from '../astro.config.mjs';
+
+// Base de publicación (subcarpeta de GitHub Pages); los enlaces absolutos la incluyen.
+const base = config.base ?? '/';
 
 const root = resolve('dist');
 const list = async (dir) => (await Promise.all((await readdir(dir)).map(async (name) => {
@@ -12,6 +16,8 @@ const pages = files.filter((file) => file.endsWith('.html'));
 const documents = new Map(await Promise.all(pages.map(async (file) => [file, await readFile(file, 'utf8')])));
 const ids = (html) => [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
 const titles = new Set();
+const canonicals = new Set();
+const attr = (html, pattern) => html.match(pattern)?.[1];
 for (const [file, html] of documents) {
   const name = relative(root, file);
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${name}: un solo H1`);
@@ -22,10 +28,22 @@ for (const [file, html] of documents) {
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
   assert(title && !titles.has(title), `${name}: título único`);
   titles.add(title);
+  const canonical = attr(html, /<link rel="canonical" href="([^"]+)"/);
+  assert(canonical && /^https:\/\//.test(canonical) && !canonicals.has(canonical), `${name}: URL canónica absoluta y única`);
+  canonicals.add(canonical);
+  assert.equal(attr(html, /<meta property="og:url" content="([^"]+)"/), canonical, `${name}: og:url igual a la canónica`);
+  const image = attr(html, /<meta property="og:image" content="([^"]+)"/);
+  const card = attr(html, /<meta name="twitter:card" content="([^"]+)"/);
+  assert.equal(card, image ? 'summary_large_image' : 'summary', `${name}: twitter:card acorde a la imagen`);
+  if (image) {
+    assert(image.startsWith(new URL(canonical).origin), `${name}: og:image en el propio sitio`);
+    assert(files.includes(join(root, decodeURIComponent(new URL(image).pathname.slice(base.length)))), `${name}: existe og:image`);
+  }
   for (const [, attribute, value] of html.matchAll(/\b(href|src)="([^"]*)"/g)) {
     const url = new URL(value.replaceAll('&amp;', '&'), `https://portfolio.invalid/${name}`);
     if (url.origin !== 'https://portfolio.invalid') continue;
-    const destination = join(root, decodeURIComponent(url.pathname));
+    if (value.startsWith('/')) assert(value.startsWith(base), `${name}: ${attribute} ${value} incluye la base ${base}`);
+    const destination = join(root, decodeURIComponent(value.startsWith('/') ? `/${url.pathname.slice(base.length)}` : url.pathname));
     assert(files.includes(destination), `${name}: destino de ${attribute} ${value}`);
     if (url.hash) assert(ids(documents.get(destination) || '').includes(decodeURIComponent(url.hash.slice(1))), `${name}: ancla ${value}`);
   }
@@ -44,13 +62,16 @@ for (const file of projectFiles) {
   assert(html.includes('class="case-step"'), `${slug}: relato renderizado`);
   const nav = html.match(/<nav class="project-pagination wrap"[\s\S]*?<\/nav>/)?.[0];
   const links = [...(nav || '').matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
-  assert(links.includes('/index.html#proyectos'), `${slug}: volver al índice`);
-  const next = links.find((link) => link.startsWith('/proyectos/'));
-  assert(next && next !== `/proyectos/${slug}.html`, `${slug}: siguiente distinto`);
-  nextLinks.set(`/proyectos/${slug}.html`, next);
+  assert(links.includes(`${base}index.html#proyectos`), `${slug}: volver al índice`);
+  const next = links.find((link) => link.startsWith(`${base}proyectos/`));
+  assert(next && next !== `${base}proyectos/${slug}.html`, `${slug}: siguiente distinto`);
+  nextLinks.set(`${base}proyectos/${slug}.html`, next);
 }
 let current = nextLinks.keys().next().value;
 const visited = new Set();
 while (!visited.has(current)) { visited.add(current); current = nextLinks.get(current); }
 assert.equal(visited.size, projectFiles.length, 'Navegación circular por todos los proyectos');
-console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; SEO; contenido renderizado; navegación circular; cero scripts cliente.`);
+const pending = [];
+if (![...documents.values()].some((html) => html.includes('property="og:image"'))) pending.push('sin imagen para compartir (og:image)');
+if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')} (ver docs/ANTES-DE-PUBLICAR.md).`);
+console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; SEO y metadatos para compartir; contenido renderizado; navegación circular; cero scripts cliente.`);

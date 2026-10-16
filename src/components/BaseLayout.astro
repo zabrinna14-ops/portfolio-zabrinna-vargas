@@ -5,8 +5,16 @@ import { site } from '../site';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import '../styles/visual.css';
-interface Props { title: string; description?: string }
-const { title, description = site.description } = Astro.props;
+interface Props { title: string; description?: string; image?: string; imageAlt?: string }
+// PENDIENTE: no hay imagen para compartir aprobada. Cuando la haya, guardarla en
+// public/images/ y poner aquí su ruta (p. ej. 'images/compartir.jpg', relativa a la base, 1200×630).
+// No usar las imágenes provisionales (IA o stock).
+const defaultImage: string | undefined = undefined;
+const defaultImageAlt = site.name;
+const { title, description = site.description, image = defaultImage, imageAlt = defaultImageAlt } = Astro.props;
+const pathname = Astro.url.pathname.replace(/(^|\/)index\.html$/, '$1');
+const canonical = new URL(pathname, Astro.site).href;
+const imageUrl = image && new URL(image, new URL(import.meta.env.BASE_URL, Astro.site)).href;
 ---
 <!doctype html>
 <html lang="es">
@@ -15,12 +23,16 @@ const { title, description = site.description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · {site.name}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={`${title} · ${site.name}`} />
     <meta property="og:description" content={description} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:url" content={canonical} />
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+    {imageUrl && <meta property="og:image:alt" content={imageAlt} />}
+    <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
   </head>
   <body>
     <a class="skip" href="#contenido">Saltar al contenido</a>
