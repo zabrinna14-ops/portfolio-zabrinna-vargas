@@ -48,7 +48,7 @@ El hero funciona como portada propia: banda crema a todo el ancho que ocupa la p
 
 ## Layout y adaptación
 
-Ancho máximo 1440px; márgenes fluidos de 24 a 80px. Dos columnas en tarjetas y ficha/contenido. A 1050px se simplifican las secciones del caso. A 700px todo pasa a una columna; ficha deja de ser sticky y menú ocupa una segunda fila. Contenido legible con líneas de hasta 70ch, separadores finos y espacio en blanco. Resultados grandes con cifras tabulares. Radios según el sistema visual; píldoras para menú, filtros y botones. Las imágenes provisionales se identifican siempre como tales y no se presentan como trabajo real.
+Ancho máximo 1440px; márgenes fluidos de 24 a 80px. Dos columnas en tarjetas y ficha/contenido. A 1050px se simplifican las secciones del caso. A 700px todo pasa a una columna; ficha deja de ser sticky; la cabecera se compacta (unos 85px): el nombre sin el rótulo de disciplina y, debajo, el menú en una fila con los tres enlaces repartidos de borde a borde y 44px de alto táctil. Contenido legible con líneas de hasta 70ch, separadores finos y espacio en blanco. Resultados grandes con cifras tabulares. Radios según el sistema visual; píldoras para menú, filtros y botones. Las imágenes provisionales se identifican siempre como tales y no se presentan como trabajo real.
 
 ## Accesibilidad
 
