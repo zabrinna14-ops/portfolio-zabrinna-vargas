@@ -1,6 +1,6 @@
 # Propuesta visual para prueba-skill
 
-Estado: prueba implementada en local en `prueba-skill`, pendiente de revisión y sin publicación. Conserva navy, crema y tipografía serif; `visual.css` adapta la composición y `ProjectVisual.astro` comparte el tratamiento visual de hero, tarjetas y casos. Los espacios de imagen contienen únicamente placeholders azules, por indicación de Zabrinna; se retiraron las imágenes generadas. Se mantienen el flujo 60 → 15 minutos y el esquema web en HTML/CSS. Las piezas originales, capturas reales, retrato y contenido propio siguen pendientes. Basada en la portada renderizada, componentes compartidos, [DESIGN.md](../DESIGN.md), [PRODUCT.md](../PRODUCT.md) y [REFERENCIAS-PORTFOLIO.md](REFERENCIAS-PORTFOLIO.md). Las referencias externas se interpretan desde las anotaciones guardadas; no se afirma una revisión nueva de sus páginas.
+Estado: prueba implementada en local en `prueba-skill`, pendiente de revisión y sin publicación. Conserva navy, crema y tipografía serif; `visual.css` adapta la composición y `ProjectVisual.astro` comparte el tratamiento visual de hero, tarjetas y casos. Los espacios de imagen usan referencias provisionales a petición de Zabrinna: tres imágenes generadas con IA y dos fotografías de stock, identificadas con pie visible (véase `public/images/FUENTES.md`). Se mantienen el flujo 60 → 15 minutos y el esquema web en HTML/CSS. Las piezas originales, capturas reales, retrato y contenido propio siguen pendientes. Basada en la portada renderizada, componentes compartidos, [DESIGN.md](../DESIGN.md), [PRODUCT.md](../PRODUCT.md) y [REFERENCIAS-PORTFOLIO.md](REFERENCIAS-PORTFOLIO.md). Las referencias externas se interpretan desde las anotaciones guardadas; no se afirma una revisión nueva de sus páginas.
 
 ## Dirección
 
@@ -29,16 +29,12 @@ Conservar navy, crema y carácter editorial. Pasar de explicar el trabajo a most
 | Sobre mí | Retrato natural en entorno de trabajo | Identidad y cercanía | Retrato real de Zabrinna |
 | Marca personal | Portada YouTube + frame vertical | Lenguaje y variedad de formatos | Contenido propio publicado |
 
-En la prueba actual no se usan imágenes provisionales: cada espacio de imagen es un placeholder azul identificado como pendiente. El mapa anterior define las piezas fuente que faltan, no recursos ya incorporados. Al aportar material real, conservar fuente/licencia y no presentar stock o mockups como entregables reales. Para procesos sin fotografía, usar diagramas HTML/CSS claros antes que una imagen decorativa; el esquema web actual permanece identificado como maqueta de referencia.
+En la prueba actual cada espacio de imagen usa una referencia provisional identificada como tal. El mapa anterior define las piezas fuente que faltan, no recursos ya incorporados. Al aportar material real, conservar fuente/licencia y no presentar stock o mockups como entregables reales. Para procesos sin fotografía, usar diagramas HTML/CSS claros antes que una imagen decorativa; el esquema web actual permanece identificado como maqueta de referencia.
 
 ## Orden recomendado de prueba
 
-La prueba ya aplica portada e índice visual y el patrón compartido a los seis casos, con un detalle adicional en Solo de Croquetas. Incluye los espacios de retrato y Marca personal. La revisión local debe validar esta composición; después se podrán sustituir los placeholders por las piezas originales del mapa. El footer sigue compartido.
+La prueba ya aplica portada e índice visual y el patrón compartido a los seis casos, con un detalle adicional en Solo de Croquetas. Incluye los espacios de retrato y Marca personal. La revisión local debe validar esta composición; después se sustituirán las referencias provisionales por las piezas originales del mapa. El footer sigue compartido.
 
 ## Verificación al implementar
 
 Comparar inicio y caso piloto en escritorio y móvil; navegación y filtros por teclado; foco visible; contraste; zoom y reduced-motion; imágenes con dimensiones reservadas, texto alternativo y carga diferida fuera de portada; Astro check, build, verify-build y verify-dev con cabeceras de navegador. Las imágenes deben estar resueltas y optimizadas, sin prometer fidelidad ni resultados basados en placeholders.
-
-## Actualización de la prueba
-
-Se recuperan las tres imágenes generadas y se añaden dos referencias de bancos gratuitos a petición de Zabrinna. Sustituyen los cuadros azules; siguen pendientes los materiales originales. Véase `public/images/FUENTES.md`. No se generan imágenes nuevas ni se publica la rama.

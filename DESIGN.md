@@ -22,13 +22,13 @@ Sitio estático generado con Astro. La portada, la navegación y las seis págin
 
 ### Extensión visual en prueba local
 
-`ProjectVisual.astro` comparte las portadas entre hero, tarjetas y casos. Los espacios de imagen usan exclusivamente placeholders azules con texto que identifica la pieza pendiente; no hay imágenes generadas. Sobre mí, Marca personal y el detalle de Solo de Croquetas reservan también sus piezas originales con ese tratamiento. El componente conserva dos explicaciones hechas en HTML/CSS: el flujo semanal de 60 → 15 minutos y una maqueta de arquitectura web identificada como referencia. Esta última no representa una captura del trabajo real.
+`ProjectVisual.astro` comparte las portadas entre hero, tarjetas y casos. Mientras faltan las piezas originales, los espacios de imagen usan referencias provisionales: tres imágenes generadas con IA y dos fotografías de stock (Unsplash y Pexels), en WebP local con proporciones reservadas, carga diferida salvo portada y pie visible que las identifica como provisionales. El retrato de stock no representa a Zabrinna y el paisaje rural no representa Petritegi. Fuentes y licencias en `public/images/FUENTES.md`. Sobre mí, Marca personal y el detalle de Solo de Croquetas usan el mismo tratamiento. El componente conserva dos explicaciones hechas en HTML/CSS: el flujo semanal de 60 → 15 minutos y una maqueta de arquitectura web identificada como referencia. Esta última no representa una captura del trabajo real.
 
 La portada incorpora el proyecto destacado junto a la presentación; las tarjetas anteponen la pieza visual a la síntesis y el destacado combina superficie navy con dos columnas. Los casos abren con una portada visual. El hero enmarca su espacio con una curva superior; las tarjetas de esta prueba tienen bordes rectos mediante el adaptador, aunque el token de radio original se conserva. Las imágenes fuente, el retrato y las piezas de contenido siguen pendientes de aportación y sustitución. Estado: implementado para revisión local, sin aprobación de publicación.
 
 ## Layout y adaptación
 
-Ancho máximo 1440px; márgenes fluidos de 24 a 80px. Dos columnas en tarjetas y ficha/contenido. A 1050px se simplifican las secciones del caso. A 700px todo pasa a una columna; ficha deja de ser sticky y menú ocupa una segunda fila. Contenido legible con líneas de hasta 70ch, separadores finos y espacio en blanco. Resultados grandes con cifras tabulares. Tarjetas de 12px de radio; pills limitadas a filtros y navegación. Sin imágenes decorativas inventadas.
+Ancho máximo 1440px; márgenes fluidos de 24 a 80px. Dos columnas en tarjetas y ficha/contenido. A 1050px se simplifican las secciones del caso. A 700px todo pasa a una columna; ficha deja de ser sticky y menú ocupa una segunda fila. Contenido legible con líneas de hasta 70ch, separadores finos y espacio en blanco. Resultados grandes con cifras tabulares. Tarjetas de 12px de radio; pills limitadas a filtros y navegación. Las imágenes provisionales se identifican siempre como tales y no se presentan como trabajo real.
 
 ## Accesibilidad
 
@@ -37,7 +37,3 @@ Un H1 por página, landmarks, enlace de salto, anclas con margen para la cabecer
 ## Evidencia de verificación
 
 `astro check`, `astro build` y `scripts/verify-build.mjs` pasan. Se verifican siete páginas, metadatos, H1 e IDs únicos, enlaces internos y anclas, contenido de los casos, fichas, resultados/herramientas disponibles y navegación circular. La revisión visual de escritorio y móvil confirma el diseño responsive, el uso por teclado de filtros y la ficha sticky solo en escritorio.
-
-## Referencias visuales de la prueba — actualización
-
-Por petición posterior se recuperan tres imágenes generadas previamente y se incorporan dos referencias de stock (Unsplash y Pexels). Los cuadros azules se sustituyen por imágenes locales WebP con proporciones reservadas, carga diferida salvo portada y pies visibles de procedencia provisional. El retrato de stock no representa a Zabrinna y el paisaje rural no representa Petritegi. Fuentes y licencias en `public/images/FUENTES.md`. Se mantienen los diagramas HTML/CSS. Estas referencias no son piezas de trabajo originales ni una publicación aprobada.
