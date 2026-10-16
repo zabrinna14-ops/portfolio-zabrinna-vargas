@@ -24,6 +24,19 @@ Este directorio contiene el portafolio profesional de Zabrinna Vargas Antinori, 
 - Ambas skills señalan como «genéricos» rasgos que en este portfolio son decisiones fijas de Zabrinna. Antes de proponer cambios visuales, respetar la sección «Decisiones fijas» de `DESIGN.md`: no proponer cambiarlas salvo que ella lo pida.
 - Node.js está instalado en `/usr/local/bin` (v24). Si el comando `pnpm` no está habilitado, usar `corepack pnpm <comando>`.
 
+# Eficiencia: calidad primero, sin gastar de más
+
+La calidad no se negocia: cada cambio se verifica y se revisa en la vista previa cuando es visible. Lo que se ahorra es trabajo repetido o innecesario.
+
+- Leer solo lo necesario: buscar con `grep` la clase o el componente y leer el fragmento relevante, no archivos enteros. `global.css` es largo; localizar las reglas por selector.
+- No releer archivos recién editados ni repetir comprobaciones que ya pasaron si no ha cambiado el código.
+- Agrupar en un solo paso las lecturas, búsquedas y comandos independientes.
+- Verificar según el tipo de cambio: CSS o componentes → `pnpm check && pnpm build && pnpm verify` una vez al final, más la vista previa; solo documentación → sin compilación.
+- En la vista previa, preferir `read_page`, `get_page_text` o JavaScript para comprobar estilos y textos; usar capturas solo para juzgar el resultado visual, a escala reducida cuando baste.
+- Si ya hay un servidor de desarrollo en el puerto 4321 sirviendo este directorio, reutilizarlo en lugar de arrancar otro.
+- No lanzar subagentes ni investigaciones amplias para cambios acotados; reservarlos para tareas grandes o cuando Zabrinna los pida.
+- Respuestas breves: qué cambió, cómo se verificó, en qué estado está (local, GitHub, versión oficial) y el siguiente paso. Sin repetir el plan ni el contenido de los archivos.
+
 # Flujo de trabajo
 
 - Realiza primero todo el trabajo de código en local. No edites ni subas cambios a GitHub mientras la versión local esté en curso.
