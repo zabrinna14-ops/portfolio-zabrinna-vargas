@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-// Alojamiento decidido: Netlify con dominio propio, sin subcarpeta (sin `base`).
+// Alojamiento previsto: Cloudflare Pages con dominio propio, sin subcarpeta (sin `base`).
 // PENDIENTE: el dominio aún no está elegido. Sustituir este valor provisional
 // por el dominio real antes de publicar (ver AGENTS.md).
 const site = 'https://dominio-pendiente.invalid';
