@@ -41,7 +41,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .body-copy{max-width:65ch}
 /* Bandas: fondo a todo el ancho y contenido alineado con .wrap. */
 .band{padding-block:var(--section-y)}
-.band,.contact,.home-footer{padding-inline:max(var(--gutter),calc((100% - 1440px)/2 + var(--gutter)))}
+.band,.home-hero,.contact,.home-footer{padding-inline:max(var(--gutter),calc((100% - 1440px)/2 + var(--gutter)))}
 .band-cream{background:var(--cream)}
 .band-navy{background:var(--navy);color:var(--cream);--rule:var(--rule-inverse)}
 .links{display:flex;flex-wrap:wrap;gap:var(--s-3) var(--s-6);margin-top:var(--s-5)}
@@ -71,8 +71,9 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .text-action:hover{background:var(--navy);color:var(--paper)}
 
 /* Portada */
-.home-hero{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5) var(--col-gap);padding-block:var(--s-7) var(--s-5);align-items:start}
-.hero-identity h1{font-size:var(--fs-1)}
+/* El hero es una portada: banda crema que ocupa la primera pantalla, con el nombre en tamaño display. */
+.home-hero{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;gap:var(--s-5) var(--col-gap);min-height:min(calc(100svh - 80px),900px);padding-block:var(--s-8) var(--s-6);align-items:start}
+.hero-identity h1{font-size:var(--fs-display);line-height:1}
 .hero-eyebrow{margin-bottom:var(--s-4)}
 .hero-copy{grid-column:1;grid-row:2;max-width:48ch;align-self:start}
 .hero-copy h2{font-size:var(--fs-3);margin-bottom:var(--s-4)}
@@ -82,7 +83,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .hero-work .project-visual img{aspect-ratio:1.2}
 .hero-work>a:hover img{filter:brightness(.97)}
 .hero-work-label{display:flex;justify-content:space-between;gap:var(--s-4);padding-top:var(--s-3);font-size:var(--fs-small)}
-.hero-bottom{grid-column:1/-1;display:flex;justify-content:space-between;gap:var(--s-5);border-top:1px solid var(--rule);padding-top:var(--s-5);margin-top:var(--s-3)}
+.hero-bottom{grid-column:1/-1;align-self:end;display:flex;justify-content:space-between;gap:var(--s-5);border-top:1px solid var(--rule);padding-top:var(--s-5);margin-top:var(--s-3)}
 
 /* Índice de proyectos */
 .project-index{padding-block:var(--s-8) var(--s-10)}
@@ -260,7 +261,7 @@ dd{margin:0}
   .split{display:block}
   .split-aside+.split-main{margin-top:var(--s-6)}
   .split>.section-heading{margin-bottom:var(--s-6)}
-  .home-hero{grid-template-columns:1fr;padding-top:var(--s-6);gap:var(--s-5)}
+  .home-hero{grid-template-columns:1fr;grid-template-rows:none;min-height:0;padding-block:var(--s-6);gap:var(--s-5)}
   .hero-copy,.hero-work{grid-column:1;grid-row:auto}
   .hero-work .project-visual{border-radius:90px 90px var(--radius-md) var(--radius-md)}
   .hero-work .project-visual img{aspect-ratio:1.3}
