@@ -226,13 +226,13 @@ dd{margin:0}
 .impact-copy{max-width:65ch}
 .tool-section{padding-block:var(--s-5) var(--s-8)}
 .tool-section h2{font-size:var(--fs-2)}
-.tool-section dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--s-4)}
-.tool-section dl>div{padding:var(--s-5);border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--rule)}
+.tool-section dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0 var(--s-6)}
+.tool-section dl>div{border-top:1px solid var(--rule);padding-block:var(--s-4)}
 .tool-section dt{font-size:var(--fs-body);font-weight:600}
 .tool-section dd{font-size:var(--fs-small);margin-top:var(--s-2)}
-.project-pagination{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);padding-block:0 var(--s-9)}
-.project-pagination a{display:flex;flex-direction:column;justify-content:center;gap:var(--s-2);min-height:120px;padding:var(--s-5) var(--s-6);font:400 var(--fs-3)/1.3 var(--serif);text-decoration:none;border:1px solid var(--rule);border-radius:var(--radius-md);background:var(--surface);transition:border-color .2s ease,box-shadow .2s ease}
-.project-pagination a:hover{border-color:var(--navy);box-shadow:var(--shadow-card)}
+.project-pagination{display:flex;justify-content:space-between;gap:var(--s-6);border-top:1px solid var(--rule);padding-block:var(--s-6) var(--s-9)}
+.project-pagination a{display:flex;flex-direction:column;justify-content:center;gap:var(--s-2);min-height:var(--control-height);font:400 var(--fs-3)/1.3 var(--serif);text-decoration:none}
+.project-pagination a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
 .project-pagination a:last-child{text-align:right;align-items:end}
 
 /* Las bandas a sangre alinean su contenido con .wrap. */
@@ -294,13 +294,13 @@ dd{margin:0}
   .panel-navy h2{margin-bottom:var(--s-5)}
   .impact-copy{margin-top:var(--s-6)}
   .tool-section h2{margin-bottom:var(--s-5)}
-  .project-pagination{grid-template-columns:1fr;padding-bottom:var(--s-8)}
+  .project-pagination{flex-direction:column;padding-bottom:var(--s-8)}
   .project-pagination a:last-child{text-align:left;align-items:start}
 }
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .project-card,.project-card .project-visual img,.text-action,.project-pagination a{transition:none}
+  .project-card,.project-card .project-visual img,.text-action{transition:none}
   .project-card:hover,.project-card:hover .project-visual img{transform:none}
 }
 
