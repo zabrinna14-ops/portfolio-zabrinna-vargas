@@ -10,12 +10,14 @@ a:hover{text-decoration-thickness:2px}
 a:focus-visible,input:focus-visible+label{outline:2px solid currentColor;outline-offset:6px;border-radius:var(--radius-sm)}
 h1,h2,h3,p{margin:0}
 p+p{margin-top:var(--s-4)}
-h1,h2{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+h1,h2{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.012em;text-wrap:balance}
 h1{font-size:var(--fs-1)}
 h2{font-size:var(--fs-2)}
 h3{line-height:1.25}
 img{max-width:100%;height:auto}
 figure{margin:0}
+/* Playfair usa números antiguos por defecto; el atajo font los restablece en cada regla, de ahí !important. */
+body *{font-variant-numeric:lining-nums!important}
 figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);background:var(--cream);color:var(--navy)}
 *::-webkit-scrollbar{width:12px;height:12px}
 *::-webkit-scrollbar-track{background:var(--paper)}
@@ -44,7 +46,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .links a{font-size:var(--fs-small);min-height:var(--control-height);display:inline-flex;align-items:center}
 
 /* Cifras: un componente, dos tamaños */
-.metric strong{display:block;font:400 var(--fs-figure)/1.15 var(--serif);font-variant-numeric:tabular-nums}
+.metric strong{display:block;font:400 var(--fs-figure)/1.15 var(--serif)}
 .metric span{display:block;font-size:var(--fs-label);line-height:1.6;margin-top:var(--s-2)}
 .metric .stat-context{margin-top:var(--s-1)}
 .metric-result strong{font-size:var(--fs-figure-lg);line-height:1;white-space:nowrap}
@@ -105,7 +107,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .project-card:hover .project-visual img{transform:scale(1.025)}
 .card-content{display:flex;flex-direction:column;flex:1;padding:var(--s-5)}
 .card-top{display:flex;gap:var(--s-4);justify-content:space-between;margin-bottom:var(--s-4)}
-.project-card h3{font:400 var(--fs-3)/1.18 var(--serif);letter-spacing:-.02em;max-width:29ch}
+.project-card h3{font:400 var(--fs-3)/1.18 var(--serif);letter-spacing:-.01em;max-width:29ch}
 .card-name{font-size:var(--fs-small);font-weight:600;margin-top:var(--s-3)}
 .card-desc{font-size:var(--fs-small);max-width:65ch;margin-block:var(--s-3) var(--s-5)}
 .project-card .metric{border-top:1px solid var(--rule);padding-top:var(--s-4);margin-top:auto}
@@ -274,7 +276,7 @@ dd{margin:0}
   .featured .project-card-link{display:flex}
   .featured .project-visual img{aspect-ratio:1.45}
   .featured h3{font-size:var(--fs-3)}
-  .workflow-art,.web-art{min-height:255px}
+  .workflow-art,.web-art{aspect-ratio:auto;min-height:255px}
   .about-portrait{max-width:260px}
   .stats{gap:var(--s-4)}
   .contact-details{margin-top:var(--s-6)}
