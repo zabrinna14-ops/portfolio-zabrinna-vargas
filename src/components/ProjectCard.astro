@@ -10,12 +10,12 @@ const { project: { id, data } } = Astro.props;
   <a class="project-card-link" href={projectUrl(id)} aria-labelledby={`project-title-${id}`}>
   <ProjectVisual id={id} compact />
   <div class="card-content">
-  <div class="card-top"><span>{data.areaLabel}</span><span>{data.featured ? 'Proyecto destacado' : String(data.order).padStart(2, '0')}</span></div>
+  <div class="card-top"><span>{data.areaLabel}</span>{data.featured && <span>Proyecto destacado</span>}</div>
   <h3 id={`project-title-${id}`}>{data.title}</h3>
   <p class="card-name">{data.name}</p>
   <p class="card-desc">{data.summary}</p>
   <Metric {...data.highlight} />
-  <span class="case-link">Ver caso completo <span aria-hidden="true">↗</span></span>
+  <span class="case-link">Ver caso completo</span>
   </div>
   </a>
 </article>
