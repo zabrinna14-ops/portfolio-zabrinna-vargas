@@ -4,8 +4,8 @@ Este directorio contiene el portafolio profesional de Zabrinna Vargas Antinori, 
 
 - Repositorio privado de GitHub: <https://github.com/zabrinna14-ops/portfolio-zabrinna-vargas>.
 - La versión aprobable y de trabajo está en este directorio. Este directorio tiene Git configurado; comprobar la rama, los cambios pendientes y el estado remoto antes de integrar o subir. No asumir que el contenido local coincide con GitHub.
-- La rama remota `feat/migrate-to-astro` (comprobada el 16 de octubre de 2026) solo tiene dos commits con borradores de `src/site.ts`, `src/content.config.ts` y `src/projects.ts`, ya incluidos en `main` con la migración completa. Está obsoleta: no integrarla.
-- Desde la terminal de los agentes Git no tiene credenciales de GitHub; el estado remoto se consulta en el navegador integrado con la sesión de Zabrinna. El clon local es superficial (shallow).
+- En GitHub solo existe la rama `main`. La rama obsoleta `feat/migrate-to-astro` se borró el 16 de octubre de 2026; sus borradores ya estaban incluidos en `main`.
+- GitHub CLI está instalado en `/opt/homebrew/bin/gh` con la sesión de `zabrinna14-ops`, que también da credenciales a Git por HTTPS. Si `gh` no está en el PATH de la terminal, usar la ruta completa. El clon local es superficial (shallow).
 - Sitio multipágina estático con Astro 7.4.0, Node.js >=22.12 y pnpm. No depende de JavaScript cliente para los filtros.
 - Estructura: `src/components/` componentes compartidos; `src/content/projects/` seis casos en Markdown con esquema validado; `src/pages/` portada y rutas dinámicas; `src/styles/` tokens y estilos; `scripts/verify-build.mjs` validación del resultado generado. `dist/` es salida de compilación, no fuente.
 - Comandos del proyecto: `pnpm dev`, `pnpm check`, `pnpm build`, `pnpm verify`, `pnpm preview`.
