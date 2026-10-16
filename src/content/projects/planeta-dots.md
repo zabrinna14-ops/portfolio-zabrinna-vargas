@@ -6,7 +6,7 @@ intro: "Briefing, estructura web y coordinación de la ejecución, con estrategi
 attribution: "Planeta Dots · Proyecto gestionado en YACREA"
 role: "Gestión del proyecto y contenidos SEO"
 areaLabel: "Web y SEO"
-areas: ["web", "estrategia"]
+areas: ["web", "estrategia", "contenido"]
 scope: "Briefing · Estructura web · SEO · Coordinación de equipo · Gestión de cambios"
 order: 4
 featured: false

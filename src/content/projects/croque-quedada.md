@@ -6,7 +6,7 @@ intro: "Un encuentro para conocer personas y compartir croquetas, con concepto y
 attribution: "Croque-Quedada · Solo de Croquetas"
 role: "Concepto, itinerario y dinámicas"
 areaLabel: "Estrategia y eventos"
-areas: ["estrategia", "contenido", "eventos", "ia"]
+areas: ["estrategia", "contenido", "eventos"]
 scope: "Estrategia y eventos"
 order: 2
 featured: false
