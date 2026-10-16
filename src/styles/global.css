@@ -72,15 +72,10 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 
 /* Portada */
 /* El hero es una portada: banda crema que ocupa la primera pantalla, con el nombre en tamaño display. */
-.home-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;gap:var(--s-6) var(--col-gap);min-height:min(calc(100svh - 80px),900px);padding-block:var(--s-8) var(--s-6);align-items:start}
+.home-hero{display:grid;grid-template-rows:auto 1fr auto;gap:var(--s-6);min-height:min(calc(100svh - 80px),900px);padding-block:var(--s-8) var(--s-6);align-items:start}
 .hero-identity h1{font-size:var(--fs-display);line-height:1}
 .hero-eyebrow{margin-bottom:var(--s-4)}
-.hero-identity,.hero-copy{grid-column:1}
 .hero-copy{max-width:48ch}
-.hero-portrait{grid-column:2;grid-row:1/span 2;width:clamp(260px,26vw,380px);border-radius:var(--radius-arch) var(--radius-arch) var(--radius-md) var(--radius-md);overflow:hidden}
-.hero-portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-.hero-portrait figcaption{background:var(--paper)}
-.hero-portrait figcaption a{text-decoration:underline}
 .hero-copy h2{font-size:var(--fs-3);margin-bottom:var(--s-4)}
 .hero-bottom{grid-column:1/-1;align-self:end;display:flex;justify-content:space-between;gap:var(--s-5);border-top:1px solid var(--rule);padding-top:var(--s-5);margin-top:var(--s-3)}
 
@@ -148,10 +143,11 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .web-lines i:nth-child(2){width:90%}
 
 /* Sobre mí */
+.about-portrait{max-width:320px;border-radius:var(--radius-arch) var(--radius-arch) var(--radius-md) var(--radius-md);overflow:hidden}
+.about-portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-portrait figcaption a{text-decoration:underline}
 #sobre-mi .body-copy p:first-child{font:italic var(--fs-lead)/1.6 var(--serif)}
 .about-subheading{margin-top:var(--s-7)}
-.about-subheading.about-figures{margin-top:0}
-.split-aside .stats{grid-template-columns:1fr}
 .strengths{list-style:none;margin:var(--s-4) 0 0;padding:0}
 .strengths li{border-top:1px solid var(--rule);padding:var(--s-4) 0}
 .strengths p{font-size:var(--fs-small);max-width:60ch}
@@ -256,10 +252,8 @@ dd{margin:0}
   .split{display:block}
   .split-aside+.split-main{margin-top:var(--s-6)}
   .split>.section-heading{margin-bottom:var(--s-6)}
-  .home-hero{grid-template-columns:1fr;grid-template-rows:none;min-height:0;padding-block:var(--s-6);gap:var(--s-5)}
+  .home-hero{grid-template-rows:none;min-height:0;padding-block:var(--s-6);gap:var(--s-5)}
   .hero-bottom{flex-direction:column;gap:var(--s-2);margin-top:0}
-  .hero-portrait{grid-column:1;grid-row:auto;width:min(100%,280px)}
-  .split-aside .stats{grid-template-columns:1fr 1fr}
   .project-index{padding-block:var(--s-7) var(--s-8)}
   .index-heading{display:block;margin-bottom:var(--s-6)}
   .index-heading p:not(.eyebrow){margin-top:var(--s-4)}
@@ -268,6 +262,7 @@ dd{margin:0}
   .featured .project-visual img{aspect-ratio:1.45}
   .featured h3{font-size:var(--fs-3)}
   .workflow-art,.web-art{aspect-ratio:auto;min-height:255px}
+  .about-portrait{max-width:260px}
   .stats{gap:var(--s-4)}
   .contact-details{margin-top:var(--s-6)}
   .case-heading{padding-block:var(--s-5) var(--s-6)}
