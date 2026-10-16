@@ -54,6 +54,10 @@ for (const [file, html] of documents) {
     assert(files.includes(destination), `${name}: destino de ${attribute} ${value}`);
     if (url.hash) assert(ids(documents.get(destination) || '').includes(decodeURIComponent(url.hash.slice(1))), `${name}: ancla ${value}`);
   }
+  // Los enlaces que salen del portfolio se abren en una pestaña nueva.
+  for (const [tag, href] of html.matchAll(/<a\b[^>]*\bhref="(https?:[^"]*)"[^>]*>/g)) {
+    assert(tag.includes('target="_blank"') && /rel="[^"]*noopener/.test(tag), `${name}: ${href} se abre en pestaña nueva`);
+  }
 }
 const home = documents.get(join(root, 'index.html'));
 assert(home, 'Existe el inicio');
@@ -90,4 +94,4 @@ assert.equal(visited.size, projectFiles.length, 'Navegación circular por todos 
 const pending = [];
 if (![...documents.values()].some((html) => html.includes('property="og:image"'))) pending.push('sin imagen para compartir (og:image)');
 if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')} (ver docs/ANTES-DE-PUBLICAR.md).`);
-console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el filtro de la portada.`);
+console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; enlaces externos en pestaña nueva; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el filtro de la portada.`);
