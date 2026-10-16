@@ -27,3 +27,5 @@ a{cursor:pointer}a:active{opacity:.8}figure{margin:0}figcaption{font:12px/1.5 va
 @media(max-width:700px){.featured .project-card-link{display:flex}.project-card .card-content,.featured .card-content{padding:24px}}
 @media(prefers-reduced-motion:reduce){.project-card{transition:none}}
 .hero-identity>.hero-eyebrow{font:600 12px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+.case-figure{margin-block:32px}.case-figure img{display:block;width:100%;height:auto;border:1px solid var(--rule)}.case-figure.is-tall{max-width:520px}.image-suggestion{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:260px;padding:28px;background:var(--navy);color:var(--cream)}.image-suggestion p{margin:0;max-width:44ch;font:400 20px/1.45 var(--serif)}.image-suggestion .image-suggestion-label{font:600 12px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:700px){.case-figure{margin-block:24px}.image-suggestion{min-height:200px;padding:22px}.image-suggestion p{font-size:18px}}
