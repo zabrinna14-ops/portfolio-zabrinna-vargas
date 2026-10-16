@@ -1,4 +1,5 @@
 ---
+import { imageUrl } from '../site';
 interface Props { id: string; compact?: boolean; eager?: boolean }
 const { id, compact = false, eager = false } = Astro.props;
 const isFlow = id === 'automatizacion-yacrea';
@@ -12,6 +13,6 @@ const assets: Record<string, { src: string; alt: string }> = {
 const asset = assets[id];
 ---
 <figure class:list={['project-visual', { 'visual-compact': compact, 'visual-flow': isFlow, 'visual-web': isWeb }]}>
-  {isFlow ? <div class="workflow-art"><p>Planificación semanal</p><div class="time-comparison"><span><strong>60</strong> min<small>Antes</small></span><span aria-hidden="true">→</span><span><strong>15</strong> min<small>Con automatización</small></span></div><ol><li>Organizar tareas</li><li>Automatizar pasos</li><li>Revisar y dar seguimiento</li></ol></div> : isWeb ? <div class="web-art"><div class="browser-line"><span></span><span></span><span></span><p>Arquitectura de contenidos</p></div><div class="web-art-content"><p>Encontrar el servicio<br /><em>adecuado.</em></p><div class="site-map"><span>Necesidad</span><span>Servicio</span><span>Contacto</span></div><div class="web-lines"><i></i><i></i><i></i></div></div></div> : <img src={`/images/${asset.src}`} alt={asset.alt} width="1536" height="1024" loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />}
+  {isFlow ? <div class="workflow-art"><p>Planificación semanal</p><div class="time-comparison"><span><strong>60</strong> min<small>Antes</small></span><span aria-hidden="true">→</span><span><strong>15</strong> min<small>Con automatización</small></span></div><ol><li>Organizar tareas</li><li>Automatizar pasos</li><li>Revisar y dar seguimiento</li></ol></div> : isWeb ? <div class="web-art"><div class="browser-line"><span></span><span></span><span></span><p>Arquitectura de contenidos</p></div><div class="web-art-content"><p>Encontrar el servicio<br /><em>adecuado.</em></p><div class="site-map"><span>Necesidad</span><span>Servicio</span><span>Contacto</span></div><div class="web-lines"><i></i><i></i><i></i></div></div></div> : <img src={imageUrl(asset.src)} alt={asset.alt} width="1536" height="1024" loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />}
   <figcaption>{isFlow ? 'Esquema explicativo · reducción de tiempo en esta tarea' : isWeb ? 'Maqueta de referencia · sustituir por capturas reales' : id === 'petritegi' ? 'Referencia de ambiente rural · stock Pexels, no es Petritegi' : 'Referencia generada con IA · sustituir por piezas reales'}</figcaption>
 </figure>

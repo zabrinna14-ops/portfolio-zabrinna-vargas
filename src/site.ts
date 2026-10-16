@@ -15,3 +15,4 @@ export const areas = [
 // File output preserves the existing public URLs, including .html.
 export const homeUrl = `${import.meta.env.BASE_URL}index.html`;
 export const projectUrl = (id: string) => `${import.meta.env.BASE_URL}proyectos/${id}.html`;
+export const imageUrl = (file: string) => `${import.meta.env.BASE_URL}images/${file}`;
