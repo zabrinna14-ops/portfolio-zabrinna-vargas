@@ -88,7 +88,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 /* Índice de proyectos */
 .project-index{padding-block:var(--s-8) var(--s-10)}
 .index-heading{margin-bottom:var(--s-7)}
-.index-heading p:not(.eyebrow){font-size:var(--fs-small);max-width:32ch;margin-top:var(--s-4)}
+.index-heading p:not(.eyebrow){font-size:var(--fs-small);margin-top:var(--s-4)}
 .project-filter{border:0;padding:0;margin:0;min-width:0}
 .project-filter legend{margin-bottom:var(--s-3);padding:0}
 .filter-options{display:flex;gap:var(--s-2);flex-wrap:wrap}

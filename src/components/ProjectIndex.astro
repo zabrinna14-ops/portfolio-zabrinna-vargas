@@ -15,7 +15,7 @@ const filterStyles = filters.map(({ id }) => `
 `;
 ---
 <section class="project-index wrap" id="proyectos">
-  <div class="index-heading"><header><p class="eyebrow">Proyectos</p><h2>Ideas que se convierten<br />en proyectos.</h2><p>Una selección de mi trabajo en estrategia, contenido y gestión.</p></header></div>
+  <div class="index-heading"><header><p class="eyebrow">Proyectos</p><h2>Ideas que se convierten en proyectos.</h2><p>Una selección de mi trabajo en estrategia, contenido y gestión.</p></header></div>
   <fieldset class="project-filter">
     <legend>Explorar por área de trabajo</legend>
     {filters.map(({ id, label }) => <input class="filter-radio" type="radio" name="area" id={`f-${id}`} value={id} data-label={label} checked={id === 'todos'} />)}
