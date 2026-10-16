@@ -69,5 +69,5 @@ assert.equal(visited.size, projectFiles.length, 'Navegación circular por todos 
 const pending = [];
 if ([...canonicals].some((url) => new URL(url).hostname.endsWith('.invalid'))) pending.push('dominio provisional en astro.config.mjs');
 if (![...documents.values()].some((html) => html.includes('property="og:image"'))) pending.push('sin imagen para compartir (og:image)');
-if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')}.`);
+if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')} (ver docs/ANTES-DE-PUBLICAR.md).`);
 console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; SEO y metadatos para compartir; contenido renderizado; navegación circular; cero scripts cliente.`);
