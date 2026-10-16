@@ -204,13 +204,13 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 /* Caso: ficha y relato sobre la rejilla común */
 .case-layout{padding-bottom:var(--s-9)}
 .project-facts{position:sticky;top:110px;padding:var(--s-5);border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--rule)}
-.project-facts h2{font:400 var(--fs-3)/1.2 var(--serif);margin-bottom:var(--s-5)}
 dl{margin:0}
 dd{margin:0}
 .project-facts dt{margin-bottom:var(--s-1)}
 .project-facts dd{font-size:var(--fs-small);line-height:1.6}
-.project-facts dl>div{margin-bottom:var(--s-4)}
-.project-facts .metric{border-top:1px solid var(--rule);padding-top:var(--s-4)}
+.project-facts dl>div{padding-block:var(--s-4);border-top:1px solid var(--rule)}
+.project-facts dl>div:first-child{border-top:0;padding-top:0}
+.project-facts .metric{border-top:1px solid var(--rule);padding-top:var(--s-5);margin-top:var(--s-1)}
 .case-step{border-top:1px solid var(--rule);padding-block:var(--s-6) var(--s-7);display:grid;grid-template-columns:var(--step-label,160px) minmax(0,1fr);gap:var(--s-6)}
 .case-step:first-child{border-top:0;padding-top:0}
 .case-step h2{font:400 var(--fs-3)/1.2 var(--serif)}
@@ -289,7 +289,9 @@ dd{margin:0}
   .case-cover .time-comparison strong{font-size:64px}
   .case-layout{padding-bottom:var(--s-7)}
   .project-facts{position:static}
-  .project-facts dl{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s-4)}
+  .project-facts dl{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s-5)}
+  .project-facts dl>div:nth-child(2){border-top:0;padding-top:0}
+  .project-facts dl>div:last-child:nth-child(odd){grid-column:1/-1}
   .case-figure{margin-block:var(--s-5)}
   .image-suggestion{min-height:200px;padding:var(--s-5)}
   .band-navy h2{margin-bottom:var(--s-5)}
