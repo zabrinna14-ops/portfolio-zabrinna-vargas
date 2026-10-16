@@ -12,7 +12,7 @@ Este directorio contiene el portafolio profesional de Zabrinna Vargas Antinori, 
 - Se conservan archivos HTML/CSS antiguos en `legacy-static/` como referencia de la versión anterior. La fuente activa está en `src/`.
 - Identidad visual: navy `#202941`, crema `#e8e4d6`, papel `#f4f1e9`, serif de sistema para titulares y sans serif para lectura. Diseño editorial, limpio, responsive, navegación compacta, casos segmentados, resultados destacados cuando existen y herramientas solo cuando están documentadas.
 - No inventar métricas, herramientas, imágenes ni atribuciones. Las imágenes provisionales (IA o stock) solo se admiten en ramas de prueba, identificadas con pie visible y registradas en `public/images/FUENTES.md`; deben sustituirse por material original antes de publicar. Mantener en cada caso los textos fuente, áreas, datos y enlaces documentados. Las referencias visuales y anotaciones de Zabrinna están en `docs/REFERENCIAS-PORTFOLIO.md`.
-- Astro Docs MCP está registrado en la configuración local de Codex con el nombre `astro-docs`.
+- Astro Docs MCP está registrado con el nombre `astro-docs` en la configuración local de Codex y en la de Claude Code (ámbito local de este proyecto).
 
 # Agentes y herramientas
 
