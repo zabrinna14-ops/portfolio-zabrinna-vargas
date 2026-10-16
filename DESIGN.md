@@ -4,6 +4,14 @@
 
 Navy #202941, crema #e8e4d6, papel #f4f1e9. Serif Didot/Bodoni MT/Times New Roman para titulares; Arial/Helvetica para lectura. Fuentes locales; su apariencia cambia según el equipo. Los tokens están en `src/styles/tokens.css` y las reglas compartidas en `src/styles/global.css`.
 
+### Decisiones fijas
+
+Elegidas por Zabrinna. Las skills de diseño (Impeccable, frontend-design) las marcan como patrones genéricos, pero aquí son parte de la identidad: no proponer cambiarlas ni avisar de ellas salvo que Zabrinna lo pida.
+
+- **Fondo crema/papel** (`#f4f1e9` y `#e8e4d6`) con navy `#202941`, basado en su primer portfolio de Canva.
+- **Serif de alto contraste para titulares** (Didot, Bodoni MT, Times New Roman) y sans serif (Arial, Helvetica) para lectura.
+- **Etiqueta en mayúsculas sobre el nombre en el hero** («DIGITAL MARKETING MANAGER»). Se probó a moverla debajo del nombre en texto normal y Zabrinna prefirió la versión original.
+
 La prueba local de la rama `prueba-skill` conserva esta identidad. `src/styles/visual.css` adapta la composición visual sobre esos tokens: añade salvia (`--sage: #c7cec2`) para el flujo de automatización y albaricoque (`--apricot: #dcb99e`) para el esquema web. Son apoyos de los diagramas de la prueba, no una nueva identidad ni colores para sustituir navy, crema y papel.
 
 ## Arquitectura aplicada — 16 de octubre de 2026
