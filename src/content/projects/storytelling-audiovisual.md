@@ -22,4 +22,6 @@ Reflexionar sobre nuestra relación con las redes sociales y el consumo constant
 
 Quería hablar de nuestra relación con las redes sociales desde un enfoque diferente a los discursos habituales sobre el tema. Busqué una forma de invitar a la reflexión a través de una historia, partiendo de una sensación que la audiencia pudiera reconocer en su propia experiencia. Para ello, creé una pieza con lenguaje de cortometraje que sirviera como punto de partida para desarrollar el tema.
 
+<figure class="case-figure image-suggestion"><p class="image-suggestion-label">Imagen pendiente</p><p>Sugerencia: un fotograma principal de la pieza con lenguaje de cortometraje y dos fotogramas secundarios.</p></figure>
+
 Me encargué de todo el proceso: conceptualización, guion, grabación y edición. La pieza de storytelling se utilizó como introducción de un vídeo más largo que publiqué en YouTube. Esa apertura me permitió presentar el tema desde una historia y dar paso después a una reflexión más amplia.

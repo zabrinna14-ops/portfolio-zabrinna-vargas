@@ -26,3 +26,5 @@ Realicé un análisis de la competencia y un estudio de mercado para apoyar el d
 Para dar a conocer la experiencia completa de Petritegi, identifiqué perfiles de influencers relevantes en el País Vasco. Me encargué del contacto y de las negociaciones para llegar a acuerdos de colaboración, así como de preparar los briefings para explicar qué queríamos comunicar de la marca.
 
 También trabajé en la estrategia de contenidos para redes sociales como TikTok, buscando formas de acercar al público la sidra, la sidrería, el restaurante y el hotel rural. La propuesta era mostrar cómo esas partes se complementaban en una misma experiencia y trasladar ese enfoque tanto a los contenidos como a las colaboraciones.
+
+<figure class="case-figure image-suggestion"><p class="image-suggestion-label">Imagen pendiente</p><p>Sugerencia: los pilares de contenido (sidra, sidrería, restaurante y hotel rural) junto a una o dos piezas publicadas que expliquen la estrategia.</p></figure>
