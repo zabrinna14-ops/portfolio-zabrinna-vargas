@@ -22,9 +22,6 @@ Alojamiento elegido: **GitHub Pages** del repositorio, en `https://zabrinna14-op
 
 ## Comprobado
 
+- [x] **Decisiones fijas de diseño**: fondo crema, serif de titulares y etiqueta del hero anotados en `DESIGN.md` para que las skills los respeten.
 - [x] **Ramas integradas y borradas** (16 de octubre de 2026): en local y en GitHub solo queda `main`.
 - [x] **Enlace «Contacto» en móvil**: lleva a su sección. En la simulación de móvil del navegador integrado el desplazamiento suave no se anima y parece que no funciona; en un navegador real sí.
-
-## Diseño
-
-- [ ] **Etiqueta del hero**: «DIGITAL MARKETING MANAGER» encima del nombre es una decisión de Zabrinna; Impeccable la seguirá marcando como aviso. Anotarlo en `DESIGN.md` para que no se proponga quitarla.
