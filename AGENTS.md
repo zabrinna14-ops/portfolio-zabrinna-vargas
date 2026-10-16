@@ -19,6 +19,8 @@ Este directorio contiene el portafolio profesional de Zabrinna Vargas Antinori, 
 
 - Este archivo es la fuente única de instrucciones. Codex lo lee directamente; Claude Code lo carga a través de `CLAUDE.md`, que solo lo importa. No duplicar reglas en `CLAUDE.md`.
 - La skill de diseño Impeccable está en `.agents/skills/impeccable/`. Claude Code la usa mediante el enlace simbólico `.claude/skills/impeccable`, sin copia. Sus hooks automáticos (`.codex/hooks.json`) solo se aplican en Codex.
+- La skill `frontend-design` (de `anthropics/skills`) está en `.agents/skills/frontend-design/`, con enlace simbólico en `.claude/skills/frontend-design`. Orienta la dirección visual, la tipografía y los textos de interfaz. `skills-lock.json` registra su origen; para reinstalarla: `npx skills add anthropics/skills -s frontend-design -a claude-code -a codex -y`.
+- Ambas skills señalan como «genéricos» rasgos que en este portfolio son decisiones fijas de Zabrinna. Antes de proponer cambios visuales, respetar la sección «Decisiones fijas» de `DESIGN.md`: no proponer cambiarlas salvo que ella lo pida.
 - Node.js está instalado en `/usr/local/bin` (v24). Si el comando `pnpm` no está habilitado, usar `corepack pnpm <comando>`.
 
 # Flujo de trabajo
