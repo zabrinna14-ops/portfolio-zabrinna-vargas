@@ -6,7 +6,7 @@ Este directorio contiene el portafolio profesional de Zabrinna Vargas Antinori, 
 - La versión aprobable y de trabajo está en este directorio. Este directorio tiene Git configurado; comprobar la rama, los cambios pendientes y el estado remoto antes de integrar o subir. No asumir que el contenido local coincide con GitHub.
 - En GitHub solo existe la rama `main`. La rama obsoleta `feat/migrate-to-astro` se borró el 16 de octubre de 2026; sus borradores ya estaban incluidos en `main`.
 - GitHub CLI está instalado en `/opt/homebrew/bin/gh` con la sesión de `zabrinna14-ops`, que también da credenciales a Git por HTTPS. Si `gh` no está en el PATH de la terminal, usar la ruta completa. El clon local es superficial (shallow).
-- Sitio multipágina estático con Astro 7.4.0, Node.js >=22.12 y pnpm. No depende de JavaScript cliente para los filtros.
+- Sitio multipágina estático con Astro 7.4.0, Node.js >=22.12 y pnpm. Los filtros funcionan solo con HTML y CSS; un script ligero de la portada los mejora (área en la URL y en la sesión, recuento anunciado). Es el único JavaScript cliente.
 - Estructura: `src/components/` componentes compartidos; `src/content/projects/` seis casos en Markdown con esquema validado; `src/pages/` portada y rutas dinámicas; `src/styles/` tokens y estilos; `scripts/verify-build.mjs` validación del resultado generado. `dist/` es salida de compilación, no fuente.
 - Comandos del proyecto: `pnpm dev`, `pnpm check`, `pnpm build`, `pnpm verify`, `pnpm preview`.
 - Se conservan archivos HTML/CSS antiguos en `legacy-static/` como referencia de la versión anterior. La fuente activa está en `src/`.

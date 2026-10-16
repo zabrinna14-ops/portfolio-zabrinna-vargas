@@ -9,7 +9,7 @@ web
 Portfolio profesional de Zabrinna Vargas Antinori: estrategia, creatividad y gestión de proyectos de marketing.
 
 ## Capabilities and Constraints
-Sitio estático generado con Astro. Portada con seis casos filtrables por área y una página HTML independiente por caso. El contenido de casos vive en Markdown con esquema validado. Los filtros usan controles nativos y CSS; no envían JavaScript al navegador. Se conservan los textos de fuente, sin métricas, herramientas ni recursos inventados. Sin publicación externa en este alcance.
+Sitio estático generado con Astro. Portada con seis casos filtrables por área y una página HTML independiente por caso. El contenido de casos vive en Markdown con esquema validado. Los filtros usan controles nativos y CSS; un script ligero solo en la portada guarda el área elegida en la URL y en la sesión y anuncia cuántos proyectos coinciden. Se conservan los textos de fuente, sin métricas, herramientas ni recursos inventados. Sin publicación externa en este alcance.
 
 ## Brand Commitments
 Azul oscuro, crema y títulos serif basados en el primer portfolio de Canva. Diseño limpio, editorial, navegación compacta y resultados destacados.
