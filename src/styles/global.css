@@ -63,7 +63,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .site-header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:var(--s-5);padding:var(--s-4) var(--gutter)}
 .brand{font-size:var(--fs-small);line-height:1.4;text-decoration:none;font-weight:600}
 .brand span{display:block;font-weight:400;margin-top:var(--s-1)}
-.site-header nav{display:flex;gap:var(--s-1);padding:var(--s-1);border:1px solid var(--rule);border-radius:var(--radius-pill)}
+.site-header nav{display:flex;gap:var(--s-1);padding:var(--s-1)}
 .site-header nav a{display:inline-flex;align-items:center;justify-content:center;min-height:var(--control-height);padding:0 var(--s-4);font-size:var(--fs-small);text-decoration:none;border-radius:var(--radius-pill)}
 .site-header nav a:hover{background:var(--cream)}
 
