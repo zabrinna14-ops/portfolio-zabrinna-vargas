@@ -8,6 +8,7 @@ import CaseSection from './CaseSection.astro';
 import ProjectResults from './ProjectResults.astro';
 import ProjectTools from './ProjectTools.astro';
 import ProjectNavigation from './ProjectNavigation.astro';
+import ProjectVisual from './ProjectVisual.astro';
 interface Props { project: Project; next: Project }
 const { project, next } = Astro.props;
 const { data } = project;
@@ -20,10 +21,11 @@ const sections = getSections(project);
     <p class="case-intro">{data.intro}</p>
     <p class="project-name">{data.attribution}</p>
   </div>
+  <div class="case-cover wrap"><ProjectVisual id={project.id} eager /></div>
   <div class="case-layout wrap">
     <ProjectFacts project={project} />
     <div class="case-narrative">
-      {sections.map((section, index) => <CaseSection title={section.title} number={index + 1}><Fragment set:html={section.html} /></CaseSection>)}
+      {sections.map((section, index) => <CaseSection title={section.title} number={index + 1}><Fragment set:html={section.html} />{index === 1 && project.id === 'solo-de-croquetas' && <figure class="case-detail"><img src="/images/merch-reference.webp" width="1536" height="1024" loading="lazy" alt="Mockup generado como referencia de merchandising; pendiente de sustituir por el trabajo original." /><figcaption>Referencia generada con IA · aplicaciones de marca pendientes de sustituir.</figcaption></figure>}</CaseSection>)}
       {data.links.length > 0 && <CaseSection title="Explorar el trabajo"><div class="links">{data.links.map((link) => <a href={link.url}>{link.label}</a>)}</div></CaseSection>}
     </div>
   </div>

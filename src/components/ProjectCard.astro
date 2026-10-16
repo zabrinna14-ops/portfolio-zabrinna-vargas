@@ -2,14 +2,20 @@
 import type { Project } from '../projects';
 import { projectUrl } from '../site';
 import Metric from './Metric.astro';
+import ProjectVisual from './ProjectVisual.astro';
 interface Props { project: Project }
 const { project: { id, data } } = Astro.props;
 ---
 <article class:list={['project-card', { featured: data.featured }]} data-areas={data.areas.join(' ')}>
+  <a class="project-card-link" href={projectUrl(id)} aria-labelledby={`project-title-${id}`}>
+  <ProjectVisual id={id} compact />
+  <div class="card-content">
   <div class="card-top"><span>{data.areaLabel}</span><span>{data.featured ? 'Proyecto destacado' : String(data.order).padStart(2, '0')}</span></div>
-  <h3><a href={projectUrl(id)}>{data.title}</a></h3>
+  <h3 id={`project-title-${id}`}>{data.title}</h3>
   <p class="card-name">{data.name}</p>
   <p class="card-desc">{data.summary}</p>
   <Metric {...data.highlight} />
-  <a class="case-link" href={projectUrl(id)} aria-label={`Ver caso de ${data.name}`}>Ver caso completo <span aria-hidden="true">↗</span></a>
+  <span class="case-link">Ver caso completo <span aria-hidden="true">↗</span></span>
+  </div>
+  </a>
 </article>

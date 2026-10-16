@@ -1,6 +1,6 @@
 export const site = {
   name: 'Zabrinna Vargas Antinori',
-  discipline: 'Marketing 360',
+  discipline: 'Digital Marketing Manager',
   description: 'Portfolio profesional de Zabrinna Vargas Antinori. Estrategia, creatividad y gestión de proyectos de marketing.',
 };
 

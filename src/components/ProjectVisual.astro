@@ -1,0 +1,17 @@
+---
+interface Props { id: string; compact?: boolean; eager?: boolean }
+const { id, compact = false, eager = false } = Astro.props;
+const isFlow = id === 'automatizacion-yacrea';
+const isWeb = id === 'planeta-dots';
+const assets: Record<string, { src: string; alt: string }> = {
+  'solo-de-croquetas': { src: 'merch-reference.webp', alt: 'Mockup generado de taza, carta y bolsa con personajes de croquetas; referencia provisional.' },
+  'croque-quedada': { src: 'event-reference.webp', alt: 'Mesa gastronómica generada como referencia; no corresponde al evento real.' },
+  'petritegi': { src: 'rural-reference.webp', alt: 'Paisaje rural de Italia, fotografía de stock para explorar el tratamiento visual; no es Petritegi.' },
+  'storytelling-audiovisual': { src: 'content-reference.webp', alt: 'Escena generada de producción audiovisual como referencia provisional.' },
+};
+const asset = assets[id];
+---
+<figure class:list={['project-visual', { 'visual-compact': compact, 'visual-flow': isFlow, 'visual-web': isWeb }]}>
+  {isFlow ? <div class="workflow-art"><p>Planificación semanal</p><div class="time-comparison"><span><strong>60</strong> min<small>Antes</small></span><span aria-hidden="true">→</span><span><strong>15</strong> min<small>Con automatización</small></span></div><ol><li>Organizar tareas</li><li>Automatizar pasos</li><li>Revisar y dar seguimiento</li></ol></div> : isWeb ? <div class="web-art"><div class="browser-line"><span></span><span></span><span></span><p>Arquitectura de contenidos</p></div><div class="web-art-content"><p>Encontrar el servicio<br /><em>adecuado.</em></p><div class="site-map"><span>Necesidad</span><span>Servicio</span><span>Contacto</span></div><div class="web-lines"><i></i><i></i><i></i></div></div></div> : <img src={`/images/${asset.src}`} alt={asset.alt} width="1536" height="1024" loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />}
+  <figcaption>{isFlow ? 'Esquema explicativo · reducción de tiempo en esta tarea' : isWeb ? 'Maqueta de referencia · sustituir por capturas reales' : id === 'petritegi' ? 'Referencia de ambiente rural · stock Pexels, no es Petritegi' : 'Referencia generada con IA · sustituir por piezas reales'}</figcaption>
+</figure>

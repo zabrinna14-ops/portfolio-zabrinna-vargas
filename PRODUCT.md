@@ -15,4 +15,4 @@ Sitio estático generado con Astro. Portada con seis casos filtrables por área 
 Azul oscuro, crema y títulos serif basados en el primer portfolio de Canva. Diseño limpio, editorial, navegación compacta y resultados destacados.
 
 ## Evidence on Hand
-Contenido de Notion trasladado a `src/content/projects/`. Preferencias y referencias en REFERENCIAS-PORTFOLIO.md. Fotografías y piezas pendientes no se inventan. Herramientas por caso solo cuando constan en las fuentes. Astro produce siete páginas HTML estáticas y no requiere JavaScript de cliente.
+Contenido de Notion trasladado a `src/content/projects/`. Preferencias y referencias en docs/REFERENCIAS-PORTFOLIO.md. Fotografías y piezas pendientes no se inventan. Herramientas por caso solo cuando constan en las fuentes. Astro produce siete páginas HTML estáticas y no requiere JavaScript de cliente.
