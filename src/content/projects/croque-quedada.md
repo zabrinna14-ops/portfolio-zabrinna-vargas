@@ -11,20 +11,22 @@ scope: "Estrategia y eventos"
 order: 2
 featured: false
 highlight: {"value": "30 / 30", "label": "asistentes y aforo · primera edición"}
-results: {"paragraphs": ["30 asistentes en la primera edición y 15 en la segunda, con un aforo de 30 personas.", "Una propuesta que conectó una necesidad del negocio con una experiencia social alrededor de su producto."], "metric": {"value": "30 / 30", "label": "asistentes y aforo · primera edición"}}
-tools: [{"name": "ChatGPT", "use": "Personajes de marca utilizados en la experiencia"}]
+results: {"paragraphs": ["30 asistentes en la primera edición y 15 en la segunda, con un aforo de 30 personas.", "Más allá de la asistencia, vimos a personas disfrutar del encuentro y conectar entre ellas. Se llevaron una experiencia positiva con Solo de Croquetas, asociando la marca a un momento compartido. La propuesta convirtió una necesidad del negocio en una ocasión para conocer el restaurante, disfrutar de su producto y conocer gente."], "metric": {"value": "30 / 30", "label": "asistentes y aforo · primera edición"}}
+tools: []
 ---
 
 ## El reto
 
-Crear un motivo para visitar el local los martes, un día de menor afluencia.
+Necesitábamos encontrar una forma de atraer más personas al restaurante en los días de menor afluencia, especialmente los jueves. Además, era un local nuevo que queríamos dar a conocer. El reto consistía en ofrecer un motivo para visitarlo y una experiencia que ayudara a crear un primer vínculo con la marca.
 
 ## La propuesta
 
-Conocía el interés que tiene nuestro público por los eventos para conocer personas. A partir de esa observación, propuse un encuentro para compartir croquetas y conocer gente, con dinámicas que ayudaran a empezar la conversación.
+Conocía el interés de nuestro público por los eventos para conocer personas. A partir de esa observación, propuse Croque-Quedada: un encuentro para compartir croquetas y conocer gente en un ambiente cercano. La propuesta conectaba una necesidad del restaurante con algo que podía resultar atractivo para su comunidad.
 
 ## Qué hice
 
-Desarrollé el concepto, el itinerario y las dinámicas. Diseñé el cartel y una hoja con 12 juegos y preguntas para romper el hielo: elegir qué sabor te representa, inventar una historia con croquetas o jugar a dos verdades y una mentira.
+Desarrollé el concepto, el itinerario y las dinámicas del encuentro, y diseñé el cartel para comunicarlo. Uno de los puntos que más me interesaba resolver era cómo conseguir que las personas interactuaran de verdad: reunirlas en un mismo lugar no garantizaba que se animaran a conversar.
+
+Por eso se me ocurrió crear una hoja con 12 juegos y preguntas para romper el hielo. Incluía propuestas como elegir qué sabor te representa, inventar una historia con croquetas o jugar a dos verdades y una mentira. La hoja ofrecía un punto de partida para hablar y participar, sin tener que pensar cómo iniciar una conversación con alguien desconocido.
 
 Incorporé los personajes que había creado con IA para mantener la identidad de la marca durante la experiencia.
