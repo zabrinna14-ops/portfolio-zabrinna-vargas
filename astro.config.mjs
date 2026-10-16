@@ -1,12 +1,11 @@
 import { defineConfig } from 'astro/config';
 
-// Alojamiento previsto: Cloudflare Pages con dominio propio, sin subcarpeta (sin `base`).
-// PENDIENTE: el dominio aún no está elegido. Sustituir este valor provisional
-// por el dominio real antes de publicar (ver AGENTS.md).
-const site = 'https://dominio-pendiente.invalid';
-
+// Alojamiento: GitHub Pages del repositorio, publicado en una subcarpeta con el
+// nombre del repositorio. Si más adelante se usa un dominio propio, cambiar
+// `site` por ese dominio y `base` por '/'.
 export default defineConfig({
-  site,
+  site: 'https://zabrinna14-ops.github.io',
+  base: '/portfolio-zabrinna-vargas/',
   output: 'static',
   build: { format: 'file' },
   devToolbar: { enabled: false },
