@@ -1,11 +1,57 @@
 :root {
+  /* Color: identidad fija y apoyos con nombre. */
   --navy: #202941;
+  --navy-soft: #2d3b5c;
   --cream: #e8e4d6;
   --paper: #f4f1e9;
+  --surface: #faf8f3;
+  --muted: #697082;
   --rule: #20294135;
+  --rule-inverse: #e8e4d650;
+  --sage: #c7cec2;
+  --apricot: #dcb99e;
+  --shadow-card: 0 10px 28px #2029411a;
+
+  /* Tipografía: dos familias y siete tamaños, más dos para cifras. */
   --serif: Didot, 'Bodoni MT', 'Times New Roman', serif;
   --sans: Arial, Helvetica, sans-serif;
+  --fs-display: clamp(48px, 6.2vw, 92px);
+  --fs-1: clamp(40px, 5.2vw, 76px);
+  --fs-2: clamp(32px, 3.8vw, 54px);
+  --fs-3: clamp(24px, 2.4vw, 34px);
+  --fs-lead: 20px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-label: 12px;
+  --fs-figure-lg: clamp(48px, 5vw, 72px);
+  --fs-figure: clamp(26px, 2.4vw, 34px);
+  --tracking-label: .12em;
+
+  /* Espacio: una sola escala. */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+  --section-y: clamp(64px, 8vw, 96px);
   --gutter: clamp(24px, 5vw, 80px);
-  --radius-card: 12px;
+  --panel-pad: clamp(24px, 4vw, 64px);
+
+  /* Rejilla: una columna de etiquetas común a portada y casos. */
+  --aside: clamp(220px, 24vw, 320px);
+  --col-gap: clamp(32px, 6vw, 96px);
+
+  /* Formas: curvas amables y una sola familia de radios. */
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 40px;
+  --radius-arch: 160px;
+  --radius-pill: 999px;
+
   --control-height: 44px;
 }
