@@ -17,14 +17,15 @@ const sections = getSections(project);
 <BaseLayout title={data.name} description={data.intro}>
   <div class="case-heading wrap">
     <a class="back" href={`${homeUrl}#proyectos`}>← Todos los proyectos</a>
+    <p class="eyebrow">{data.areaLabel}</p>
     <h1>{data.title}</h1>
     <p class="case-intro">{data.intro}</p>
     <p class="project-name">{data.attribution}</p>
   </div>
   <div class="case-cover wrap"><ProjectVisual id={project.id} eager /></div>
-  <div class="case-layout wrap">
+  <div class="case-layout split wrap">
     <ProjectFacts project={project} />
-    <div class="case-narrative">
+    <div class="case-narrative split-main">
       {sections.map((section, index) => <CaseSection title={section.title} number={index + 1}><Fragment set:html={section.html} /></CaseSection>)}
       {data.links.length > 0 && <CaseSection title="Explorar el trabajo"><div class="links">{data.links.map((link) => <a href={link.url}>{link.label}</a>)}</div></CaseSection>}
     </div>

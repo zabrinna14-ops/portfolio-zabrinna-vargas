@@ -42,7 +42,7 @@ Previews, páginas de caso, anclas, pasos, fichas sticky, bloques de resultados,
 
 Un filtro sencillo por una categoría cada vez puede hacerse sin JS con radios y CSS (:checked; opcionalmente :has). Mantener semántica de formulario, etiquetas, selección visible y navegación por teclado. Sin CSS, todos los proyectos deben seguir disponibles.
 
-JS no es obligatorio para ese filtro básico. Sería aconsejable para búsqueda textual, combinaciones complejas, contador/anuncio de resultados dinámicos y gestión avanzada del estado. También puede haber categorías en páginas HTML separadas. No se ha autorizado añadir JS.
+JS no es obligatorio para ese filtro básico. Sería aconsejable para búsqueda textual, combinaciones complejas, contador/anuncio de resultados dinámicos y gestión avanzada del estado. También puede haber categorías en páginas HTML separadas. El 17 de octubre de 2026 Zabrinna autorizó JS para mejorar el filtro: se añadió como mejora progresiva (área en la URL y la sesión, recuento anunciado), sin quitar el filtro con CSS.
 
 ## Prioridades
 

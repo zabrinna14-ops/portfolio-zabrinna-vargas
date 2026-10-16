@@ -4,10 +4,12 @@ import Metric from './Metric.astro';
 interface Props { results: NonNullable<Project['data']['results']> }
 const { results } = Astro.props;
 ---
-<section class="impact">
-  <div class="impact-inner">
-    <h2>Resultados</h2>
-    {results.metric && <Metric {...results.metric} variant="result" />}
-    <div class="impact-copy">{results.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
+<section class="impact band band-navy">
+  <div class="split">
+    <div class="split-aside">
+      <h2>Resultados</h2>
+      {results.metric && <Metric {...results.metric} variant="result" />}
+    </div>
+    <div class="split-main impact-copy">{results.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
   </div>
 </section>

@@ -4,7 +4,7 @@ import Metric from './Metric.astro';
 interface Props { project: Project }
 const { project: { data } } = Astro.props;
 ---
-<aside class="project-facts" aria-label="Ficha del proyecto">
+<aside class="project-facts split-aside" aria-label="Ficha del proyecto">
   <h2>El proyecto</h2>
   <dl>
     <div><dt>Proyecto</dt><dd>{data.name}</dd></div>

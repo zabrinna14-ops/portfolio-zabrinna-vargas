@@ -22,7 +22,14 @@ for (const [file, html] of documents) {
   const name = relative(root, file);
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${name}: un solo H1`);
   assert.equal(ids(html).length, new Set(ids(html)).size, `${name}: IDs únicos`);
-  assert(!/<script\b/i.test(html), `${name}: sin JavaScript cliente`);
+  // Solo la portada lleva JavaScript: mejora progresiva del filtro, empaquetada por Astro.
+  const scripts = [...html.matchAll(/<script\b[^>]*>/gi)].map((match) => match[0]);
+  if (name === 'index.html') {
+    assert.equal(scripts.length, 1, `${name}: un único script, el del filtro`);
+    assert(/type="module"/.test(scripts[0]) && !/src="https?:/.test(scripts[0]), `${name}: script propio de tipo módulo`);
+  } else {
+    assert.equal(scripts.length, 0, `${name}: sin JavaScript cliente`);
+  }
   assert(html.includes('<html lang="es">'), `${name}: idioma español`);
   assert(/<meta name="description" content="[^"]+"/.test(html), `${name}: descripción SEO`);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
@@ -53,6 +60,7 @@ assert(home, 'Existe el inicio');
 const projectFiles = (await readdir('src/content/projects')).filter((file) => file.endsWith('.md'));
 assert.equal(pages.length, projectFiles.length + 1, 'Una página por proyecto y el inicio');
 assert.equal((home.match(/class="project-card(?: featured)?"/g) || []).length, projectFiles.length, 'Una tarjeta por proyecto');
+assert(home.includes('data-filter-status'), 'El filtro anuncia los resultados');
 const nextLinks = new Map();
 for (const file of projectFiles) {
   const slug = file.slice(0, -3);
@@ -74,4 +82,4 @@ assert.equal(visited.size, projectFiles.length, 'Navegación circular por todos 
 const pending = [];
 if (![...documents.values()].some((html) => html.includes('property="og:image"'))) pending.push('sin imagen para compartir (og:image)');
 if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')} (ver docs/ANTES-DE-PUBLICAR.md).`);
-console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; SEO y metadatos para compartir; contenido renderizado; navegación circular; cero scripts cliente.`);
+console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el filtro de la portada.`);

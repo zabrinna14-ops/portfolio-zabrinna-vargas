@@ -1,14 +1,16 @@
 ---
 import { imageUrl } from '../site';
 ---
-<section class="section " id="sobre-mi" aria-label="Quién soy y qué aporto">
-<div class="section-heading">
+<section class="section split" id="sobre-mi" aria-label="Quién soy y qué aporto">
+<header class="section-heading">
+<p class="eyebrow">Quién soy y qué aporto</p>
 <h2>Una visión completa del marketing, con atención a cada proyecto</h2>
-<p class="section-label">Quién soy y qué aporto</p>
+</header>
+<div class="split-aside">
 <figure class="about-portrait"><img src={imageUrl('portrait-reference.webp')} alt="Fotografía de stock de una persona con cámara, referencia de composición; no es Zabrinna." width="900" height="1200" loading="lazy" /><figcaption>Retrato de referencia · no es Zabrinna. Foto: <a href="https://unsplash.com/photos/woman-holding-black-dslr-camera-zrk7WirlxgM">Noémi Macavei-Katócz / Unsplash</a>.</figcaption></figure>
 </div>
 
-<div class="about-content">
+<div class="split-main">
 <div class="body-copy">
 <p>Soy comunicadora especializada en marketing digital. He trabajado con agencias, negocios y marcas personales, combinando estrategia, creatividad y gestión de clientes.</p>
 <p>Mi experiencia abarca branding, SEO, publicidad digital, web, redes sociales, contenido e influencer marketing. Haber participado tanto en la planificación como en la ejecución me ayuda a conectar las distintas partes de un proyecto: entender qué necesita la marca, proponer acciones viables y coordinar el trabajo para llevarlas a cabo. Cuando desarrollo una idea, pienso también en cómo se va a producir, qué necesita el equipo y cómo va a llegar a las personas.</p>
@@ -24,24 +26,15 @@ import { imageUrl } from '../site';
 </ul>
 <h3 class="about-subheading">Mi experiencia en cifras</h3>
 <div class="stats">
-<div class="stat">
+<p class="metric">
 <strong>70+</strong>
 <span>clientes actuales de SEO y Social Media en YACREA</span>
-</div>
-<div class="stat">
+</p>
+<p class="metric">
 <strong>4</strong>
 <span>personas en el equipo liderado en Basurto &amp; CO</span>
 <small class="stat-context">Experiencia anterior</small>
-</div>
+</p>
 </div>
 </div>
 </section>
-
-<style>
-.about-subheading{font-size:14px;margin-top:48px}
-.strengths{list-style:none;margin:16px 0 0;padding:0}
-.strengths li{border-top:1px solid var(--rule);padding:18px 0}
-.strengths p{font-size:14px;max-width:60ch}
-.strengths strong{font-weight:600}
-.about-subheading+.stats{margin-top:16px;grid-template-columns:repeat(2,1fr)}
-</style>

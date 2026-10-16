@@ -3,4 +3,4 @@ import type { Project } from '../projects';
 interface Props { tools: Project['data']['tools'] }
 const { tools } = Astro.props;
 ---
-{tools.length > 0 && <section class="tool-section"><h2>Herramientas utilizadas</h2><dl>{tools.map((tool) => <div><dt>{tool.name}</dt><dd>{tool.use}</dd></div>)}</dl></section>}
+{tools.length > 0 && <section class="tool-section split wrap"><h2 class="split-aside">Herramientas utilizadas</h2><dl class="split-main">{tools.map((tool) => <div><dt>{tool.name}</dt><dd>{tool.use}</dd></div>)}</dl></section>}
