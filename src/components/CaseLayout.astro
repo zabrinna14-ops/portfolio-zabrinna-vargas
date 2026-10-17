@@ -24,7 +24,7 @@ const sections = getSections(project);
   </div>
   <div class="case-cover wrap">
     <ProjectVisual id={project.id} eager />
-    <p class="facts-chip" aria-hidden="true"><span>Mi papel</span>{data.role}</p>
+    <p class="facts-chip" aria-hidden="true"><span>Proyecto</span>{data.name}</p>
   </div>
   <div class="case-layout split wrap">
     <ProjectFacts project={project} />
@@ -81,7 +81,7 @@ const sections = getSections(project);
           .fromTo(card, { x: () => from().x, y: () => from().y }, { x: 0, y: 0 }, 0)
           .fromTo(glass, { opacity: 0.6 }, { opacity: 1 }, 0);
       } else {
-        // A small chip sits on the cover; it grows towards the card while the card
+        // A small chip with the project name sits on the cover; it grows towards the card while the card
         // grows out of the chip's box, crossfading on the way.
         const delta = () => {
           const { f, k } = measure();
