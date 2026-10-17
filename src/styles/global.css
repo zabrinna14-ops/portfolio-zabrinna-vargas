@@ -230,7 +230,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .back{display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--control-height);margin-bottom:var(--s-5);text-decoration:none}
 .back:hover{text-decoration:underline}
 .case-heading h1{max-width:24ch}
-.case-intro{max-width:60ch;font-size:var(--fs-lead);line-height:1.6;margin-top:var(--s-5)}
+.case-intro{font-size:var(--fs-lead);line-height:1.6;margin-top:var(--s-5)}
 .project-name{font-size:var(--fs-small);margin-top:var(--s-4)}
 .case-cover{margin-bottom:var(--s-8)}
 .case-cover .project-visual{border-radius:var(--radius-lg)}
