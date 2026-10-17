@@ -25,6 +25,9 @@
   --fs-label: 12px;
   --fs-figure-lg: clamp(48px, 5vw, 72px);
   --fs-figure: clamp(26px, 2.4vw, 34px);
+  --fs-figure-sm: clamp(18px, 1.5vw, 22px);
+  --fs-card-title: clamp(20px, 1.9vw, 26px);
+  --fs-card-title-lg: clamp(26px, 2.7vw, 38px);
   --tracking-label: .12em;
 
   /* Espacio: una sola escala. */
