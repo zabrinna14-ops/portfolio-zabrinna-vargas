@@ -27,6 +27,10 @@ for (const [file, html] of documents) {
   if (name === 'index.html') {
     assert.equal(scripts.length, 1, `${name}: un único script, el del filtro`);
     assert(/type="module"/.test(scripts[0]) && !/src="https?:/.test(scripts[0]), `${name}: script propio de tipo módulo`);
+  } else if (name.startsWith('proyectos/')) {
+    // Demo de la ficha flotante: un único script propio por caso.
+    assert.equal(scripts.length, 1, `${name}: un único script, el de la ficha`);
+    assert(/type="module"/.test(scripts[0]) && !/src="https?:/.test(scripts[0]), `${name}: script propio de tipo módulo`);
   } else {
     assert.equal(scripts.length, 0, `${name}: sin JavaScript cliente`);
   }
@@ -94,4 +98,4 @@ assert.equal(visited.size, projectFiles.length, 'Navegación circular por todos 
 const pending = [];
 if (![...documents.values()].some((html) => html.includes('property="og:image"'))) pending.push('sin imagen para compartir (og:image)');
 if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')} (ver docs/ANTES-DE-PUBLICAR.md).`);
-console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; enlaces externos en pestaña nueva; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el filtro de la portada.`);
+console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; enlaces externos en pestaña nueva; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el filtro de la portada y la ficha de los casos.`);

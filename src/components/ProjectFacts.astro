@@ -5,6 +5,7 @@ interface Props { project: Project }
 const { project: { data } } = Astro.props;
 ---
 <aside class="project-facts split-aside" aria-label="Ficha del proyecto">
+  <span class="facts-glass" aria-hidden="true"></span>
   <dl>
     <div><dt>Proyecto</dt><dd>{data.name}</dd></div>
     <div><dt>Mi papel</dt><dd>{data.role}</dd></div>

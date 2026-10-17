@@ -22,7 +22,10 @@ const sections = getSections(project);
     <h1>{data.title}</h1>
     <p class="case-intro">{data.intro}</p>
   </div>
-  <div class="case-cover wrap"><ProjectVisual id={project.id} eager /></div>
+  <div class="case-cover wrap">
+    <ProjectVisual id={project.id} eager />
+    <p class="facts-chip" aria-hidden="true"><span>Mi papel</span>{data.role}</p>
+  </div>
   <div class="case-layout split wrap">
     <ProjectFacts project={project} />
     <div class="case-narrative split-main">
@@ -34,3 +37,67 @@ const sections = getSections(project);
   <ProjectTools tools={data.tools} />
   <ProjectNavigation next={next} />
 </BaseLayout>
+
+<script>
+  // Demo: the facts card floats over the cover as glass and settles into its
+  // column on scroll. ?ficha=b swaps in a small role chip that grows into the card.
+  // Without JavaScript, below 1051px or with reduced motion, the card stays as is.
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { CustomEase } from 'gsap/CustomEase';
+
+  gsap.registerPlugin(ScrollTrigger, CustomEase);
+  const easeInOut = CustomEase.create('ease-in-out', '0.77,0,0.175,1');
+  const variant = new URL(location.href).searchParams.get('ficha') === 'b' ? 'b' : 'a';
+  const root = document.documentElement;
+  const cover = document.querySelector<HTMLElement>('.case-cover .project-visual');
+  const card = document.querySelector<HTMLElement>('.project-facts');
+  const glass = card?.querySelector<HTMLElement>('.facts-glass');
+  const chip = document.querySelector<HTMLElement>('.facts-chip');
+  const slot = document.querySelector<HTMLElement>('.case-layout');
+  const inset = 32;
+
+  if (cover && card && glass && chip && slot) {
+    gsap.matchMedia().add('(min-width: 1051px) and (prefers-reduced-motion: no-preference)', () => {
+      root.classList.add(`facts-float-${variant}`);
+      // Layout boxes in page coordinates, ignoring the transforms this demo applies
+      // and the card's sticky offset: the card is the first item of the case grid.
+      const page = (el: Element) => { const r = el.getBoundingClientRect(); return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height }; };
+      const measure = () => {
+        const c = page(cover), s = page(slot), wrap = page(chip.offsetParent ?? cover);
+        const f = { x: card.offsetLeft, y: s.y, w: card.offsetWidth, h: card.offsetHeight };
+        const k = { x: wrap.x + chip.offsetLeft, y: wrap.y + chip.offsetTop, w: chip.offsetWidth, h: chip.offsetHeight };
+        return { c, f, k };
+      };
+      const scroll = { trigger: slot, start: 'top bottom', end: 'top 35%', scrub: 0.4, invalidateOnRefresh: true };
+
+      if (variant === 'a') {
+        // The whole card starts over the bottom-left corner of the cover.
+        const from = () => {
+          const { c, f } = measure();
+          return { x: c.x + inset - f.x, y: Math.max(c.y + inset, c.y + c.h - inset - f.h) - f.y };
+        };
+        gsap.timeline({ scrollTrigger: scroll, defaults: { ease: easeInOut } })
+          .fromTo(card, { x: () => from().x, y: () => from().y }, { x: 0, y: 0 }, 0)
+          .fromTo(glass, { opacity: 0.6 }, { opacity: 1 }, 0);
+      } else {
+        // A small chip sits on the cover; it grows towards the card while the card
+        // grows out of the chip's box, crossfading on the way.
+        const delta = () => {
+          const { f, k } = measure();
+          return { x: k.x - f.x, y: k.y - f.y, scale: k.w / f.w, hidden: f.h - k.h * (f.w / k.w) };
+        };
+        // The card is revealed from the chip's height down to its own.
+        const radius = getComputedStyle(card).borderRadius;
+        gsap.timeline({ scrollTrigger: scroll, defaults: { ease: easeInOut } })
+          .fromTo(chip, { x: 0, y: 0, scale: 1, opacity: 1 }, { x: () => -delta().x, y: () => -delta().y, scale: () => 1 / delta().scale }, 0)
+          .to(chip, { opacity: 0, duration: 0.3, ease: 'none' }, 0.2)
+          .fromTo(card, { x: () => delta().x, y: () => delta().y, scale: () => delta().scale, opacity: 0 }, { x: 0, y: 0, scale: 1 }, 0)
+          .fromTo(card, { clipPath: () => `inset(0px 0px ${Math.max(0, delta().hidden)}px 0px round ${radius})` }, { clipPath: `inset(0px 0px 0px 0px round ${radius})` }, 0)
+          .to(card, { opacity: 1, duration: 0.3, ease: 'none' }, 0.15)
+          .fromTo(glass, { opacity: 0.6 }, { opacity: 1 }, 0);
+      }
+      return () => root.classList.remove(`facts-float-${variant}`);
+    });
+  }
+</script>
