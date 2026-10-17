@@ -11,7 +11,7 @@ scope: "Contenido audiovisual"
 order: 6
 featured: false
 highlight: {"value": "Idea → pieza audiovisual", "label": "concepto, guion, grabación y edición"}
-links: [{"url": "https://drive.google.com/file/d/1pQA6rvAYgtm8PKbxA088zIs-U3wJ63fO/view?usp=sharing", "label": "Ver vídeo ↗"}]
+links: [{"url": "https://drive.google.com/file/d/1pQA6rvAYgtm8PKbxA088zIs-U3wJ63fO/view?usp=sharing", "label": "Ver vídeo"}]
 ---
 
 ## La idea

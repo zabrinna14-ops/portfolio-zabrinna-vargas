@@ -1,4 +1,5 @@
 ---
+import { ArrowRight } from '@lucide/astro';
 import type { Project } from '../projects';
 import { projectUrl } from '../site';
 import Metric from './Metric.astro';
@@ -15,7 +16,7 @@ const { project: { id, data } } = Astro.props;
   <p class="card-name">{data.name}</p>
   <p class="card-desc">{data.summary}</p>
   <Metric {...data.highlight} />
-  <span class="case-link">Ver caso completo</span>
+  <span class="case-link">Ver caso completo<ArrowRight class="icon" /></span>
   </div>
   </a>
 </article>

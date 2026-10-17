@@ -1,4 +1,7 @@
-<section class="section contact split" id="contacto" aria-label="Contacto">
+---
+import { ArrowUpRight } from '@lucide/astro';
+---
+<section class="section contact split split-even" id="contacto" aria-label="Contacto">
 <header class="section-heading">
 <p class="eyebrow">Contacto</p>
 <h2>¿Hablamos?</h2>
@@ -8,17 +11,16 @@
 <p>Si buscas a alguien que conecte estrategia, creatividad y ejecución, me encantará conversar.</p>
 </div>
 <div class="split-main contact-details">
-<p>
-<strong>Zabrinna Vargas Antinori</strong>
-<br>Marketing 360, gestión de clientes y proyectos<br>En Madrid, con disponibilidad para cambiar de residencia</p>
-<a class="contact-email" href="mailto:zabrinna14@gmail.com">zabrinna14@gmail.com</a>
-<p>
-<a href="tel:+34615689016">+34 615 689 016</a>
-</p>
-<div class="links">
-<a href="https://www.linkedin.com/in/zabrinna-vantinori/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-<a href="https://www.youtube.com/@zabrinnavargas" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
-<a href="https://www.instagram.com/itszabvantinori/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+<div class="contact-card">
+<dl class="contact-rows">
+<div><dt>Correo</dt><dd><a class="contact-email" href="mailto:zabrinna14@gmail.com">zabrinna14@gmail.com</a></dd></div>
+<div><dt>Teléfono</dt><dd><a href="tel:+34615689016">+34 615 689 016</a></dd></div>
+<div><dt>Redes</dt><dd class="contact-social">
+<a href="https://www.linkedin.com/in/zabrinna-vantinori/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight class="icon" /></a>
+<a href="https://www.youtube.com/@zabrinnavargas" target="_blank" rel="noopener noreferrer">YouTube <ArrowUpRight class="icon" /></a>
+<a href="https://www.instagram.com/itszabvantinori/" target="_blank" rel="noopener noreferrer">Instagram <ArrowUpRight class="icon" /></a>
+</dd></div>
+</dl>
 </div>
 </div>
 </section>

@@ -1,10 +1,11 @@
 ---
+import { ArrowLeft, ArrowRight } from '@lucide/astro';
 import type { Project } from '../projects';
 import { homeUrl, projectUrl } from '../site';
 interface Props { next: Project }
 const { next } = Astro.props;
 ---
 <nav class="project-pagination wrap" aria-label="Otros proyectos">
-  <a href={`${homeUrl}#proyectos`}>← Volver a proyectos</a>
-  <a href={projectUrl(next.id)}><span>Siguiente proyecto</span>{next.data.name} →</a>
+  <a href={`${homeUrl}#proyectos`}><span class="pagination-title"><ArrowLeft class="icon" />Volver a proyectos</span></a>
+  <a href={projectUrl(next.id)}><span class="pagination-label">Siguiente proyecto</span><span class="pagination-title">{next.data.name}<ArrowRight class="icon" /></span></a>
 </nav>
