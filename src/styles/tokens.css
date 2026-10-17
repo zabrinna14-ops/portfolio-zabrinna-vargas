@@ -28,6 +28,7 @@
   --fs-figure-sm: clamp(18px, 1.5vw, 22px);
   --fs-card-title: clamp(20px, 1.9vw, 26px);
   --fs-card-title-lg: clamp(26px, 2.7vw, 38px);
+  --timeline-dot: 11px;
   --tracking-label: .12em;
 
   /* Espacio: una sola escala. */
