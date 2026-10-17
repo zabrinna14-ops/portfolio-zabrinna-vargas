@@ -1,13 +1,14 @@
 import { defineConfig, fontProviders } from 'astro/config';
 
-// Alojamiento: GitHub Pages del repositorio, publicado en una subcarpeta con el
-// nombre del repositorio. Si más adelante se usa un dominio propio, cambiar
-// `site` por ese dominio y `base` por '/'.
+// Alojamiento: GitHub Pages de usuario (repositorio zabrinnavargas.github.io),
+// publicado en la raíz. Si más adelante se usa un dominio propio, cambiar `site`.
 export default defineConfig({
-  site: 'https://zabrinna14-ops.github.io',
-  base: '/portfolio-zabrinna-vargas/',
+  site: 'https://zabrinnavargas.github.io',
+  base: '/',
   output: 'static',
-  build: { format: 'file' },
+  // Direcciones limpias, sin .html: /proyectos/petritegi/
+  build: { format: 'directory' },
+  trailingSlash: 'always',
   devToolbar: { enabled: false },
   // Fuentes descargadas al compilar y servidas desde el propio sitio.
   fonts: [

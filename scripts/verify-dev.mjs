@@ -5,7 +5,7 @@ const origin = new URL(process.argv[2] || 'http://127.0.0.1:4322').origin;
 // Astro's route guard treats browser navigation differently from fetch's */*.
 const headers = { Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' };
 const projects = (await readdir('src/content/projects')).filter((file) => file.endsWith('.md'));
-const pending = ['/', '/index.html', ...projects.map((file) => `/proyectos/${file.slice(0, -3)}.html`)];
+const pending = ['/', ...projects.map((file) => `/proyectos/${file.slice(0, -3)}/`)];
 const documents = new Map();
 async function read(path) {
   if (!documents.has(path)) {

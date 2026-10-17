@@ -12,7 +12,7 @@ export const areas = [
   { id: 'ia', label: 'IA y automatización' },
 ] as const;
 
-// File output preserves the existing public URLs, including .html.
-export const homeUrl = `${import.meta.env.BASE_URL}index.html`;
-export const projectUrl = (id: string) => `${import.meta.env.BASE_URL}proyectos/${id}.html`;
+// Direcciones limpias, sin .html y con barra final.
+export const homeUrl = import.meta.env.BASE_URL;
+export const projectUrl = (id: string) => `${import.meta.env.BASE_URL}proyectos/${id}/`;
 export const imageUrl = (file: string) => `${import.meta.env.BASE_URL}images/${file}`;

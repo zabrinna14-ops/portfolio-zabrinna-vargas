@@ -3,7 +3,7 @@ import { resolve, join, relative } from 'node:path';
 import assert from 'node:assert/strict';
 import config from '../astro.config.mjs';
 
-// Base de publicación (subcarpeta de GitHub Pages); los enlaces absolutos la incluyen.
+// Base de publicación (raíz en GitHub Pages de usuario); los enlaces absolutos la incluyen.
 const base = config.base ?? '/';
 
 const root = resolve('dist');
@@ -13,6 +13,7 @@ const list = async (dir) => (await Promise.all((await readdir(dir)).map(async (n
 }))).flat();
 const files = await list(root);
 const pages = files.filter((file) => file.endsWith('.html'));
+const notFound = join(root, '404.html');
 const documents = new Map(await Promise.all(pages.map(async (file) => [file, await readFile(file, 'utf8')])));
 const ids = (html) => [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
 const titles = new Set();
@@ -26,6 +27,8 @@ for (const [file, html] of documents) {
   // del contacto; además, el filtro en la portada y la ficha flotante en los casos.
   const scripts = [...html.matchAll(/<script\b[^>]*>/gi)].map((match) => match[0]);
   const expected = name === 'index.html' || name.startsWith('proyectos/') ? 2 : 1;
+  // Direcciones limpias: los enlaces internos no terminan en .html.
+  for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="(\/[^"]*)"/g)) assert(!/\.html(#|$)/.test(href), `${name}: enlace interno sin .html (${href})`);
   assert.equal(scripts.length, expected, `${name}: ${expected} scripts propios`);
   for (const script of scripts) assert(/type="module"/.test(script) && !/src="https?:/.test(script), `${name}: script propio de tipo módulo`);
   // Contacto protegido: ni correo completo ni teléfono legible por robots en el HTML.
@@ -51,7 +54,8 @@ for (const [file, html] of documents) {
     const url = new URL(value.replaceAll('&amp;', '&'), `https://portfolio.invalid/${name}`);
     if (url.origin !== 'https://portfolio.invalid') continue;
     if (value.startsWith('/')) assert(value.startsWith(base), `${name}: ${attribute} ${value} incluye la base ${base}`);
-    const destination = join(root, decodeURIComponent(value.startsWith('/') ? `/${url.pathname.slice(base.length)}` : url.pathname));
+    const target = decodeURIComponent(value.startsWith('/') ? `/${url.pathname.slice(base.length)}` : url.pathname);
+    const destination = join(root, target.endsWith('/') ? `${target}index.html` : target);
     assert(files.includes(destination), `${name}: destino de ${attribute} ${value}`);
     if (url.hash) assert(ids(documents.get(destination) || '').includes(decodeURIComponent(url.hash.slice(1))), `${name}: ancla ${value}`);
   }
@@ -63,7 +67,11 @@ for (const [file, html] of documents) {
 const home = documents.get(join(root, 'index.html'));
 assert(home, 'Existe el inicio');
 const projectFiles = (await readdir('src/content/projects')).filter((file) => file.endsWith('.md'));
-assert.equal(pages.length, projectFiles.length + 1, 'Una página por proyecto y el inicio');
+assert.equal(pages.length, projectFiles.length + 2, 'Una página por proyecto, el inicio y la 404');
+assert(documents.get(notFound)?.includes('<meta name="robots" content="noindex"'), 'La 404 no se indexa');
+const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
+assert.equal((sitemap.match(/<loc>/g) || []).length, projectFiles.length + 1, 'El mapa del sitio lista el inicio y cada caso');
+assert((await readFile(join(root, 'robots.txt'), 'utf8')).includes(`Sitemap: ${new URL('sitemap.xml', new URL(base, config.site)).href}`), 'robots.txt enlaza el mapa del sitio');
 assert.equal((home.match(/class="project-card(?: featured)?"/g) || []).length, projectFiles.length, 'Una tarjeta por proyecto');
 assert(home.includes('data-filter-status'), 'El filtro anuncia los resultados');
 // Filtros y proyectos deben corresponderse: cada área ofrecida muestra algún proyecto y cada área
@@ -77,16 +85,17 @@ for (const { areas } of cardAreas) for (const id of areas) assert(filterIds.incl
 const nextLinks = new Map();
 for (const file of projectFiles) {
   const slug = file.slice(0, -3);
-  const path = join(root, 'proyectos', `${slug}.html`);
+  const path = join(root, 'proyectos', slug, 'index.html');
   const html = documents.get(path);
   assert(html, `Se conserva la URL de ${slug}`);
   assert(html.includes('class="case-step"'), `${slug}: relato renderizado`);
   const nav = html.match(/<nav class="project-pagination wrap"[\s\S]*?<\/nav>/)?.[0];
   const links = [...(nav || '').matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
-  assert(links.includes(`${base}index.html#proyectos`), `${slug}: volver al índice`);
+  assert(links.includes(`${base}#proyectos`), `${slug}: volver al índice`);
   const next = links.find((link) => link.startsWith(`${base}proyectos/`));
-  assert(next && next !== `${base}proyectos/${slug}.html`, `${slug}: siguiente distinto`);
-  nextLinks.set(`${base}proyectos/${slug}.html`, next);
+  assert(next && next !== `${base}proyectos/${slug}/`, `${slug}: siguiente distinto`);
+  nextLinks.set(`${base}proyectos/${slug}/`, next);
+  assert(sitemap.includes(`<loc>${new URL(`proyectos/${slug}/`, config.site).href}</loc>`), `${slug}: en el mapa del sitio`);
 }
 let current = nextLinks.keys().next().value;
 const visited = new Set();
@@ -95,4 +104,4 @@ assert.equal(visited.size, projectFiles.length, 'Navegación circular por todos 
 const pending = [];
 if (![...documents.values()].some((html) => html.includes('property="og:image"'))) pending.push('sin imagen para compartir (og:image)');
 if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')} (ver docs/ANTES-DE-PUBLICAR.md).`);
-console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; enlaces externos en pestaña nueva; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el contacto, el filtro de la portada y la ficha de los casos; correo y teléfono ocultos.`);
+console.log(`OK: ${pages.length} páginas (con la 404); direcciones sin .html; mapa del sitio y robots.txt; enlaces y recursos; anclas; enlaces externos en pestaña nueva; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el contacto, el filtro de la portada y la ficha de los casos; correo y teléfono ocultos.`);

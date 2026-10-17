@@ -2,7 +2,7 @@
 
 Portfolio profesional de Zabrinna Vargas Antinori: estrategia y comunicación digital, marketing de contenidos y SEO, creatividad y coordinación de proyectos.
 
-Web: <https://zabrinna14-ops.github.io/portfolio-zabrinna-vargas/>
+Web: <https://zabrinnavargas.github.io/>
 
 ## Tecnología
 

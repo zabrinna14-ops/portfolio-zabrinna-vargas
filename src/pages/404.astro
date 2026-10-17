@@ -1,0 +1,13 @@
+---
+import { ArrowLeft } from '@lucide/astro';
+import BaseLayout from '../components/BaseLayout.astro';
+import { homeUrl } from '../site';
+---
+<BaseLayout title="Página no encontrada" description="Esta página no existe o ha cambiado de dirección." noindex>
+  <section class="section not-found">
+    <p class="eyebrow">Error 404</p>
+    <h1>Esta página no existe</h1>
+    <p class="body-copy">Puede que la dirección haya cambiado. Los proyectos siguen en la portada.</p>
+    <a class="back" href={`${homeUrl}#proyectos`}><ArrowLeft class="icon" />Ver todos los proyectos</a>
+  </section>
+</BaseLayout>

@@ -229,6 +229,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .case-heading{padding-block:var(--s-6) var(--s-7)}
 .back{display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--control-height);margin-bottom:var(--s-5);text-decoration:none}
 .back:hover{text-decoration:underline}
+.not-found .body-copy{margin-block:var(--s-5) var(--s-6);max-width:60ch}
 .case-heading h1{max-width:none}
 .case-intro{font-size:var(--fs-lead);line-height:1.6;margin-top:var(--s-5)}
 .case-cover{margin-bottom:var(--s-8)}
