@@ -1,5 +1,6 @@
 ---
 import { imageUrl } from '../site';
+const steps = ['Estrategia', 'Idea', 'Guion', 'Producción', 'Publicación'];
 ---
 <section class="section split" id="marca-personal" aria-label="Marca personal">
 <header class="section-heading">
@@ -13,13 +14,13 @@ import { imageUrl } from '../site';
 <p><a href="https://www.instagram.com/itszabvantinori/" target="_blank" rel="noopener noreferrer">Instagram: @itszabvantinori</a></p>
 <p><a href="https://www.youtube.com/@zabrinnavargas" target="_blank" rel="noopener noreferrer">YouTube: @zabrinnavargas</a></p>
 </div>
+<ol class="process-timeline" aria-label="Proceso de creación">{steps.map((step) => <li><span>{step}</span></li>)}</ol>
 </div>
 <div class="split-main body-copy">
 <p>En mi proyecto personal me encargo de todo el proceso: estrategia de contenidos, ideas, guiones, grabación, edición y publicación.</p>
 <p>Creo contenido sobre desarrollo personal y vida saludable, transformando reflexiones y experiencias en historias cercanas que conecten.</p>
+<figure class="personal-collage"><img src={imageUrl('marca-personal-collage.webp')} alt="Seis publicaciones de Instagram de Zabrinna: frases sobre desarrollo personal, paisajes de costa, el gimnasio y retratos al aire libre." width="1020" height="740" loading="lazy" decoding="async" /></figure>
 <p>Trabajar en mi propio contenido me ha dado experiencia directa en lo que implica pasar de una idea a una pieza publicada: planificar, producir y cuidar cómo se cuenta. Sobre todo, me ha enseñado a tener presente a la persona que está al otro lado: qué le interesa, qué puede reconocer de su propia experiencia y cómo contarle algo que le aporte valor.</p>
 <p>Además, realicé una colaboración con Garnier mediante intercambio de producto para dar a conocer su nuevo Garnier Sorbete. La idea era presentar el producto y darle protagonismo en el contenido, manteniendo una forma de comunicar cercana y coherente con mi marca personal.</p>
 </div>
-<figure class="personal-work"><img src={imageUrl('content-reference.webp')} alt="Escena generada de creación audiovisual como referencia; pendiente de contenido propio." width="1536" height="1024" loading="lazy" /><figcaption>Referencia generada con IA · sustituir por un fotograma o portada de contenido propio.</figcaption></figure>
-<p class="quote">Estrategia → idea → guion → producción → publicación</p>
 </section>

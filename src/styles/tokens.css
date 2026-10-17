@@ -14,7 +14,7 @@
 
   /* Tipografía: dos familias y siete tamaños, más dos para cifras. */
   --serif: var(--font-playfair);
-  --sans: var(--font-inter);
+  --sans: var(--font-lato);
   --fs-display: clamp(48px, 6.2vw, 92px);
   --fs-1: clamp(40px, 5.2vw, 76px);
   --fs-2: clamp(32px, 3.8vw, 54px);
@@ -25,6 +25,10 @@
   --fs-label: 12px;
   --fs-figure-lg: clamp(48px, 5vw, 72px);
   --fs-figure: clamp(26px, 2.4vw, 34px);
+  --fs-figure-sm: clamp(18px, 1.5vw, 22px);
+  --fs-card-title: clamp(20px, 1.9vw, 26px);
+  --fs-card-title-lg: clamp(26px, 2.7vw, 38px);
+  --timeline-dot: 11px;
   --tracking-label: .12em;
 
   /* Espacio: una sola escala. */

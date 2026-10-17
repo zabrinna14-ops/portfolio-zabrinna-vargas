@@ -1,9 +1,19 @@
-# Imágenes provisionales
+# Origen de las imágenes
 
-Todas son referencias visuales pendientes de sustituir por material original. No acreditan trabajos, identidad ni ubicaciones reales del portfolio.
+## Fotografía original
 
-- merch-reference.webp, event-reference.webp y content-reference.webp: imágenes generadas previamente en esta conversación con la herramienta de imágenes de OpenAI; recuperadas sin generar imágenes adicionales. Mockup de merchandising, mesa gastronómica y espacio de producción audiovisual respectivamente.
-- portrait-reference.webp: Noémi Macavei-Katócz, Unsplash, https://unsplash.com/photos/woman-holding-black-dslr-camera-zrk7WirlxgM . Licencia Unsplash indicada en la ficha. La persona retratada no es Zabrinna.
-- rural-reference.webp: Gotta Be Worth It, Pexels, https://www.pexels.com/photo/beautiful-vineyard-landscape-in-italian-countryside-31464803/ . Licencia Pexels indicada en la ficha. Fotografía de Italia como referencia de ambiente; no representa Petritegi ni una sidrería.
+- retrato-zabrinna.webp: retrato de Zabrinna Vargas Antinori aportado por ella el 17 de octubre de 2026 (`Portfolio-materiales/foto zab.jpeg`).
+- portadas/storytelling-audiovisual.webp (`storytelling-audiovisual/portada-storytelling.webp`): fotograma del vídeo original de Zabrinna para el caso Historias que conectan, 1920 × 1080, sin IA y con los colores reales.
+- marca-personal-collage.webp (`marca-personal/collage-captura-real-v3.webp`): montaje sin IA de seis publicaciones reales de Instagram de Zabrinna, a partir de una captura que aportó el 17 de octubre de 2026. Recortadas cabecera, botones y contadores; sin retoques ni cambios de color. Resolución limitada por la captura de origen (1020 × 740).
 
-Las fuentes originales se conservan fuera del proyecto; las versiones locales están optimizadas en WebP. Fuentes y licencias comprobadas el 16 de octubre de 2026.
+## Imágenes provisionales generadas con IA
+
+No llevan pie visible (decidido por Zabrinna el 17 de octubre de 2026); su origen queda registrado aquí. Deben sustituirse por material original antes de publicar. Originales y notas de origen en `Portfolio-materiales/Assets para la web/<carpeta>/FUENTE*.md`.
+
+- hero-estrategia-creatividad.webp (`hero-portfolio/`): composición conceptual de papeles, esquema de ideas y lápiz. No representa materiales de clientes.
+- portadas/solo-de-croquetas.webp (`solo-de-croquetas/portada-merchandising-v3.png`): recreación a partir de fotografías de productos reales de la tienda (ecobolsa, libreta y gorra). No es una fotografía documental.
+- portadas/croque-quedada.webp (`croque-quedada/portada-dinamicas-v1.png`): recreación de tres dinámicas de la hoja de juegos original. No documenta el formato usado en el evento ni el local; textos e ilustraciones recreados.
+- portadas/petritegi.webp (`petritegi/portada-universo-petritegi-v1.png`): recreación conceptual inspirada en la marca, con referencia de la botella de la tienda oficial. No es fotografía de Petritegi ni contenido producido para el cliente; no se atribuye el packaging a Zabrinna.
+- portadas/automatizacion-yacrea.webp (`automatizacion-yacrea/portada-planificacion-digital-v4.png`): ilustración conceptual. No es una captura de la herramienta ni acredita integraciones.
+
+Las versiones del sitio están optimizadas en WebP. Registro actualizado el 17 de octubre de 2026.
