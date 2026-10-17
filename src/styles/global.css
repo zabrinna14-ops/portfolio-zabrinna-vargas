@@ -79,8 +79,9 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .site-header:has(nav:popover-open) .menu-toggle span::after{transform:translateY(-7px) rotate(-45deg)}
 
 /* Botón de texto en píldora */
-.text-action{display:inline-flex;align-items:center;gap:var(--s-5);min-height:var(--control-height);margin-top:var(--s-5);padding:0 var(--s-5);border:1px solid var(--navy);border-radius:var(--radius-pill);text-decoration:none;transition:background-color .2s ease,color .2s ease}
-.text-action:hover{background:var(--navy);color:var(--paper)}
+.text-action{display:inline-flex;align-items:center;gap:var(--s-5);min-height:var(--control-height);margin-top:var(--s-5);padding:0 var(--s-6);border:1px solid var(--navy);border-radius:var(--radius-pill);background:var(--navy);color:var(--cream);text-decoration:none;transition:background-color .2s ease,color .2s ease}
+.text-action:hover{background:transparent;color:var(--navy)}
+.text-action:focus-visible{outline-color:var(--navy)}
 
 /* Portada */
 /* El hero es una portada: banda crema con el nombre en tamaño display, palabras clave, frase y botón. */
