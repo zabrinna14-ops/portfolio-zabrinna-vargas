@@ -1,11 +1,36 @@
+# Dependencias y compilación
 node_modules/
 dist/
 .astro/
+
+# Sistema y editores
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Registros
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Variables de entorno y secretos
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+
+# Temporales y materiales de producción (van en ../Portfolio-materiales/)
 tmp/
+artifacts/
+assents/
+*.zip
+# Copias duplicadas que crea el Finder (p. ej. «archivo 2.json»)
+* 2.*
+
+# Herramientas de agentes (locales)
 .agents/
 .codex/
 .impeccable/
