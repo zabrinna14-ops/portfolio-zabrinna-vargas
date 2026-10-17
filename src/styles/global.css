@@ -212,7 +212,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .contact h2{font-size:var(--fs-display)}
 .contact .body-copy{font-size:var(--fs-body)}
 .contact-details p{font-size:var(--fs-small)}
-.contact-email{font:400 var(--fs-3)/1.4 var(--serif);display:block;margin-block:var(--s-5);overflow-wrap:anywhere}
+.contact-email{font:400 var(--fs-lead)/1.4 var(--serif);display:block;margin-block:var(--s-5);overflow-wrap:anywhere}
 .contact .links{margin-top:var(--s-6)}
 .home-footer{padding:var(--s-5) var(--gutter);background:var(--navy);color:var(--cream);font-size:var(--fs-label);border-top:1px solid var(--rule-inverse)}
 
