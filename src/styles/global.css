@@ -277,6 +277,17 @@ dd{margin:0}
 
 @media(min-width:701px){.hero-work .project-visual img{max-height:440px}}
 
+/* Alineación: en bloques de dos columnas, el primer texto de cada columna empieza en la línea superior de sus mayúsculas, para que títulos y textos arranquen a la misma altura. */
+@media(min-width:701px){
+  .hero-identity h1,.impact h2,.impact-copy>p:first-child,.tool-section h2,
+  #sobre-mi .body-copy>p:first-child,#marca-personal .split-aside>:first-child,#marca-personal .split-main>p:first-child,
+  .contact .split-aside>p:first-child,
+  .method-steps li:first-child>*,.method-notes>div:first-child>.method-label{text-box:trim-start cap alphabetic}
+}
+@media(min-width:1051px){
+  .case-step>h2,.step-copy>:first-child{text-box:trim-start cap alphabetic}
+  .step-copy>.links:first-child{font-size:var(--fs-small);margin-top:calc((var(--control-height) - 1cap) / -2)}
+}
 @media(max-width:1050px){
   .contact-rows>div{grid-template-columns:1fr;gap:var(--s-1)}
   .contact-card{padding:var(--s-5)}
