@@ -259,6 +259,8 @@ dd{margin:0}
 .case-figure{margin-block:var(--s-6);border:1px solid var(--rule);border-radius:var(--radius-md);overflow:hidden;background:var(--surface)}
 .case-figure img{display:block;width:100%;height:auto}
 .case-figure.is-tall{max-width:520px}
+.figure-zoom{display:block;cursor:zoom-in}
+.zoom-hint{display:none}
 .video-figure{position:relative;background:var(--navy)}
 .video-figure video,.video-figure img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
 .video-figure .video-still{display:none}
@@ -359,6 +361,7 @@ dd{margin:0}
 
 /* Menú hamburguesa en móvil; sin soporte de popover, el menú queda en una segunda fila */
 @media(max-width:700px){
+  .zoom-hint{display:inline}
   /* Ficha de los casos en móvil: un dato debajo de otro (va después de la regla de tableta). */
   .project-facts dl{grid-template-columns:1fr}
   .project-facts dl>div:nth-child(2){border-top:1px solid var(--rule);padding-top:var(--s-4)}
