@@ -157,10 +157,19 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .about-portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
 #sobre-mi .body-copy p:first-child{font:italic var(--fs-lead)/1.6 var(--serif)}
 .about-subheading{margin-top:var(--s-7)}
-.strengths{list-style:none;margin:var(--s-4) 0 0;padding:0}
-.strengths li{border-top:1px solid var(--rule);padding:var(--s-4) 0}
-.strengths p{font-size:var(--fs-small);max-width:60ch}
-.strengths strong{font-weight:600}
+.about-traits{max-width:320px;margin-top:var(--s-6)}
+.about-traits .about-subheading{margin-top:0}
+.traits{margin-top:var(--s-4)}
+.traits details{border-top:1px solid var(--rule)}
+.traits details:last-child{border-bottom:1px solid var(--rule)}
+.traits summary{display:flex;align-items:baseline;gap:var(--s-2);min-height:var(--control-height);padding:var(--s-2) 0;cursor:pointer;list-style:none}
+.traits summary::-webkit-details-marker{display:none}
+.traits summary:after{content:'+';margin-left:auto;font:400 var(--fs-body)/1 var(--sans)}
+.traits details[open] summary:after{content:'−'}
+.traits summary:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:var(--radius-sm)}
+.trait-number{min-width:2.25em;font:600 var(--fs-label)/1.5 var(--sans);letter-spacing:var(--tracking-label)}
+.trait-title{font:600 var(--fs-small)/1.4 var(--sans)}
+.traits p{font-size:var(--fs-small);line-height:1.6;margin:0 0 var(--s-3) calc(2.25em + var(--s-2))}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-5);margin-top:var(--s-4);padding-top:var(--s-5);border-top:1px solid var(--rule)}
 
 /* Cómo trabajo */
@@ -277,6 +286,8 @@ dd{margin:0}
   #f-todos:checked~.project-grid .featured h3{font-size:var(--fs-card-title)}
   .web-art{aspect-ratio:auto;min-height:255px}
   .about-portrait{max-width:260px}
+  .about-traits{max-width:none}
+  .traits p{margin-left:0}
   .stats{gap:var(--s-4)}
   .contact-details{margin-top:var(--s-6)}
   .case-heading{padding-block:var(--s-5) var(--s-6)}
