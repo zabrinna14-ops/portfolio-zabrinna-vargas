@@ -35,3 +35,13 @@ assents/
 .codex/
 .impeccable/
 .claude/
+
+# Notas internas (solo en local; copia en ../Portfolio-materiales/notas-internas/)
+AGENTS.md
+CLAUDE.md
+DESIGN.md
+PRODUCT.md
+skills-lock.json
+docs/
+legacy-static/
+README-interno.md
