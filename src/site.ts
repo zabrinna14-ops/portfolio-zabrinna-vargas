@@ -3,7 +3,7 @@ export const site = {
   // Nombre corto para el título de la pestaña y al compartir.
   shortName: 'Zabrinna Vargas',
   discipline: 'Digital Marketing Manager',
-  description: 'Portfolio profesional de Zabrinna Vargas Antinori. Estrategia, creatividad y gestión de proyectos de marketing.',
+  description: 'Portfolio de Zabrinna Vargas Antinori: estrategia digital, contenido y SEO, creatividad y coordinación de proyectos de marketing, contados caso a caso.',
 };
 
 export const areas = [
