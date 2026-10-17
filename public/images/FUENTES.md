@@ -4,6 +4,7 @@
 
 - retrato-zabrinna.webp: retrato de Zabrinna Vargas Antinori aportado por ella el 17 de octubre de 2026 (`Portfolio-materiales/foto zab.jpeg`).
 - portadas/storytelling-audiovisual.webp (`storytelling-audiovisual/portada-storytelling.webp`): fotograma del vídeo original de Zabrinna para el caso Historias que conectan, 1920 × 1080, sin IA y con los colores reales.
+- ../videos/storytelling-apertura.mp4 (`storytelling-audiovisual/storytelling-apertura-3s.mp4`): primeros 3 segundos del vídeo original de Zabrinna, 1280 × 720, sin audio, con sus subtítulos originales y sin IA. Se usa como vista previa en bucle en el caso Historias que conectan; el vídeo completo se enlaza en Google Drive.
 - marca-personal-collage.webp (`marca-personal/collage-captura-real-v3.webp`): montaje sin IA de seis publicaciones reales de Instagram de Zabrinna, a partir de una captura que aportó el 17 de octubre de 2026. Recortadas cabecera, botones y contadores; sin retoques ni cambios de color. Resolución limitada por la captura de origen (1020 × 740).
 
 ## Imágenes provisionales generadas con IA

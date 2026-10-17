@@ -230,7 +230,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .back{display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--control-height);margin-bottom:var(--s-5);text-decoration:none}
 .back:hover{text-decoration:underline}
 .case-heading h1{max-width:24ch}
-.case-intro{max-width:60ch;font-size:var(--fs-lead);line-height:1.6;margin-top:var(--s-5)}
+.case-intro{font-size:var(--fs-lead);line-height:1.6;margin-top:var(--s-5)}
 .project-name{font-size:var(--fs-small);margin-top:var(--s-4)}
 .case-cover{margin-bottom:var(--s-8)}
 .case-cover .project-visual{border-radius:var(--radius-lg)}
@@ -256,6 +256,12 @@ dd{margin:0}
 .case-figure{margin-block:var(--s-6);border:1px solid var(--rule);border-radius:var(--radius-md);overflow:hidden;background:var(--surface)}
 .case-figure img{display:block;width:100%;height:auto}
 .case-figure.is-tall{max-width:520px}
+.video-figure{position:relative;background:var(--navy)}
+.video-figure video,.video-figure img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.video-figure .video-still{display:none}
+.video-cta{position:absolute;left:var(--s-4);bottom:var(--s-4);display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--control-height);padding:0 var(--s-5);border-radius:var(--radius-pill);background:var(--navy);color:var(--cream);font:600 var(--fs-label)/1 var(--sans);letter-spacing:var(--tracking-label);text-transform:uppercase;text-decoration:none}
+.video-cta:hover{background:var(--cream);color:var(--navy)}
+.video-cta .icon{width:16px;height:16px}
 .image-suggestion{display:flex;flex-direction:column;justify-content:flex-end;gap:var(--s-3);min-height:260px;padding:var(--s-6);background:var(--navy);color:var(--cream);border:0}
 .image-suggestion p{margin:0;max-width:44ch;font:400 var(--fs-lead)/1.45 var(--serif)}
 .image-suggestion .image-suggestion-label{font:600 var(--fs-label)/1.5 var(--sans)}
@@ -266,6 +272,7 @@ dd{margin:0}
 .tool-section{padding-block:var(--section-y)}
 .tool-section h2{font-size:var(--fs-2)}
 .tool-section dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0 var(--s-6)}
+.tool-section dl:has(>div:nth-child(4):last-child){grid-template-columns:repeat(auto-fill,minmax(max(240px,calc(50% - var(--s-6))),1fr))}
 .tool-section dl>div{border-top:1px solid var(--rule);padding-block:var(--s-4)}
 .tool-section dt{font-size:var(--fs-body);font-weight:600}
 .tool-section dd{font-size:var(--fs-small);margin-top:var(--s-2)}
@@ -277,6 +284,17 @@ dd{margin:0}
 
 @media(min-width:701px){.hero-work .project-visual img{max-height:440px}}
 
+/* Alineación: en bloques de dos columnas, el primer texto de cada columna empieza en la línea superior de sus mayúsculas, para que títulos y textos arranquen a la misma altura. */
+@media(min-width:701px){
+  .hero-identity h1,.impact h2,.impact-copy>p:first-child,.tool-section h2,
+  #sobre-mi .body-copy>p:first-child,#marca-personal .split-aside>:first-child,#marca-personal .split-main>p:first-child,
+  .contact .split-aside>p:first-child,
+  .method-steps li:first-child>*,.method-notes>div:first-child>.method-label{text-box:trim-start cap alphabetic}
+}
+@media(min-width:1051px){
+  .case-step>h2,.step-copy>:first-child{text-box:trim-start cap alphabetic}
+  .step-copy>.links:first-child{font-size:var(--fs-small);margin-top:calc((var(--control-height) - 1cap) / -2)}
+}
 @media(max-width:1050px){
   .contact-rows>div{grid-template-columns:1fr;gap:var(--s-1)}
   .contact-card{padding:var(--s-5)}
@@ -328,6 +346,7 @@ dd{margin:0}
   .project-facts dl>div:last-child:nth-child(odd){grid-column:1/-1}
   .case-figure{margin-block:var(--s-5)}
   .image-suggestion{min-height:200px;padding:var(--s-5)}
+  .video-cta{left:var(--s-3);bottom:var(--s-3);padding:0 var(--s-4)}
   .band-navy h2{margin-bottom:var(--s-5)}
   .impact-copy{margin-top:var(--s-6)}
   .tool-section h2{margin-bottom:var(--s-5)}
@@ -354,6 +373,8 @@ dd{margin:0}
 }
 
 @media(prefers-reduced-motion:reduce){
+  .video-figure .video-loop{display:none}
+  .video-figure .video-still{display:block}
   html{scroll-behavior:auto}
   .project-card,.project-card .project-visual img,.text-action{transition:none}
   .project-card:hover,.project-card:hover .project-visual img{transform:none}
