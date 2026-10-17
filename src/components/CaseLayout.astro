@@ -40,7 +40,12 @@ const sections = getSections(project);
 
 <script>
   // Demo: the facts card floats over the cover as glass and settles into its
-  // column on scroll. ?ficha=b swaps in a small role chip that grows into the card.
+  // column on scroll. ?ficha= picks the variant (default b1):
+  //   a  — the whole card starts over the bottom of the cover.
+  //   b1 — a one-row "Proyecto" chip at the bottom of the cover unfolds into the card.
+  //   b2 — the chip starts at the top of the cover, slides to the bottom, then does b1.
+  //   b3 — the card starts at the top as that one row; its rows appear one by one,
+  //        then the full card moves to its column.
   // Without JavaScript, below 1051px or with reduced motion, the card stays as is.
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -48,7 +53,10 @@ const sections = getSections(project);
 
   gsap.registerPlugin(ScrollTrigger, CustomEase);
   const easeInOut = CustomEase.create('ease-in-out', '0.77,0,0.175,1');
-  const variant = new URL(location.href).searchParams.get('ficha') === 'b' ? 'b' : 'a';
+  const easeOut = CustomEase.create('ease-out', '0.23,1,0.32,1');
+  const variants = ['a', 'b1', 'b2', 'b3'];
+  const requested = new URL(location.href).searchParams.get('ficha') ?? 'b1';
+  const variant = variants.includes(requested) ? requested : 'b1';
   const root = document.documentElement;
   const cover = document.querySelector<HTMLElement>('.case-cover .project-visual');
   const card = document.querySelector<HTMLElement>('.project-facts');
@@ -59,7 +67,9 @@ const sections = getSections(project);
 
   if (cover && card && glass && chip && slot) {
     gsap.matchMedia().add('(min-width: 1051px) and (prefers-reduced-motion: no-preference)', () => {
-      root.classList.add(`facts-float-${variant}`);
+      root.classList.add('facts-float', `facts-float-${variant}`);
+      const rows = [...card.querySelectorAll<HTMLElement>('dl > div, .metric')];
+      const radius = getComputedStyle(card).borderRadius;
       // Layout boxes in page coordinates, ignoring the transforms this demo applies
       // and the card's sticky offset: the card is the first item of the case grid.
       const page = (el: Element) => { const r = el.getBoundingClientRect(); return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height }; };
@@ -69,35 +79,51 @@ const sections = getSections(project);
         const k = { x: wrap.x + chip.offsetLeft, y: wrap.y + chip.offsetTop, w: chip.offsetWidth, h: chip.offsetHeight };
         return { c, f, k };
       };
-      const scroll = { trigger: slot, start: 'top bottom', end: 'top 35%', scrub: 0.4, invalidateOnRefresh: true };
+      // Clip the card to its top `visible` pixels.
+      const clip = (visible: number) => `inset(0px 0px ${Math.max(0, card.offsetHeight - visible)}px 0px round ${radius})`;
+      const rowEnd = (row: HTMLElement) => row.offsetTop + row.offsetHeight + 8;
+      const fromStart = variant === 'b2' || variant === 'b3';
+      const tl = gsap.timeline({
+        defaults: { ease: easeInOut },
+        scrollTrigger: { trigger: slot, start: fromStart ? 0 : 'top bottom', end: 'top 35%', scrub: 0.4, invalidateOnRefresh: true },
+      });
 
       if (variant === 'a') {
-        // The whole card starts over the bottom-left corner of the cover.
         const from = () => {
           const { c, f } = measure();
           return { x: c.x + inset - f.x, y: Math.max(c.y + inset, c.y + c.h - inset - f.h) - f.y };
         };
-        gsap.timeline({ scrollTrigger: scroll, defaults: { ease: easeInOut } })
-          .fromTo(card, { x: () => from().x, y: () => from().y }, { x: 0, y: 0 }, 0)
+        tl.fromTo(card, { x: () => from().x, y: () => from().y }, { x: 0, y: 0 }, 0)
           .fromTo(glass, { opacity: 0.6 }, { opacity: 1 }, 0);
+      } else if (variant === 'b3') {
+        const from = () => { const { c, f } = measure(); return { x: c.x + inset - f.x, y: c.y + inset - f.y }; };
+        // Each row fades in as the clip opens down to it. Clip values go from and to
+        // explicit strings: the browser shortens a computed inset() and breaks tweening.
+        const rest = rows.slice(1);
+        const ends = () => [rowEnd(rows[0]), ...rest.map((row, index) => index === rest.length - 1 ? card.offsetHeight : rowEnd(row))];
+        tl.fromTo(card, { x: () => from().x, y: () => from().y }, { x: () => from().x, y: () => from().y, duration: 1 }, 0);
+        rest.forEach((row, index) => {
+          const at = index / rest.length, duration = 1 / rest.length;
+          tl.fromTo(row, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration, ease: easeOut }, at)
+            .fromTo(card, { clipPath: () => clip(ends()[index]) }, { clipPath: () => clip(ends()[index + 1]), duration, ease: easeOut, immediateRender: index === 0 }, at);
+        });
+        tl.fromTo(card, { x: () => from().x, y: () => from().y }, { x: 0, y: 0, duration: 1, immediateRender: false }, 1)
+          .fromTo(glass, { opacity: 0.6 }, { opacity: 1, duration: 1 }, 1);
       } else {
-        // A small chip with the project name sits on the cover; it grows towards the card while the card
-        // grows out of the chip's box, crossfading on the way.
-        const delta = () => {
-          const { f, k } = measure();
-          return { x: k.x - f.x, y: k.y - f.y, scale: k.w / f.w, hidden: f.h - k.h * (f.w / k.w) };
-        };
-        // The card is revealed from the chip's height down to its own.
-        const radius = getComputedStyle(card).borderRadius;
-        gsap.timeline({ scrollTrigger: scroll, defaults: { ease: easeInOut } })
-          .fromTo(chip, { x: 0, y: 0, scale: 1, opacity: 1 }, { x: () => -delta().x, y: () => -delta().y, scale: () => 1 / delta().scale }, 0)
-          .to(chip, { opacity: 0, duration: 0.3, ease: 'none' }, 0.2)
-          .fromTo(card, { x: () => delta().x, y: () => delta().y, scale: () => delta().scale, opacity: 0 }, { x: 0, y: 0, scale: 1 }, 0)
-          .fromTo(card, { clipPath: () => `inset(0px 0px ${Math.max(0, delta().hidden)}px 0px round ${radius})` }, { clipPath: `inset(0px 0px 0px 0px round ${radius})` }, 0)
-          .to(card, { opacity: 1, duration: 0.3, ease: 'none' }, 0.15)
-          .fromTo(glass, { opacity: 0.6 }, { opacity: 1 }, 0);
+        // b1 and b2: the chip is the card's first row; the card unfolds from it.
+        const delta = () => { const { f, k } = measure(); return { x: k.x - f.x, y: k.y - f.y }; };
+        const at = variant === 'b2' ? 1 : 0;
+        if (variant === 'b2') {
+          // Start at the top of the cover and slide down to the chip's resting place.
+          tl.fromTo(chip, { y: () => { const { c, k } = measure(); return c.y + inset - k.y; } }, { y: 0, duration: 1 }, 0);
+        }
+        tl.fromTo(chip, { x: 0, y: 0, opacity: 1 }, { x: () => -delta().x, y: () => -delta().y, duration: 1, immediateRender: !at }, at)
+          .to(chip, { opacity: 0, duration: 0.3, ease: 'none' }, at + 0.2)
+          .fromTo(card, { x: () => delta().x, y: () => delta().y, opacity: 0, clipPath: () => clip(chip.offsetHeight) }, { x: 0, y: 0, clipPath: () => clip(card.offsetHeight), duration: 1 }, at)
+          .to(card, { opacity: 1, duration: 0.3, ease: 'none' }, at + 0.15)
+          .fromTo(glass, { opacity: 0.6 }, { opacity: 1, duration: 1 }, at);
       }
-      return () => root.classList.remove(`facts-float-${variant}`);
+      return () => root.classList.remove('facts-float', `facts-float-${variant}`);
     });
   }
 </script>
