@@ -14,5 +14,4 @@ const asset = assets[id];
 ---
 <figure class:list={['project-visual', { 'visual-compact': compact, 'visual-web': isWeb }]}>
   {isWeb ? <div class="web-art"><div class="browser-line"><span></span><span></span><span></span><p>Arquitectura de contenidos</p></div><div class="web-art-content"><p>Encontrar el servicio<br /><em>adecuado.</em></p><div class="site-map"><span>Necesidad</span><span>Servicio</span><span>Contacto</span></div><div class="web-lines"><i></i><i></i><i></i></div></div></div> : <img src={imageUrl(asset.src)} alt={asset.alt} width={asset.width} height={asset.height} loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />}
-  {isWeb && <figcaption>Maqueta de referencia · sustituir por capturas reales</figcaption>}
 </figure>
