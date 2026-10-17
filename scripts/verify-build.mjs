@@ -22,18 +22,15 @@ for (const [file, html] of documents) {
   const name = relative(root, file);
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${name}: un solo H1`);
   assert.equal(ids(html).length, new Set(ids(html)).size, `${name}: IDs únicos`);
-  // Solo la portada lleva JavaScript: mejora progresiva del filtro, empaquetada por Astro.
+  // JavaScript propio en módulos: en todas las páginas, el que une correo y teléfono
+  // del contacto; además, el filtro en la portada y la ficha flotante en los casos.
   const scripts = [...html.matchAll(/<script\b[^>]*>/gi)].map((match) => match[0]);
-  if (name === 'index.html') {
-    assert.equal(scripts.length, 1, `${name}: un único script, el del filtro`);
-    assert(/type="module"/.test(scripts[0]) && !/src="https?:/.test(scripts[0]), `${name}: script propio de tipo módulo`);
-  } else if (name.startsWith('proyectos/')) {
-    // Ficha flotante sobre la portada: un único script propio por caso.
-    assert.equal(scripts.length, 1, `${name}: un único script, el de la ficha`);
-    assert(/type="module"/.test(scripts[0]) && !/src="https?:/.test(scripts[0]), `${name}: script propio de tipo módulo`);
-  } else {
-    assert.equal(scripts.length, 0, `${name}: sin JavaScript cliente`);
-  }
+  const expected = name === 'index.html' || name.startsWith('proyectos/') ? 2 : 1;
+  assert.equal(scripts.length, expected, `${name}: ${expected} scripts propios`);
+  for (const script of scripts) assert(/type="module"/.test(script) && !/src="https?:/.test(script), `${name}: script propio de tipo módulo`);
+  // Contacto protegido: ni correo completo ni teléfono legible por robots en el HTML.
+  assert(!/[\w.+-]+@[\w-]+\.[a-z]{2,}/i.test(html) && !/href="(mailto|tel):|615 ?689 ?016/.test(html), `${name}: correo y teléfono ocultos en el HTML`);
+  assert(/data-contact="email"/.test(html) && /data-contact="tel"/.test(html), `${name}: contacto presente`);
   assert(html.includes('<html lang="es">'), `${name}: idioma español`);
   assert(/<meta name="description" content="[^"]+"/.test(html), `${name}: descripción SEO`);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
@@ -98,4 +95,4 @@ assert.equal(visited.size, projectFiles.length, 'Navegación circular por todos 
 const pending = [];
 if (![...documents.values()].some((html) => html.includes('property="og:image"'))) pending.push('sin imagen para compartir (og:image)');
 if (pending.length) console.warn(`PENDIENTE antes de publicar: ${pending.join('; ')} (ver docs/ANTES-DE-PUBLICAR.md).`);
-console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; enlaces externos en pestaña nueva; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el filtro de la portada y la ficha de los casos.`);
+console.log(`OK: ${pages.length} páginas; enlaces y recursos; anclas; enlaces externos en pestaña nueva; filtros y áreas; SEO y metadatos para compartir; contenido renderizado; navegación circular; JavaScript solo en el contacto, el filtro de la portada y la ficha de los casos; correo y teléfono ocultos.`);

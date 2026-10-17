@@ -1,5 +1,11 @@
 ---
 import { ArrowUpRight } from '@lucide/astro';
+
+// Correo y teléfono troceados: ni el HTML ni el código del repositorio los
+// contienen completos, para que los robots no los recojan. El script del final
+// los une al cargar la página; sin JavaScript se leen en forma legible.
+const email = ['zabrinna14', 'gmail.com'];
+const phone = ['+34', '615', '689', '016'];
 ---
 <section class="section contact split split-even" id="contacto" aria-label="Contacto">
 <header class="section-heading">
@@ -13,8 +19,8 @@ import { ArrowUpRight } from '@lucide/astro';
 <div class="split-main contact-details">
 <div class="contact-card">
 <dl class="contact-rows">
-<div><dt>Correo</dt><dd><a class="contact-email" href="mailto:zabrinna14@gmail.com">zabrinna14@gmail.com</a></dd></div>
-<div><dt>Teléfono</dt><dd><a href="tel:+34615689016">+34 615 689 016</a></dd></div>
+<div><dt>Correo</dt><dd><a class="contact-email" data-contact="email" data-parts={email.join('|')}>{email[0]} (arroba) {email[1]}</a></dd></div>
+<div><dt>Teléfono</dt><dd><a data-contact="tel" data-parts={phone.join('|')}>{phone.join(' · ')}</a></dd></div>
 <div><dt>Redes</dt><dd class="contact-social">
 <a href="https://www.linkedin.com/in/zabrinna-vantinori/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight class="icon" /></a>
 <a href="https://www.youtube.com/@zabrinnavargas" target="_blank" rel="noopener noreferrer">YouTube <ArrowUpRight class="icon" /></a>
@@ -24,3 +30,16 @@ import { ArrowUpRight } from '@lucide/astro';
 </div>
 </div>
 </section>
+<script>
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-contact]')) {
+    const parts = (link.dataset.parts ?? '').split('|');
+    if (link.dataset.contact === 'email') {
+      const address = parts.join('@');
+      link.href = `mailto:${address}`;
+      link.textContent = address;
+    } else {
+      link.href = `tel:${parts.join('')}`;
+      link.textContent = parts.join(' ');
+    }
+  }
+</script>
