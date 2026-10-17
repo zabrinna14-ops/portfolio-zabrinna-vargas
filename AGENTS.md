@@ -33,6 +33,7 @@ La calidad no se negocia: cada cambio se verifica y se revisa en la vista previa
 - No releer archivos recién editados ni repetir comprobaciones que ya pasaron si no ha cambiado el código.
 - Agrupar en un solo paso las lecturas, búsquedas y comandos independientes.
 - Verificar según el tipo de cambio: CSS o componentes → `pnpm check && pnpm build && pnpm verify` una vez al final, más la vista previa; solo documentación → sin compilación.
+- Versión móvil (pedido por Zabrinna el 17 de octubre de 2026): todo cambio que pueda afectar a la versión móvil (CSS, componentes, imágenes, textos largos, tamaños de letra o proporciones) se revisa también en la vista previa a ancho de móvil (375 px) y, si hace falta, a tableta (768 px). Si algo se rompe o queda mal compuesto (desbordes, textos cortados, tamaños desproporcionados, áreas táctiles pequeñas), se ajusta en el mismo cambio, sin esperar a que ella lo pida.
 - En la vista previa, preferir `read_page`, `get_page_text` o JavaScript para comprobar estilos y textos; usar capturas solo para juzgar el resultado visual, a escala reducida cuando baste.
 - Si ya hay un servidor de desarrollo en el puerto 4321 sirviendo este directorio, reutilizarlo en lugar de arrancar otro.
 - No lanzar subagentes ni investigaciones amplias para cambios acotados; reservarlos para tareas grandes o cuando Zabrinna los pida.
