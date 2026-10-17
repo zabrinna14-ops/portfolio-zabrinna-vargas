@@ -266,6 +266,7 @@ dd{margin:0}
 .tool-section{padding-block:var(--section-y)}
 .tool-section h2{font-size:var(--fs-2)}
 .tool-section dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0 var(--s-6)}
+.tool-section dl:has(>div:nth-child(4):last-child){grid-template-columns:repeat(auto-fill,minmax(max(240px,calc(50% - var(--s-6))),1fr))}
 .tool-section dl>div{border-top:1px solid var(--rule);padding-block:var(--s-4)}
 .tool-section dt{font-size:var(--fs-body);font-weight:600}
 .tool-section dd{font-size:var(--fs-small);margin-top:var(--s-2)}
