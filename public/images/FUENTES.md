@@ -6,7 +6,7 @@
 
 ## Imágenes provisionales generadas con IA
 
-Llevan pie visible que indica su origen. Deben sustituirse por material original antes de publicar. Originales y notas de origen en `Portfolio-materiales/Assets para la web/<carpeta>/FUENTE*.md`.
+No llevan pie visible (decidido por Zabrinna el 17 de octubre de 2026); su origen queda registrado aquí. Deben sustituirse por material original antes de publicar. Originales y notas de origen en `Portfolio-materiales/Assets para la web/<carpeta>/FUENTE*.md`.
 
 - hero-estrategia-creatividad.webp (`hero-portfolio/`): composición conceptual de papeles, esquema de ideas y lápiz. No representa materiales de clientes.
 - portadas/solo-de-croquetas.webp (`solo-de-croquetas/portada-merchandising-v3.png`): recreación a partir de fotografías de productos reales de la tienda (ecobolsa, libreta y gorra). No es una fotografía documental.
