@@ -212,17 +212,20 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .contact{background:var(--navy);color:var(--cream);max-width:none;--rule:var(--rule-inverse)}
 .contact h2{font-size:var(--fs-display)}
 .contact .body-copy{font-size:var(--fs-body)}
+.split-even{grid-template-columns:1fr 1fr}
+.split-even>.split-aside,.split-even>.split-main{grid-row:2}
 .contact-card{background:#e8e4d60f;border:1px solid var(--rule);border-radius:var(--radius-md);padding:var(--s-6)}
-.contact-who{font-size:var(--fs-small)}
-.contact-rows{margin:var(--s-5) 0 0}
+.contact-rows{margin:0}
 .contact-rows>div{display:grid;grid-template-columns:7em minmax(0,1fr);gap:var(--s-4);align-items:center;border-top:1px solid var(--rule);padding:var(--s-3) 0}
+.contact-rows>div:first-child{border-top:0;padding-top:0}
 .contact-rows>div:last-child{padding-bottom:0}
+.contact-rows a{text-decoration:none}
+.contact-rows a:hover,.contact-rows a:focus-visible{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 .contact-rows dt{font:600 var(--fs-label)/1.5 var(--sans);letter-spacing:var(--tracking-label);text-transform:uppercase}
 .contact-rows dd{margin:0;font-size:var(--fs-small)}
 .contact-email{font:400 var(--fs-body)/1.4 var(--serif);overflow-wrap:anywhere}
-.contact-social{display:flex;flex-wrap:wrap;gap:var(--s-2)}
-.contact-social a{display:inline-flex;align-items:center;min-height:var(--control-height);padding:0 var(--s-4);border:1px solid var(--rule);border-radius:var(--radius-pill);text-decoration:none}
-.contact-social a:hover{border-color:currentColor}
+.contact-social{display:flex;flex-wrap:wrap;gap:0 var(--s-4)}
+.contact-social a{display:inline-flex;align-items:center;min-height:var(--control-height)}
 .home-footer{padding:var(--s-5) var(--gutter);background:var(--navy);color:var(--cream);font-size:var(--fs-label);border-top:1px solid var(--rule-inverse)}
 
 /* Caso: cabecera y portada */
@@ -277,6 +280,8 @@ dd{margin:0}
 @media(min-width:701px){.hero-work .project-visual img{max-height:440px}}
 
 @media(max-width:1050px){
+  .contact-rows>div{grid-template-columns:1fr;gap:var(--s-1)}
+  .contact-card{padding:var(--s-5)}
   .method-steps li{grid-template-columns:var(--s-6) minmax(0,1fr);column-gap:var(--s-3);row-gap:var(--s-2)}
   .method-steps p{grid-column:2}
   .case-step{grid-template-columns:1fr;gap:var(--s-4)}
@@ -313,8 +318,6 @@ dd{margin:0}
   .traits p{margin-left:0}
   .stats{gap:var(--s-4)}
   .contact-details{margin-top:var(--s-6)}
-  .contact-card{padding:var(--s-5)}
-  .contact-rows>div{grid-template-columns:1fr;gap:var(--s-1)}
   .case-heading{padding-block:var(--s-5) var(--s-6)}
   .case-intro{font-size:var(--fs-body)}
   .case-cover{margin-bottom:var(--s-6)}
