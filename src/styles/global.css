@@ -42,7 +42,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .body-copy{max-width:65ch}
 /* Bandas: fondo a todo el ancho y contenido alineado con .wrap. */
 .band{padding-block:var(--section-y)}
-.band,.home-hero,.contact,.home-footer{padding-inline:max(var(--gutter),calc((100% - 1440px)/2 + var(--gutter)))}
+.band,.home-hero,.contact{padding-inline:max(var(--gutter),calc((100% - 1440px)/2 + var(--gutter)))}
 .band-cream{background:var(--cream)}
 .band-cream figcaption{background:var(--paper)}
 .band-navy{background:var(--navy);color:var(--cream);--rule:var(--rule-inverse)}
@@ -223,7 +223,6 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .contact-email{font:400 var(--fs-body)/1.4 var(--serif);overflow-wrap:anywhere}
 .contact-social{display:flex;flex-wrap:wrap;gap:0 var(--s-4)}
 .contact-social a{display:inline-flex;align-items:center;gap:var(--s-1);min-height:var(--control-height)}
-.home-footer{padding:var(--s-5) var(--gutter);background:var(--navy);color:var(--cream);font-size:var(--fs-label);border-top:1px solid var(--rule-inverse)}
 
 /* Caso: cabecera y portada */
 .case-heading{padding-block:var(--s-6) var(--s-7)}
