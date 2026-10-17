@@ -11,7 +11,7 @@ export default defineConfig({
   devToolbar: { enabled: false },
   // Fuentes descargadas al compilar y servidas desde el propio sitio.
   fonts: [
-    { provider: fontProviders.fontsource(), name: 'Inter', cssVariable: '--font-inter', weights: [400, 600], styles: ['normal'], fallbacks: ['Arial', 'sans-serif'] },
+    { provider: fontProviders.fontsource(), name: 'Lato', cssVariable: '--font-lato', weights: [400, 700], styles: ['normal'], fallbacks: ['Arial', 'sans-serif'] },
     { provider: fontProviders.fontsource(), name: 'Playfair Display', cssVariable: '--font-playfair', weights: [400], styles: ['normal', 'italic'], fallbacks: ['Georgia', 'serif'] },
   ],
 });

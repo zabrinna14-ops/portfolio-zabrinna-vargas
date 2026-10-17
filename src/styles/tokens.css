@@ -14,7 +14,7 @@
 
   /* Tipografía: dos familias y siete tamaños, más dos para cifras. */
   --serif: var(--font-playfair);
-  --sans: var(--font-inter);
+  --sans: var(--font-lato);
   --fs-display: clamp(48px, 6.2vw, 92px);
   --fs-1: clamp(40px, 5.2vw, 76px);
   --fs-2: clamp(32px, 3.8vw, 54px);
