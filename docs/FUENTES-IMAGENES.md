@@ -1,5 +1,7 @@
 # Origen de las imágenes
 
+Registro interno de `public/images/` y `public/videos/`. Está fuera de `public/` para que no se publique con la web.
+
 ## Fotografía original
 
 - retrato-zabrinna.webp: retrato de Zabrinna Vargas Antinori aportado por ella el 17 de octubre de 2026 (`Portfolio-materiales/foto zab.jpeg`).
