@@ -14,7 +14,7 @@ highlight: {"value": "Web · Contenido · Merchandising", "label": "Aplicaciones
 period: "Junio 2024 – Abril 2025"
 results: {"paragraphs": ["El universo visual de la marca pasó de la carta digital al propio restaurante, los eventos y los productos de merchandising. La colección generó ventas, especialmente de tazas y gorras.", "Durante esa etapa también percibimos una comunidad más vinculada a la marca. Lo observábamos en la interacción en redes sociales, en clientes que volvían al restaurante y en las reseñas de Google. Eran señales cualitativas de una relación que iba más allá de una visita o una compra puntual."]}
 tools: [{"name": "WordPress", "use": "Estructura web y tienda online"}]
-links: [{"url": "https://solodecroquetas.es/tipos-de-croquetas/", "label": "Ver personajes ↗"}, {"url": "https://solodecroquetas.es/accesorios-croqueteros/", "label": "Ver merchandising ↗"}]
+links: [{"url": "https://solodecroquetas.es/tipos-de-croquetas/", "label": "Ver personajes"}, {"url": "https://solodecroquetas.es/accesorios-croqueteros/", "label": "Ver merchandising"}]
 ---
 
 ## El reto

@@ -1,4 +1,5 @@
 ---
+import { ArrowLeft, ArrowUpRight } from '@lucide/astro';
 import type { Project } from '../projects';
 import { getSections } from '../projects';
 import { homeUrl } from '../site';
@@ -16,7 +17,7 @@ const sections = getSections(project);
 ---
 <BaseLayout title={data.name} description={data.intro}>
   <div class="case-heading wrap">
-    <a class="back" href={`${homeUrl}#proyectos`}>← Todos los proyectos</a>
+    <a class="back" href={`${homeUrl}#proyectos`}><ArrowLeft class="icon" />Todos los proyectos</a>
     <p class="eyebrow">{data.areaLabel}</p>
     <h1>{data.title}</h1>
     <p class="case-intro">{data.intro}</p>
@@ -27,7 +28,7 @@ const sections = getSections(project);
     <ProjectFacts project={project} />
     <div class="case-narrative split-main">
       {sections.map((section, index) => <CaseSection title={section.title} number={index + 1}><Fragment set:html={section.html} /></CaseSection>)}
-      {data.links.length > 0 && <CaseSection title="Explorar el trabajo"><div class="links">{data.links.map((link) => <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>)}</div></CaseSection>}
+      {data.links.length > 0 && <CaseSection title="Explorar el trabajo"><div class="links">{data.links.map((link) => <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}<ArrowUpRight class="icon" /></a>)}</div></CaseSection>}
     </div>
   </div>
   {data.results && <ProjectResults results={data.results} />}

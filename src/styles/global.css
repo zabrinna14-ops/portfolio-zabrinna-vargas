@@ -11,6 +11,7 @@ a:focus-visible,input:focus-visible+label{outline:2px solid currentColor;outline
 h1,h2,h3,p{margin:0}
 p+p{margin-top:var(--s-4)}
 h1,h2{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.012em;text-wrap:balance}
+.icon{width:1.1em;height:1.1em;flex:none;stroke-width:1.75}
 h1{font-size:var(--fs-1)}
 h2{font-size:var(--fs-2)}
 h3{line-height:1.25}
@@ -26,7 +27,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 
 /* Etiqueta: un solo estilo en mayúsculas para todo texto de rótulo. */
 .eyebrow,.hero-keywords,.brand span,legend,.filter-options label,.card-top,.case-link,.back,.step-number,
-.project-facts dt,.project-pagination span,.meta,.find-me h3,.about-subheading,
+.project-facts dt,.pagination-label,.meta,.find-me h3,.about-subheading,
 .image-suggestion-label,.stat-context,.text-action{font:600 var(--fs-label)/1.5 var(--sans);letter-spacing:var(--tracking-label);text-transform:uppercase}
 .eyebrow{margin-bottom:var(--s-4)}
 
@@ -46,7 +47,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .band-cream figcaption{background:var(--paper)}
 .band-navy{background:var(--navy);color:var(--cream);--rule:var(--rule-inverse)}
 .links{display:flex;flex-wrap:wrap;gap:var(--s-3) var(--s-6);margin-top:var(--s-5)}
-.links a{font-size:var(--fs-small);min-height:var(--control-height);display:inline-flex;align-items:center}
+.links a{font-size:var(--fs-small);min-height:var(--control-height);display:inline-flex;align-items:center;gap:var(--s-1)}
 
 /* Cifras: un componente, dos tamaños */
 .metric strong{display:block;font:400 var(--fs-figure)/1.15 var(--serif)}
@@ -69,14 +70,9 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .site-header nav a:hover{background:var(--cream)}
 .menu-toggle{display:none;align-items:center;justify-content:center;width:var(--control-height);height:var(--control-height);margin-right:calc(-1 * var(--s-2));padding:0;border:0;border-radius:var(--radius-pill);background:none;color:inherit;cursor:pointer}
 .menu-toggle:focus-visible{outline:2px solid currentColor;outline-offset:2px}
-.menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{display:block;width:22px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,background-color .2s}
-.menu-toggle span{position:relative}
-.menu-toggle span::before,.menu-toggle span::after{content:"";position:absolute;left:0}
-.menu-toggle span::before{top:-7px}
-.menu-toggle span::after{top:7px}
-.site-header:has(nav:popover-open) .menu-toggle span{background-color:transparent}
-.site-header:has(nav:popover-open) .menu-toggle span::before{transform:translateY(7px) rotate(45deg)}
-.site-header:has(nav:popover-open) .menu-toggle span::after{transform:translateY(-7px) rotate(-45deg)}
+.menu-toggle .icon{width:24px;height:24px}
+.menu-close,.site-header:has(nav:popover-open) .menu-open{display:none}
+.site-header:has(nav:popover-open) .menu-close{display:block}
 
 /* Botón de texto en píldora */
 .text-action{display:inline-flex;align-items:center;gap:var(--s-5);min-height:var(--control-height);margin-top:var(--s-5);padding:0 var(--s-6);border:1px solid var(--navy);border-radius:var(--radius-pill);background:var(--navy);color:var(--cream);text-decoration:none;transition:background-color .2s ease,color .2s ease}
@@ -123,7 +119,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .card-desc{font-size:var(--fs-small);max-width:65ch;margin-block:var(--s-3) var(--s-5)}
 .project-card .metric{border-top:1px solid var(--rule);padding-top:var(--s-4);margin-top:auto}
 .case-link{display:flex;justify-content:space-between;align-items:center;min-height:var(--control-height);margin-top:var(--s-4);border-top:1px solid var(--rule);padding-top:var(--s-3)}
-.case-link:after{content:'→';font-size:var(--fs-small)}
+.case-link .icon,.text-action .icon{width:16px;height:16px}
 /* El destacado solo se presenta como tal con «Todos»; al filtrar por área es una ficha normal. */
 #f-todos:checked~.project-grid .project-card.featured{grid-column:1/-1;background:var(--navy);color:var(--cream);--rule:var(--rule-inverse)}
 #f-todos:checked~.project-grid .featured .project-card-link{display:grid;grid-template-columns:1fr 1fr}
@@ -163,8 +159,9 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .traits details:last-child{border-bottom:1px solid var(--rule)}
 .traits summary{display:flex;align-items:baseline;gap:var(--s-2);min-height:var(--control-height);padding:var(--s-2) 0;cursor:pointer;list-style:none}
 .traits summary::-webkit-details-marker{display:none}
-.traits summary:after{content:'+';margin-left:auto;font:400 var(--fs-body)/1 var(--sans)}
-.traits details[open] summary:after{content:'−'}
+.traits summary .icon{margin-left:auto;align-self:center}
+.trait-close,.traits details[open] .trait-open{display:none}
+.traits details[open] .trait-close{display:block}
 .traits summary:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:var(--radius-sm)}
 .trait-number{min-width:2.25em;font:600 var(--fs-label)/1.5 var(--sans);letter-spacing:var(--tracking-label)}
 .trait-title{font:600 var(--fs-small)/1.4 var(--sans)}
@@ -225,12 +222,12 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .contact-rows dd{margin:0;font-size:var(--fs-small)}
 .contact-email{font:400 var(--fs-body)/1.4 var(--serif);overflow-wrap:anywhere}
 .contact-social{display:flex;flex-wrap:wrap;gap:0 var(--s-4)}
-.contact-social a{display:inline-flex;align-items:center;min-height:var(--control-height)}
+.contact-social a{display:inline-flex;align-items:center;gap:var(--s-1);min-height:var(--control-height)}
 .home-footer{padding:var(--s-5) var(--gutter);background:var(--navy);color:var(--cream);font-size:var(--fs-label);border-top:1px solid var(--rule-inverse)}
 
 /* Caso: cabecera y portada */
 .case-heading{padding-block:var(--s-6) var(--s-7)}
-.back{display:inline-flex;align-items:center;min-height:var(--control-height);margin-bottom:var(--s-5);text-decoration:none}
+.back{display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--control-height);margin-bottom:var(--s-5);text-decoration:none}
 .back:hover{text-decoration:underline}
 .case-heading h1{max-width:24ch}
 .case-intro{max-width:60ch;font-size:var(--fs-lead);line-height:1.6;margin-top:var(--s-5)}
@@ -274,6 +271,7 @@ dd{margin:0}
 .tool-section dd{font-size:var(--fs-small);margin-top:var(--s-2)}
 .project-pagination{display:flex;justify-content:space-between;gap:var(--s-6);border-top:1px solid var(--rule);padding-block:var(--s-6) var(--s-9)}
 .project-pagination a{display:flex;flex-direction:column;justify-content:center;gap:var(--s-2);min-height:var(--control-height);font:400 var(--fs-3)/1.3 var(--serif);text-decoration:none}
+.pagination-title{display:inline-flex;align-items:center;gap:var(--s-2)}
 .project-pagination a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
 .project-pagination a:last-child{text-align:right;align-items:end}
 
@@ -357,7 +355,7 @@ dd{margin:0}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .project-card,.project-card .project-visual img,.text-action,.menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{transition:none}
+  .project-card,.project-card .project-visual img,.text-action{transition:none}
   .project-card:hover,.project-card:hover .project-visual img{transform:none}
 }
 
