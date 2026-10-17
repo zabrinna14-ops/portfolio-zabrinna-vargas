@@ -211,9 +211,17 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .contact{background:var(--navy);color:var(--cream);max-width:none;--rule:var(--rule-inverse)}
 .contact h2{font-size:var(--fs-display)}
 .contact .body-copy{font-size:var(--fs-body)}
-.contact-details p{font-size:var(--fs-small)}
-.contact-email{font:400 var(--fs-lead)/1.4 var(--serif);display:block;margin-block:var(--s-5);overflow-wrap:anywhere}
-.contact .links{margin-top:var(--s-6)}
+.contact-card{background:#e8e4d60f;border:1px solid var(--rule);border-radius:var(--radius-md);padding:var(--s-6)}
+.contact-who{font-size:var(--fs-small)}
+.contact-rows{margin:var(--s-5) 0 0}
+.contact-rows>div{display:grid;grid-template-columns:7em minmax(0,1fr);gap:var(--s-4);align-items:center;border-top:1px solid var(--rule);padding:var(--s-3) 0}
+.contact-rows>div:last-child{padding-bottom:0}
+.contact-rows dt{font:600 var(--fs-label)/1.5 var(--sans);letter-spacing:var(--tracking-label);text-transform:uppercase}
+.contact-rows dd{margin:0;font-size:var(--fs-small)}
+.contact-email{font:400 var(--fs-body)/1.4 var(--serif);overflow-wrap:anywhere}
+.contact-social{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.contact-social a{display:inline-flex;align-items:center;min-height:var(--control-height);padding:0 var(--s-4);border:1px solid var(--rule);border-radius:var(--radius-pill);text-decoration:none}
+.contact-social a:hover{border-color:currentColor}
 .home-footer{padding:var(--s-5) var(--gutter);background:var(--navy);color:var(--cream);font-size:var(--fs-label);border-top:1px solid var(--rule-inverse)}
 
 /* Caso: cabecera y portada */
@@ -304,6 +312,8 @@ dd{margin:0}
   .traits p{margin-left:0}
   .stats{gap:var(--s-4)}
   .contact-details{margin-top:var(--s-6)}
+  .contact-card{padding:var(--s-5)}
+  .contact-rows>div{grid-template-columns:1fr;gap:var(--s-1)}
   .case-heading{padding-block:var(--s-5) var(--s-6)}
   .case-intro{font-size:var(--fs-body)}
   .case-cover{margin-bottom:var(--s-6)}
