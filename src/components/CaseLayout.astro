@@ -67,17 +67,15 @@ const sections = getSections(project);
       const clip = (visible: number) => `inset(0px 0px ${Math.max(0, card.offsetHeight - visible)}px 0px round ${radius})`;
 
       // Reveal: the rows appear one by one as the user scrolls, each while the clip
-      // opens down to it. Once the card is complete it stays complete.
+      // opens down to it, and hide again on the way back up.
       const ends = [first, ...rest].map((row, index, all) => index === all.length - 1 ? card.offsetHeight : row.offsetTop + row.offsetHeight + 8);
-      const complete = () => { gsap.set(rest, { opacity: 1, y: 0 }); gsap.set(card, { clearProps: 'clipPath' }); };
       const reveal = gsap.timeline({
-        scrollTrigger: { trigger: slot, start: 0, end: 'top 75%', scrub: 0.4, onLeave: (self) => { self.kill(); complete(); } },
+        scrollTrigger: { trigger: slot, start: 0, end: 'top 75%', scrub: 0.4 },
       });
       rest.forEach((row, index) => {
         reveal.fromTo(row, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 1, ease: easeOut }, index)
           .fromTo(card, { clipPath: clip(ends[index]) }, { clipPath: clip(ends[index + 1]), duration: 1, ease: easeOut, immediateRender: index === 0 }, index);
       });
-      if (reveal.scrollTrigger && reveal.scrollTrigger.progress === 1) { reveal.scrollTrigger.kill(); complete(); }
 
       // Move: tied to scroll and reversible. Offsets come from layout boxes, which
       // ignore this transform and the card's sticky offset (it heads the case grid).
