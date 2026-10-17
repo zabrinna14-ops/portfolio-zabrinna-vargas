@@ -6,10 +6,9 @@ import About from '../components/About.astro';
 import Method from '../components/Method.astro';
 import PersonalBrand from '../components/PersonalBrand.astro';
 import { getProjects } from '../projects';
-import { site } from '../site';
 const projects = await getProjects();
 ---
-<BaseLayout title={site.discipline}>
+<BaseLayout>
   <Hero />
   <ProjectIndex projects={projects} />
   <About />
