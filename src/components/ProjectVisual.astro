@@ -3,16 +3,16 @@ import { imageUrl } from '../site';
 interface Props { id: string; compact?: boolean; eager?: boolean }
 const { id, compact = false, eager = false } = Astro.props;
 const isWeb = id === 'planeta-dots';
-const assets: Record<string, { src: string; alt: string; width: number; height: number; caption: string }> = {
-  'solo-de-croquetas': { src: 'portadas/solo-de-croquetas.webp', alt: 'Bolsa de tela «¿Unas croquetas?», gorra navy «croqueta mood» y libreta amarilla de Solo de Croquetas sobre una mesa clara.', width: 1254, height: 1254, caption: 'Recreación con IA a partir de productos reales de la tienda' },
-  'croque-quedada': { src: 'portadas/croque-quedada.webp', alt: 'Tres tarjetas de dinámicas con personajes de croqueta sobre una mesa de madera: qué sabor te representa, dos verdades y una mentira, e inventar una historia.', width: 1536, height: 1024, caption: 'Recreación con IA de tres dinámicas de la hoja original' },
-  'petritegi': { src: 'portadas/petritegi.webp', alt: 'Botella de sidra Petritegi junto a un vaso servido y dos manzanas sobre una mesa de madera.', width: 1536, height: 1024, caption: 'Recreación conceptual con IA · no es una fotografía de Petritegi' },
-  'automatizacion-yacrea': { src: 'portadas/automatizacion-yacrea.webp', alt: 'Ilustración de una lista de cuentas conectada a un tablero semanal de tareas en columnas.', width: 1536, height: 1024, caption: 'Ilustración conceptual con IA · no es una captura de la herramienta' },
-  'storytelling-audiovisual': { src: 'content-reference.webp', alt: 'Escena generada de producción audiovisual como referencia provisional.', width: 1536, height: 1024, caption: 'Referencia generada con IA · sustituir por piezas reales' },
+const assets: Record<string, { src: string; alt: string; width: number; height: number; }> = {
+  'solo-de-croquetas': { src: 'portadas/solo-de-croquetas.webp', alt: 'Bolsa de tela «¿Unas croquetas?», gorra navy «croqueta mood» y libreta amarilla de Solo de Croquetas sobre una mesa clara.', width: 1254, height: 1254 },
+  'croque-quedada': { src: 'portadas/croque-quedada.webp', alt: 'Tres tarjetas de dinámicas con personajes de croqueta sobre una mesa de madera: qué sabor te representa, dos verdades y una mentira, e inventar una historia.', width: 1536, height: 1024 },
+  'petritegi': { src: 'portadas/petritegi.webp', alt: 'Botella de sidra Petritegi junto a un vaso servido y dos manzanas sobre una mesa de madera.', width: 1536, height: 1024 },
+  'automatizacion-yacrea': { src: 'portadas/automatizacion-yacrea.webp', alt: 'Ilustración de una lista de cuentas conectada a un tablero semanal de tareas en columnas.', width: 1536, height: 1024 },
+  'storytelling-audiovisual': { src: 'content-reference.webp', alt: 'Escena generada de producción audiovisual como referencia provisional.', width: 1536, height: 1024 },
 };
 const asset = assets[id];
 ---
 <figure class:list={['project-visual', { 'visual-compact': compact, 'visual-web': isWeb }]}>
   {isWeb ? <div class="web-art"><div class="browser-line"><span></span><span></span><span></span><p>Arquitectura de contenidos</p></div><div class="web-art-content"><p>Encontrar el servicio<br /><em>adecuado.</em></p><div class="site-map"><span>Necesidad</span><span>Servicio</span><span>Contacto</span></div><div class="web-lines"><i></i><i></i><i></i></div></div></div> : <img src={imageUrl(asset.src)} alt={asset.alt} width={asset.width} height={asset.height} loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />}
-  <figcaption>{isWeb ? 'Maqueta de referencia · sustituir por capturas reales' : asset.caption}</figcaption>
+  {isWeb && <figcaption>Maqueta de referencia · sustituir por capturas reales</figcaption>}
 </figure>
