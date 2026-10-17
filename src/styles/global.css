@@ -89,10 +89,8 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .hero-copy{grid-column:1;grid-row:2;max-width:48ch;align-self:start}
 .hero-copy h2{font-size:var(--fs-3);margin-bottom:var(--s-4)}
 .hero-work{grid-column:2;grid-row:1/span 2;align-self:stretch}
-.hero-work>a{display:block;text-decoration:none}
 .hero-work .project-visual{border-radius:var(--radius-arch) var(--radius-arch) var(--radius-md) var(--radius-md);background:var(--apricot)}
 .hero-work .project-visual img{aspect-ratio:1.2}
-.hero-work>a:hover img{filter:brightness(.97)}
 .hero-bottom{grid-column:1/-1;align-self:end;display:flex;justify-content:space-between;gap:var(--s-5);border-top:1px solid var(--rule);padding-top:var(--s-5);margin-top:var(--s-3)}
 
 /* Índice de proyectos */
@@ -140,13 +138,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .project-visual{background:var(--cream);overflow:hidden;position:relative}
 .project-visual img{display:block;width:100%;aspect-ratio:1.55;object-fit:cover}
 .project-visual figcaption{position:relative;z-index:1}
-.workflow-art,.web-art{aspect-ratio:1.55;padding:var(--s-6);display:flex;flex-direction:column;justify-content:center;background:var(--sage);color:var(--navy)}
-.workflow-art>p{font-size:var(--fs-small)}
-.time-comparison{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);margin-block:var(--s-5)}
-.time-comparison strong{font:400 var(--fs-figure-lg)/1 var(--serif)}
-.time-comparison small{display:block;font-size:var(--fs-label);margin-top:var(--s-2)}
-.time-comparison>span:nth-child(2){font-size:var(--fs-3)}
-.workflow-art ol{display:flex;gap:var(--s-5);justify-content:space-between;padding:var(--s-4) 0 0;margin:0;list-style:none;border-top:1px solid var(--rule);font-size:var(--fs-label)}
+.web-art{aspect-ratio:1.55;padding:var(--s-6);display:flex;flex-direction:column;justify-content:center;background:var(--sage);color:var(--navy)}
 .web-art{background:var(--apricot);padding:var(--s-5);justify-content:start}
 .browser-line{display:flex;gap:var(--s-1);align-items:center;border-bottom:1px solid var(--rule);padding-bottom:var(--s-3)}
 .browser-line>span{width:6px;height:6px;border:1px solid var(--navy);border-radius:50%}
@@ -162,7 +154,6 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 /* Sobre mí */
 .about-portrait{max-width:320px;border-radius:var(--radius-arch) var(--radius-arch) var(--radius-md) var(--radius-md);overflow:hidden}
 .about-portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-.about-portrait figcaption a{text-decoration:underline}
 #sobre-mi .body-copy p:first-child{font:italic var(--fs-lead)/1.6 var(--serif)}
 .about-subheading{margin-top:var(--s-7)}
 .strengths{list-style:none;margin:var(--s-4) 0 0;padding:0}
@@ -207,8 +198,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .case-cover{margin-bottom:var(--s-8)}
 .case-cover .project-visual{border-radius:var(--radius-lg)}
 .case-cover .project-visual img{aspect-ratio:2.1}
-.case-cover .workflow-art,.case-cover .web-art{aspect-ratio:2.6;padding:5vw 10vw}
-.case-cover .time-comparison strong{font-size:clamp(65px,9vw,120px)}
+.case-cover .web-art{aspect-ratio:2.6;padding:5vw 10vw}
 
 /* Caso: ficha y relato sobre la rejilla común */
 .case-layout{padding-bottom:var(--s-9)}
@@ -256,9 +246,7 @@ dd{margin:0}
   .card-top{flex-wrap:wrap;gap:var(--s-2)}
   #f-todos:checked~.project-grid .featured .card-content{padding:var(--s-5)}
   .hero-work .project-visual{border-radius:100px 100px var(--radius-md) var(--radius-md)}
-  .workflow-art,.web-art{padding:var(--s-5)}
-  .workflow-art ol{gap:var(--s-3)}
-  .time-comparison{margin-block:var(--s-4)}
+  .web-art{padding:var(--s-5)}
 }
 
 @media(max-width:700px){
@@ -280,7 +268,7 @@ dd{margin:0}
   #f-todos:checked~.project-grid .featured .project-card-link{display:flex}
   #f-todos:checked~.project-grid .featured .project-visual img{aspect-ratio:1.45}
   #f-todos:checked~.project-grid .featured h3{font-size:var(--fs-3)}
-  .workflow-art,.web-art{aspect-ratio:auto;min-height:255px}
+  .web-art{aspect-ratio:auto;min-height:255px}
   .about-portrait{max-width:260px}
   .stats{gap:var(--s-4)}
   .contact-details{margin-top:var(--s-6)}
@@ -288,8 +276,7 @@ dd{margin:0}
   .case-intro{font-size:var(--fs-body)}
   .case-cover{margin-bottom:var(--s-6)}
   .case-cover .project-visual img{aspect-ratio:1.25}
-  .case-cover .workflow-art,.case-cover .web-art{aspect-ratio:auto;padding:var(--s-5)}
-  .case-cover .time-comparison strong{font-size:64px}
+  .case-cover .web-art{aspect-ratio:auto;padding:var(--s-5)}
   .case-layout{padding-bottom:var(--s-7)}
   .project-facts{position:static}
   .project-facts dl{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s-5)}
@@ -331,6 +318,6 @@ dd{margin:0}
 @media(forced-colors:active){
   html{scrollbar-color:auto}
   *::-webkit-scrollbar-thumb{background:ButtonText}
-  .workflow-art,.web-art,.project-card.featured{border:1px solid CanvasText}
+  .web-art,.project-card.featured{border:1px solid CanvasText}
   .web-lines i{background:CanvasText}
 }
