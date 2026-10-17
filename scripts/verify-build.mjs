@@ -28,7 +28,7 @@ for (const [file, html] of documents) {
     assert.equal(scripts.length, 1, `${name}: un único script, el del filtro`);
     assert(/type="module"/.test(scripts[0]) && !/src="https?:/.test(scripts[0]), `${name}: script propio de tipo módulo`);
   } else if (name.startsWith('proyectos/')) {
-    // Demo de la ficha flotante: un único script propio por caso.
+    // Ficha flotante sobre la portada: un único script propio por caso.
     assert.equal(scripts.length, 1, `${name}: un único script, el de la ficha`);
     assert(/type="module"/.test(scripts[0]) && !/src="https?:/.test(scripts[0]), `${name}: script propio de tipo módulo`);
   } else {

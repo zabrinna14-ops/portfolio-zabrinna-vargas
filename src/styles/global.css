@@ -246,13 +246,10 @@ dd{margin:0}
 .project-facts dl>div{padding-block:var(--s-4);border-top:1px solid var(--rule)}
 .project-facts dl>div:first-child{border-top:0;padding-top:0}
 .project-facts .metric{border-top:1px solid var(--rule);padding-top:var(--s-5);margin-top:var(--s-1)}
-/* Caso: demo de ficha flotante (solo con JavaScript, escritorio y sin reducir movimiento) */
-.case-cover{position:relative}
-.facts-glass,.facts-chip{display:none}
+/* Caso: ficha flotante sobre la portada (solo con JavaScript, escritorio y sin reducir movimiento) */
+.facts-glass{display:none}
 .facts-float .project-facts{z-index:2;isolation:isolate;background:transparent;-webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2);transform-origin:0 0;will-change:transform}
 .facts-float .facts-glass{display:block;position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--surface)}
-:is(.facts-float-b1,.facts-float-b2) .facts-chip{display:block;position:absolute;left:calc(var(--gutter) + 32px);bottom:32px;z-index:3;width:var(--aside);margin:0;padding:var(--s-5);border-radius:var(--radius-md);border:1px solid var(--rule);background:#faf8f3a6;-webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2);font-size:var(--fs-small);line-height:1.6;transform-origin:0 0;will-change:transform,opacity}
-.facts-chip span{display:block;margin-bottom:var(--s-1);font:600 var(--fs-label)/1.5 var(--sans);letter-spacing:var(--tracking-label);text-transform:uppercase}
 .case-step{border-top:1px solid var(--rule);padding-block:var(--s-6) var(--s-7);display:grid;grid-template-columns:var(--step-label,160px) minmax(0,1fr);gap:var(--s-6)}
 .case-step:first-child{border-top:0;padding-top:0}
 .case-step h2{font:400 var(--fs-3)/1.2 var(--serif)}
