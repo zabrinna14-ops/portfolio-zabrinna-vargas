@@ -360,6 +360,9 @@ dd{margin:0}
 
 /* Menú hamburguesa en móvil; sin soporte de popover, el menú queda en una segunda fila */
 @media(max-width:700px){
+  /* Ficha de los casos en móvil: un dato debajo de otro (va después de la regla de tableta). */
+  .project-facts dl{grid-template-columns:1fr}
+  .project-facts dl>div:nth-child(2){border-top:1px solid var(--rule);padding-top:var(--s-4)}
   @supports selector(:popover-open){
     .menu-toggle{display:inline-flex}
     .site-header nav{position:fixed;inset:var(--header-h) 0 auto;flex-direction:column;gap:0;padding:var(--s-2) var(--s-5) var(--s-5);background:var(--paper);border-bottom:1px solid var(--rule)}
