@@ -34,3 +34,63 @@ const sections = getSections(project);
   <ProjectTools tools={data.tools} />
   <ProjectNavigation next={next} />
 </BaseLayout>
+
+<script>
+  // The facts card starts as glass over the top of the cover, showing only its
+  // first row. Scrolling reveals the other rows one by one, then moves the card
+  // to its column, where the glass turns solid. Without JavaScript,
+  // below 1051px, with reduced motion or when the card is taller than the cover,
+  // the card simply sits in its column.
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { CustomEase } from 'gsap/CustomEase';
+
+  gsap.registerPlugin(ScrollTrigger, CustomEase);
+  const easeInOut = CustomEase.create('ease-in-out', '0.77,0,0.175,1');
+  const easeOut = CustomEase.create('ease-out', '0.23,1,0.32,1');
+  const root = document.documentElement;
+  const cover = document.querySelector<HTMLElement>('.case-cover .project-visual');
+  const card = document.querySelector<HTMLElement>('.project-facts');
+  const glass = card?.querySelector<HTMLElement>('.facts-glass');
+  const slot = document.querySelector<HTMLElement>('.case-layout');
+  const inset = 32;
+
+  if (cover && card && glass && slot) {
+    gsap.matchMedia().add('(min-width: 1051px) and (prefers-reduced-motion: no-preference)', () => {
+      // Only when the whole card fits over the cover; otherwise it would hang below it.
+      if (card.offsetHeight + inset > cover.offsetHeight) return;
+      root.classList.add('facts-float');
+      const [first, ...rest] = card.querySelectorAll<HTMLElement>('dl > div, .metric');
+      const radius = getComputedStyle(card).borderRadius;
+      // Clip the card to its top `visible` pixels; explicit strings, because the
+      // browser shortens a computed inset() and that breaks tweening.
+      const clip = (visible: number) => `inset(0px 0px ${Math.max(0, card.offsetHeight - visible)}px 0px round ${radius})`;
+
+      // Reveal: the rows appear one by one as the user scrolls, each while the clip
+      // opens down to it, and hide again on the way back up.
+      const ends = [first, ...rest].map((row, index, all) => index === all.length - 1 ? card.offsetHeight : row.offsetTop + row.offsetHeight + 8);
+      const reveal = gsap.timeline({
+        scrollTrigger: { trigger: slot, start: 0, end: 'top 75%', scrub: 0.4 },
+      });
+      rest.forEach((row, index) => {
+        reveal.fromTo(row, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 1, ease: easeOut }, index)
+          .fromTo(card, { clipPath: clip(ends[index]) }, { clipPath: clip(ends[index + 1]), duration: 1, ease: easeOut, immediateRender: index === 0 }, index);
+      });
+
+      // Move: tied to scroll and reversible. Offsets come from layout boxes, which
+      // ignore this transform and the card's sticky offset (it heads the case grid).
+      const from = () => {
+        const c = cover.getBoundingClientRect(), s = slot.getBoundingClientRect();
+        return { x: c.left + inset - card.offsetLeft, y: c.top + inset - s.top };
+      };
+      gsap.timeline({
+        defaults: { ease: easeInOut },
+        scrollTrigger: { trigger: slot, start: 'top bottom', end: 'top 35%', scrub: 0.4, invalidateOnRefresh: true },
+      })
+        .fromTo(card, { x: () => from().x, y: () => from().y }, { x: 0, y: 0 }, 0)
+        .fromTo(glass, { opacity: 0.6 }, { opacity: 1 }, 0);
+
+      return () => root.classList.remove('facts-float');
+    });
+  }
+</script>
