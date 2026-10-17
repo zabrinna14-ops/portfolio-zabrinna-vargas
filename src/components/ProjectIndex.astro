@@ -51,4 +51,10 @@ const filterStyles = filters.map(({ id }) => `
   const initial = radios.find((radio) => radio.value === requested) ?? radios.find((radio) => radio.checked);
   if (initial) { initial.checked = true; update(initial, false); }
   radios.forEach((radio) => radio.addEventListener('change', () => update(radio, true)));
+
+  // The mobile menu stays open after a jump within this page, so close it.
+  const menu = document.querySelector<HTMLElement>('#menu-principal');
+  menu?.addEventListener('click', (event) => {
+    if ((event.target as Element).closest('a') && menu.matches(':popover-open')) menu.hidePopover();
+  });
 </script>
