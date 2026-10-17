@@ -18,7 +18,7 @@ Los filtros de proyectos usan radios accesibles y CSS generado desde las áreas 
 
 ## Contenido y referencias
 
-Se conservan los textos fuente trasladados desde Notion, con resúmenes breves basados en ellos. No se inventan cifras ni herramientas. Las imágenes provisionales (IA o stock) solo se admiten en ramas de prueba, identificadas con pie visible y registradas en `public/images/FUENTES.md`; deben sustituirse por material original antes de publicar. Las referencias visuales y los criterios recopilados están en [docs/REFERENCIAS-PORTFOLIO.md](docs/REFERENCIAS-PORTFOLIO.md). Identidad navy, crema y serif de sistema basada en el portfolio de Canva DAHSQbAx1eg.
+Se conservan los textos fuente trasladados desde Notion, con resúmenes breves basados en ellos. No se inventan cifras ni herramientas. Las imágenes provisionales (IA o stock) solo se admiten en ramas de prueba, identificadas con pie visible y registradas en `docs/FUENTES-IMAGENES.md`; deben sustituirse por material original antes de publicar. Las referencias visuales y los criterios recopilados están en [docs/REFERENCIAS-PORTFOLIO.md](docs/REFERENCIAS-PORTFOLIO.md). Identidad navy, crema y serif de sistema basada en el portfolio de Canva DAHSQbAx1eg.
 
 La versión estática previa se conserva en `legacy-static/` para consulta. No debe colocarse en la raíz: sus archivos coinciden con las rutas públicas y el servidor de desarrollo de Astro bloquea esas navegaciones con un 404. El proyecto activo vive en `src/`.
 
@@ -33,3 +33,7 @@ La web vive en este repositorio. Los originales, imágenes seleccionadas, script
 Para integrar una imagen aprobada, copiarla a `public/images/`. La web conserva sus recursos y no depende de la carpeta de materiales. Las antiguas carpetas `artifacts/` y `assents/` se han trasladado allí; el inventario de traslado permite localizar cada archivo.
 
 Las referencias y propuestas están en `docs/`; `DESIGN.md` y `PRODUCT.md` permanecen en la raíz para las herramientas de diseño. Las capturas e informes temporales están en `tmp/visual-review/`, excluido de Git.
+
+## Licencia
+
+Todos los derechos reservados. Ver [LICENSE](LICENSE).
