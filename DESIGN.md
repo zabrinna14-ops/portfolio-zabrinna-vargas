@@ -2,14 +2,14 @@
 
 ## Identidad
 
-Navy #202941, crema #e8e4d6, papel #f4f1e9. Playfair Display para titulares e Inter para lectura (cambio pedido por Zabrinna el 17 de octubre de 2026; antes eran Didot y Arial). Se configuran en `astro.config.mjs` con la API de fuentes de Astro (proveedor Fontsource): se descargan al compilar y se sirven desde el propio sitio, sin peticiones a terceros al visitar la web. Inter 400 y 600; Playfair Display 400 normal y cursiva. Toda la web usa números alineados (Playfair trae números antiguos por defecto). Los tokens están en `src/styles/tokens.css` y todas las reglas en una sola hoja, `src/styles/global.css`, que solo usa valores de los tokens.
+Navy #202941, crema #e8e4d6, papel #f4f1e9. Playfair Display para titulares y Lato para lectura (pedido por Zabrinna el 17 de octubre de 2026; antes eran Didot y Arial, y después Inter). Se configuran en `astro.config.mjs` con la API de fuentes de Astro (proveedor Fontsource): se descargan al compilar y se sirven desde el propio sitio, sin peticiones a terceros al visitar la web. Lato 400 y 700 (Lato no tiene 600: las reglas con peso 600 se muestran en 700); Playfair Display 400 normal y cursiva. Toda la web usa números alineados (Playfair trae números antiguos por defecto). Los tokens están en `src/styles/tokens.css` y todas las reglas en una sola hoja, `src/styles/global.css`, que solo usa valores de los tokens.
 
 ### Decisiones fijas
 
 Elegidas por Zabrinna. Las skills de diseño (Impeccable, frontend-design) las marcan como patrones genéricos, pero aquí son parte de la identidad: no proponer cambiarlas ni avisar de ellas salvo que Zabrinna lo pida.
 
 - **Fondo crema/papel** (`#f4f1e9` y `#e8e4d6`) con navy `#202941`, basado en su primer portfolio de Canva.
-- **Playfair Display para titulares e Inter para lectura.**
+- **Playfair Display para titulares y Lato para lectura.**
 - **Etiqueta en mayúsculas sobre el nombre en el hero** («DIGITAL MARKETING MANAGER»). Se probó a moverla debajo del nombre en texto normal y Zabrinna prefirió la versión original.
 
 Salvia (`--sage: #c7cec2`) y albaricoque (`--apricot: #dcb99e`) son apoyos de los diagramas de automatización y web, no una nueva identidad ni colores para sustituir navy, crema y papel.
