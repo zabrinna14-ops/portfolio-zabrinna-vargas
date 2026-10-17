@@ -25,8 +25,8 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 *::-webkit-scrollbar-thumb:hover{background:var(--navy)}
 
 /* Etiqueta: un solo estilo en mayúsculas para todo texto de rótulo. */
-.eyebrow,.hero-eyebrow,.brand span,legend,.filter-options label,.card-top,.case-link,.back,.step-number,
-.project-facts dt,.project-pagination span,.hero-bottom,.meta,.find-me h3,.about-subheading,
+.eyebrow,.hero-keywords,.brand span,legend,.filter-options label,.card-top,.case-link,.back,.step-number,
+.project-facts dt,.project-pagination span,.meta,.find-me h3,.about-subheading,
 .image-suggestion-label,.stat-context,.text-action{font:600 var(--fs-label)/1.5 var(--sans);letter-spacing:var(--tracking-label);text-transform:uppercase}
 .eyebrow{margin-bottom:var(--s-4)}
 
@@ -83,16 +83,14 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .text-action:hover{background:var(--navy);color:var(--paper)}
 
 /* Portada */
-/* El hero es una portada: banda crema que ocupa la primera pantalla, con el nombre en tamaño display. */
-.home-hero{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;gap:var(--s-5) var(--col-gap);min-height:min(calc(100svh - 80px),900px);padding-block:var(--s-8) var(--s-6);align-items:start}
+/* El hero es una portada: banda crema con el nombre en tamaño display, palabras clave, frase y botón. */
+.home-hero{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;gap:var(--s-5) var(--col-gap);padding-block:var(--s-8);align-items:start}
 .hero-identity h1{font-size:var(--fs-display);line-height:1}
-.hero-eyebrow{margin-bottom:var(--s-4)}
 .hero-copy{grid-column:1;grid-row:2;max-width:48ch;align-self:start}
-.hero-copy h2{font-size:var(--fs-3);margin-bottom:var(--s-4)}
+.hero-keywords{margin-bottom:var(--s-4)}
 .hero-work{grid-column:2;grid-row:1/span 2;align-self:stretch}
 .hero-work .project-visual{border-radius:var(--radius-arch) var(--radius-arch) var(--radius-md) var(--radius-md);background:var(--apricot)}
 .hero-work .project-visual img{aspect-ratio:1.2}
-.hero-bottom{grid-column:1/-1;align-self:end;display:flex;justify-content:space-between;gap:var(--s-5);border-top:1px solid var(--rule);padding-top:var(--s-5);margin-top:var(--s-3)}
 
 /* Índice de proyectos */
 .project-index{padding-block:var(--s-8) var(--s-10)}
@@ -294,7 +292,6 @@ dd{margin:0}
   .hero-copy,.hero-work{grid-column:1;grid-row:auto}
   .hero-work .project-visual{border-radius:90px 90px var(--radius-md) var(--radius-md)}
   .hero-work .project-visual img{aspect-ratio:1.3}
-  .hero-bottom{flex-direction:column;gap:var(--s-2);margin-top:0}
   .project-index{padding-block:var(--s-7) var(--s-8)}
   .index-heading{margin-bottom:var(--s-6)}
   .project-grid{grid-template-columns:1fr;gap:var(--s-5)}
