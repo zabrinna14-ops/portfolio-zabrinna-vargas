@@ -171,6 +171,7 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .trait-title{font:600 var(--fs-small)/1.4 var(--sans)}
 .traits p{font-size:var(--fs-small);line-height:1.6;margin:0 0 var(--s-3) calc(2.25em + var(--s-2))}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-5);margin-top:var(--s-4);padding-top:var(--s-5);border-top:1px solid var(--rule)}
+.stats .metric{margin:0}
 
 /* Cómo trabajo */
 .split-reverse{grid-template-columns:minmax(0,1fr) var(--aside)}
