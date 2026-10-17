@@ -63,9 +63,19 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .site-header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:var(--s-5);padding:var(--s-4) var(--gutter)}
 .brand{font-size:var(--fs-small);line-height:1.4;text-decoration:none;font-weight:600}
 .brand span{display:block;font-weight:400;margin-top:var(--s-1)}
-.site-header nav{display:flex;gap:var(--s-1);padding:var(--s-1)}
+.site-header nav{position:static;inset:auto;width:auto;height:auto;margin:0;border:0;overflow:visible;background:none;color:inherit;display:flex;gap:var(--s-1);padding:var(--s-1)}
 .site-header nav a{display:inline-flex;align-items:center;justify-content:center;min-height:var(--control-height);padding:0 var(--s-4);font-size:var(--fs-small);text-decoration:none;border-radius:var(--radius-pill)}
 .site-header nav a:hover{background:var(--cream)}
+.menu-toggle{display:none;align-items:center;justify-content:center;width:var(--control-height);height:var(--control-height);margin-right:calc(-1 * var(--s-2));padding:0;border:0;border-radius:var(--radius-pill);background:none;color:inherit;cursor:pointer}
+.menu-toggle:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{display:block;width:22px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,background-color .2s}
+.menu-toggle span{position:relative}
+.menu-toggle span::before,.menu-toggle span::after{content:"";position:absolute;left:0}
+.menu-toggle span::before{top:-7px}
+.menu-toggle span::after{top:7px}
+.site-header:has(nav:popover-open) .menu-toggle span{background-color:transparent}
+.site-header:has(nav:popover-open) .menu-toggle span::before{transform:translateY(7px) rotate(45deg)}
+.site-header:has(nav:popover-open) .menu-toggle span::after{transform:translateY(-7px) rotate(-45deg)}
 
 /* Botón de texto en píldora */
 .text-action{display:inline-flex;align-items:center;gap:var(--s-5);min-height:var(--control-height);margin-top:var(--s-5);padding:0 var(--s-5);border:1px solid var(--navy);border-radius:var(--radius-pill);text-decoration:none;transition:background-color .2s ease,color .2s ease}
@@ -252,12 +262,10 @@ dd{margin:0}
 }
 
 @media(max-width:700px){
-  :root{--radius-lg:28px;--section-y:var(--s-8)}
-  html{scroll-padding-top:145px}
-  .site-header{flex-direction:column;gap:var(--s-3);padding:var(--s-3) var(--s-5)}
-  .brand{align-self:flex-start}
+  :root{--radius-lg:28px;--section-y:var(--s-8);--header-h:69px}
+  html{scroll-padding-top:100px}
+  .site-header{height:var(--header-h);padding:var(--s-3) var(--s-5)}
   .brand span{margin-top:0}
-  .site-header nav{width:100%;justify-content:space-between}
   .split{display:block}
   .split-aside+.split-main{margin-top:var(--s-6)}
   .split>.section-heading{margin-bottom:var(--s-6)}
@@ -296,9 +304,27 @@ dd{margin:0}
   .project-pagination a:last-child{text-align:left;align-items:start}
 }
 
+/* Menú hamburguesa en móvil; sin soporte de popover, el menú queda en una segunda fila */
+@media(max-width:700px){
+  @supports selector(:popover-open){
+    .menu-toggle{display:inline-flex}
+    .site-header nav{position:fixed;inset:var(--header-h) 0 auto;flex-direction:column;gap:0;padding:var(--s-2) var(--s-5) var(--s-5);background:var(--paper);border-bottom:1px solid var(--rule)}
+    .site-header nav:not(:popover-open){display:none}
+    .site-header nav::backdrop{top:var(--header-h);background:var(--rule)}
+    .site-header nav a{justify-content:flex-start;min-height:56px;padding:0;font-size:var(--fs-body);border-radius:0;border-bottom:1px solid var(--rule)}
+    .site-header nav a:last-child{border-bottom:0}
+    .site-header nav a:hover{background:none}
+  }
+  @supports not selector(:popover-open){
+    .site-header{height:auto;flex-direction:column;align-items:stretch;gap:var(--s-1)}
+    .site-header nav{justify-content:space-between;padding:0;margin-inline:calc(-1 * var(--s-2))}
+    .site-header nav a{padding:0 var(--s-2)}
+  }
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .project-card,.project-card .project-visual img,.text-action{transition:none}
+  .project-card,.project-card .project-visual img,.text-action,.menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{transition:none}
   .project-card:hover,.project-card:hover .project-visual img{transform:none}
 }
 

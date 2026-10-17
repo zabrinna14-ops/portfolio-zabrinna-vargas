@@ -32,7 +32,7 @@ Sitio estático generado con Astro. La portada, la navegación y las seis págin
 
 ## Componentes
 
-- Cabecera sticky clara con nombre y menú compacto en contorno redondeado: Proyectos, Sobre mí y Contacto.
+- Cabecera sticky clara con nombre y menú compacto en contorno redondeado: Proyectos, Sobre mí y Contacto. En móvil, menú hamburguesa.
 - Índice de tarjetas con área, título, cliente, resumen, dato de impacto o alcance identificado y acceso al caso. Solo de Croquetas destacado a todo el ancho; Croque-Quedada y automatización después.
 - Filtros radios de selección única con etiquetas y CSS generado desde las áreas compartidas; foco visible, uso con flechas del teclado y proyectos disponibles sin CSS. Mejora progresiva con JavaScript: el área elegida se guarda en la URL (`?area=`) y en la sesión, de modo que «Volver a proyectos» recupera el filtro, y un texto con `aria-live` anuncia cuántos proyectos coinciden. Sin JavaScript el filtro funciona igual, sin recuento. No hay búsqueda. El proyecto destacado solo se presenta como destacado (navy, a todo el ancho) con «Todos»; al elegir un área en la que está etiquetado aparece como una ficha normal más, sin la etiqueta «Proyecto destacado». Solo se ofrecen áreas con algún proyecto. Cada área de un caso debe estar documentada en su relato (regla en `AGENTS.md`). Solo de Croquetas aparece en las cinco áreas; además, Estrategia muestra Croque-Quedada, Planeta Dots y Petritegi; Contenido, esos tres y Storytelling; Web y SEO, Planeta Dots; Eventos, Croque-Quedada; IA y automatización, Automatización · YACREA.
 - Casos: cabecera de síntesis y atribución original; ficha izquierda sticky con rol, áreas, fechas cuando constan y dato contextual; desarrollo por secciones con etiqueta a la izquierda y texto a la derecha.
@@ -48,7 +48,7 @@ El hero funciona como portada propia: banda crema a todo el ancho que ocupa la p
 
 ## Layout y adaptación
 
-Ancho máximo 1440px; márgenes fluidos de 24 a 80px. Dos columnas en tarjetas y ficha/contenido. A 1050px se simplifican las secciones del caso. A 700px todo pasa a una columna; ficha deja de ser sticky y menú ocupa una segunda fila. Contenido legible con líneas de hasta 70ch, separadores finos y espacio en blanco. Resultados grandes con cifras tabulares. Radios según el sistema visual; píldoras para menú, filtros y botones. Las imágenes provisionales se identifican siempre como tales y no se presentan como trabajo real.
+Ancho máximo 1440px; márgenes fluidos de 24 a 80px. Dos columnas en tarjetas y ficha/contenido. A 1050px se simplifican las secciones del caso. A 700px todo pasa a una columna; ficha deja de ser sticky; la cabecera ocupa una sola fila (69px) con el nombre y un botón de menú hamburguesa (44px) que despliega Proyectos, Sobre mí y Contacto en un panel bajo la cabecera. Usa el atributo `popover` del navegador, sin JavaScript: se cierra con el mismo botón (que pasa a ×), con Esc o tocando fuera; en la portada, el script del filtro también lo cierra al saltar a una sección. Si el navegador no admite `popover`, el menú se muestra en una segunda fila. Contenido legible con líneas de hasta 70ch, separadores finos y espacio en blanco. Resultados grandes con cifras tabulares. Radios según el sistema visual; píldoras para menú, filtros y botones. Las imágenes provisionales se identifican siempre como tales y no se presentan como trabajo real.
 
 ## Accesibilidad
 
