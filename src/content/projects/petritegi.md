@@ -10,7 +10,8 @@ areas: ["estrategia", "contenido"]
 scope: "Estrategia · Estudio de mercado · Análisis de competencia · Contenido · Influencer marketing"
 order: 5
 featured: false
-highlight: {"value": "Estrategia · Contenido · Influencers", "label": "áreas de intervención"}
+highlight: {"value": "10", "label": "acuerdos con influencers en el primer mes"}
+results: {"paragraphs": ["En el primer mes cerramos 10 acuerdos de colaboración con influencers.", "Cada colaboración partía de los briefings que preparé para comunicar la experiencia completa de Petritegi: sidra, sidrería, restaurante y hotel rural."], "metric": {"value": "10", "label": "acuerdos con influencers en el primer mes"}}
 ---
 
 ## El reto
