@@ -296,7 +296,10 @@ dd{margin:0}
   #sobre-mi .body-copy>p:first-child,#marca-personal .split-aside>:first-child,#marca-personal .split-main>p:first-child,
   .contact .split-aside>p:first-child,
   .method-steps li:first-child>*,.method-notes>div:first-child>.method-label{text-box:trim-start cap alphabetic}
+  /* Contacto: el texto arranca a la altura de «Correo», la primera línea de la tarjeta (borde, relleno y mayúsculas de la etiqueta). */
+  .contact .split-aside{padding-top:calc(1px + var(--s-6) + 8px)}
 }
+@media(min-width:701px) and (max-width:1050px){.contact .split-aside{padding-top:calc(1px + var(--s-5) + 5px)}}
 @media(min-width:1051px){
   .case-step>h2,.step-copy>:first-child{text-box:trim-start cap alphabetic}
   .step-copy>.links:first-child{font-size:var(--fs-small);margin-top:calc((var(--control-height) - 1cap) / -2)}
