@@ -84,7 +84,8 @@ figcaption{font:var(--fs-label)/1.5 var(--sans);padding:var(--s-3) var(--s-4);ba
 .home-hero{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;gap:var(--s-5) var(--col-gap);padding-block:var(--s-8);align-items:start}
 .hero-identity h1{font-size:var(--fs-display);line-height:1}
 .hero-copy{grid-column:1;grid-row:2;max-width:48ch;align-self:start}
-.hero-keywords{margin-bottom:var(--s-4)}
+.hero-keywords{margin-bottom:var(--s-4);text-wrap:balance}
+.hero-keywords span{white-space:nowrap}
 .hero-work{grid-column:2;grid-row:1/span 2;align-self:stretch}
 .hero-work .project-visual{border-radius:var(--radius-arch) var(--radius-arch) var(--radius-md) var(--radius-md);background:var(--apricot)}
 .hero-work .project-visual img{aspect-ratio:1.2}
@@ -295,7 +296,10 @@ dd{margin:0}
   #sobre-mi .body-copy>p:first-child,#marca-personal .split-aside>:first-child,#marca-personal .split-main>p:first-child,
   .contact .split-aside>p:first-child,
   .method-steps li:first-child>*,.method-notes>div:first-child>.method-label{text-box:trim-start cap alphabetic}
+  /* Contacto: el texto arranca a la altura de «Correo», la primera línea de la tarjeta (borde, relleno y mayúsculas de la etiqueta). */
+  .contact .split-aside{padding-top:calc(1px + var(--s-6) + 8px)}
 }
+@media(min-width:701px) and (max-width:1050px){.contact .split-aside{padding-top:calc(1px + var(--s-5) + 5px)}}
 @media(min-width:1051px){
   .case-step>h2,.step-copy>:first-child{text-box:trim-start cap alphabetic}
   .step-copy>.links:first-child{font-size:var(--fs-small);margin-top:calc((var(--control-height) - 1cap) / -2)}

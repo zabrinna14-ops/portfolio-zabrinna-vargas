@@ -11,7 +11,7 @@ interface Props { title?: string; description?: string; image?: string; imageAlt
 const defaultImage: string | undefined = 'images/compartir.jpg';
 const defaultImageAlt = `${site.name}, ${site.discipline}: retrato sobre fondo azul marino con su nombre.`;
 const { title, description = site.description, image = defaultImage, imageAlt = defaultImageAlt, noindex = false } = Astro.props;
-// Portada: «Zabrinna Vargas · Digital Marketing Manager»; resto: «Página · Zabrinna Vargas».
+// Portada: «Zabrinna Vargas · Marketing digital»; resto: «Página · Zabrinna Vargas».
 const fullTitle = title ? `${title} · ${site.shortName}` : `${site.shortName} · ${site.discipline}`;
 const pathname = Astro.url.pathname.replace(/(^|\/)index\.html$/, '$1');
 const canonical = new URL(pathname, Astro.site).href;
